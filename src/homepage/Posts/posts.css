@@ -1,0 +1,102 @@
+.portfolio {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 22.9rem);
+    grid-template-rows: 280px;
+    justify-content: center;
+}
+
+.filters ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 16rem);
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.filters ul li {
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.active {
+    background: var(--green-colour);
+}
+
+.filters ul li:hover {
+    border: 1px solid var(--green-colour);
+}
+
+.portfolio img,
+.post {
+    width: 22.9rem;
+    height: 280px;
+    object-fit: cover;
+}
+
+.post {
+    position: relative;
+}
+
+.container {
+    position: absolute;
+    top: 0%;
+    display: none;
+    transition: 1s ease-in-out;
+}
+
+.post:hover .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background: rgb(0, 125, 85);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%);
+}
+
+.post h2 {
+    width: 200px;
+    text-align: center;
+    padding: 10px;
+    background: url("../../images/brush.png") no-repeat;
+    background-size: 220px;
+}
+
+.post ul {
+    list-style: none;
+    padding: 0;
+}
+
+.post ul li a svg {
+    fill: var(--background-colour);
+}
+
+.container .sources ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 30px);
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.sources ul li {
+    grid-row: 1;
+}
+
+.sources ul svg {
+    background-color: white;
+    padding: 10px;
+    border-radius: 2px;
+}
+
+.sources ul svg:hover {
+    background-color: var(--background-colour);
+    color: white;
+}
+
+.sources ul {
+    margin: 0;
+}

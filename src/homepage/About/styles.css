@@ -1,0 +1,77 @@
+#about .hobbies {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 35px);
+    grid-template-rows: auto;
+    gap: 2rem;
+}
+
+#about img {
+    height: 25px;
+}
+
+.experience h3,
+h4 {
+    margin: 0%;
+    text-transform: uppercase;
+}
+
+.job {
+    max-width: 420px;
+    margin: auto;
+    margin-right: 0;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.experience {
+    position: relative;
+    max-width: calc(100% - 40px) !important;
+    margin: auto;
+}
+
+#about .grid-2 {
+    grid-gap: 3rem;
+}
+
+.experience::before {
+    content: "";
+    position: absolute;
+    background: #fff;
+    width: 2px;
+    top: 6px;
+    bottom: 10px;
+    left: -20px;
+}
+
+.job::before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: -25px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #fff;
+}
+
+.job::after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -33px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 1px solid var(--green-colour);
+}
+
+.experience h3,
+.experience h4 {
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.experience h4 {
+    font-weight: 700;
+}
