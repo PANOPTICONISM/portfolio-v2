@@ -98,7 +98,7 @@ button {
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 780px) {
   h1 {
     max-width: fit-content;
   }
@@ -106,15 +106,9 @@ button {
   .heading {
     margin-top: 2rem;
   }
-
-  section {
-    max-width: 80%;
-    max-width: 1100px;
-    margin: auto;
-  }
 }
 
-@media (min-width: 1500px) {
+@media (min-width: 1300px) {
   .grid-2 {
     grid-template-columns: repeat(auto-fill, 480px);
     justify-content: space-between;

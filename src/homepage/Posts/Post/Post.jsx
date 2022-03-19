@@ -3,7 +3,7 @@ import {
   faGithubSquare,
   faBehanceSquare,
 } from "@fortawesome/free-brands-svg-icons";
-import { faEarthEuropa } from "@fortawesome/free-solid-svg-icons";
+import { faEarthEurope } from "@fortawesome/free-solid-svg-icons";
 
 const Post = ({ article }) => {
   const { title, image, category, behance, github, livePreview, languages } =
@@ -14,9 +14,6 @@ const Post = ({ article }) => {
     <div className={`post ${removeCommaCat}`}>
       <div className="container">
         <h2>{title}</h2>
-        <div className="languages">
-          <ul>{languages ? languages.map((lang) => <li>{lang}</li>) : null}</ul>
-        </div>
         <div className="sources">
           <ul>
             <li>
@@ -45,11 +42,18 @@ const Post = ({ article }) => {
                   <FontAwesomeIcon
                     size="lg"
                     color="black"
-                    icon={faEarthEuropa}
+                    icon={faEarthEurope}
                   />
                 </a>
               </li>
             ) : null}
+          </ul>
+        </div>
+        <div className="languages">
+          <ul>
+            {languages
+              ? languages.map((lang, index) => <li key={index}>{lang}</li>)
+              : null}
           </ul>
         </div>
       </div>
