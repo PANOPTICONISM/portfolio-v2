@@ -1,5 +1,4 @@
-import "./styles.css";
-import Experience from "./Experience/Experience";
+// import Experience from "../Experience/Experience";
 
 const About = () => {
   return (
@@ -17,7 +16,7 @@ const About = () => {
             play sports on occasion.
           </p>
         </div>
-        <Experience />
+        {/* <Experience /> */}
       </div>
     </section>
   );
