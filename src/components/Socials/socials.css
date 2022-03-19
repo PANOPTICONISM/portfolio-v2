@@ -25,7 +25,7 @@
   background: var(--grey-colour);
 }
 
-@media (min-width: 1730px) {
+@media (min-width: 1780px) {
   .social_media {
     left: 200px;
   }
