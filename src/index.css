@@ -103,6 +103,11 @@ button {
 }
 
 @media (min-width: 1280px) {
+  body {
+    max-width: 1300px;
+    margin: 60px auto;
+  }
+
   h1 {
     max-width: fit-content;
   }

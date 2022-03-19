@@ -24,3 +24,9 @@
   height: 100px;
   background: var(--grey-colour);
 }
+
+@media (min-width: 1730px) {
+  .social_media {
+    left: 200px;
+  }
+}

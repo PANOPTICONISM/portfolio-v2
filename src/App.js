@@ -3,15 +3,8 @@ import "./App.css";
 import "./script.js";
 import { client } from "./lib/Contentful";
 import { Header, Socials, Footer, Projects, LoadingScreen } from "./components";
-import {
-  Introduction,
-  Steps,
-  Tech,
-  Recent,
-  About,
-  Posts,
-  Packages,
-} from "./homepage";
+import { Introduction, Steps, Tech, Recent, Posts, Packages } from "./homepage";
+import Experience from "./homepage/Experience/Experience";
 
 function App() {
   const [projects, setProjects] = useState([]);
@@ -52,7 +45,7 @@ function App() {
             <Steps />
             <Tech />
             <Recent post={projects} />
-            <About />
+            <Experience />
             <Posts posts={projects} />
             <Packages packages={packages} />
           </main>

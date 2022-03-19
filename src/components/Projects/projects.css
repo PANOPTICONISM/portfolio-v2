@@ -23,8 +23,8 @@
   background: var(--grey-colour);
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1730px) {
   .projects_breadcumbs {
-    right: calc(0% + 100px);
+    right: 200px;
   }
 }
