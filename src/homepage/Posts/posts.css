@@ -69,6 +69,20 @@
   background-size: 220px;
 }
 
+.post .languages ul {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 14px;
+  margin-top: 26px;
+}
+
+.post .languages ul li {
+  padding: 8px 12px;
+  background-color: var(--box-colour);
+  margin: 0 4px;
+  border-radius: 2px;
+}
+
 .post ul {
   list-style: none;
   padding: 0;
@@ -91,14 +105,15 @@
 }
 
 .sources ul svg {
-  background-color: white;
-  padding: 10px;
+  background-color: var(--green-colour);
+  padding: 8px;
   border-radius: 2px;
+  color: #fff;
+  font-size: 26px;
 }
 
 .sources ul svg:hover {
-  background-color: var(--background-colour);
-  color: white;
+  background-color: var(--box-colour);
 }
 
 .sources ul {

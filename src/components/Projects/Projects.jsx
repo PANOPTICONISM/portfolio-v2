@@ -1,13 +1,13 @@
 import "./projects.css";
 
-const Projects = () => {
+const ProjectsCTA = ({ onClick }) => {
   return (
     <div className="projects_breadcumbs">
-      <button className="pointer projects_button">
+      <button className="pointer" onClick={onClick}>
         <br />P<br />r<br />o<br />j<br />e<br />c<br />t<br />s
       </button>
     </div>
   );
 };
 
-export default Projects;
+export default ProjectsCTA;

@@ -9,7 +9,7 @@ const Header = () => {
       <img src={images.Logo} alt="panopticonism-logo" />
       <nav>
         <input type="checkbox" id="check" />
-        <label for="check" className="checkBtn">
+        <label htmlFor="check" className="checkBtn">
           <FontAwesomeIcon size="xl" color="white" icon={faBars} />
         </label>
         <ul>

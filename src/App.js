@@ -1,8 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
-import "./script.js";
 import { client } from "./lib/Contentful";
-import { Header, Socials, Footer, Projects, LoadingScreen } from "./components";
+import {
+  Header,
+  Socials,
+  Footer,
+  ProjectsCTA,
+  LoadingScreen,
+} from "./components";
 import { Introduction, Steps, Tech, Recent, Posts, Packages } from "./homepage";
 import Experience from "./homepage/Experience/Experience";
 
@@ -31,6 +36,13 @@ function App() {
     }
   };
 
+  const projectsRef = useRef(null);
+
+  function handleBackClick() {
+    console.log(projectsRef);
+    projectsRef.current.scrollIntoView({ behavior: "smooth" });
+  }
+
   return (
     <>
       {isLoading ? (
@@ -39,14 +51,14 @@ function App() {
         <>
           <Header />
           <Socials />
-          <Projects />
+          <ProjectsCTA onClick={handleBackClick} />
           <main>
             <Introduction />
             <Steps />
             <Tech />
             <Recent post={projects} />
             <Experience />
-            <Posts posts={projects} />
+            <Posts posts={projects} ref={projectsRef} />
             <Packages packages={packages} />
           </main>
           <Footer />

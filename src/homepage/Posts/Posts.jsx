@@ -1,8 +1,8 @@
 import "./posts.css";
 import Post from "./Post/Post";
-import { useState } from "react";
+import { useState, forwardRef } from "react";
 
-const Posts = ({ posts }) => {
+const Posts = forwardRef(({ posts }, ref) => {
   let removeFirstPost = posts.slice(1);
 
   const [filteredProjects, setFilteredProjects] = useState(removeFirstPost);
@@ -31,7 +31,7 @@ const Posts = ({ posts }) => {
   };
 
   return (
-    <section id="projects">
+    <section id="projects" ref={ref}>
       <h1>Portfolio</h1>
       <div className="filters">
         <ul>
@@ -53,6 +53,6 @@ const Posts = ({ posts }) => {
       </div>
     </section>
   );
-};
+});
 
 export default Posts;
