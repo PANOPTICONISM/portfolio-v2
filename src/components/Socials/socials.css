@@ -1,0 +1,26 @@
+.social_media {
+  bottom: 100px;
+  position: fixed;
+  left: 20px;
+}
+
+.social_media svg {
+  fill: var(--grey-colour);
+  margin: 5px 0;
+  width: 25px;
+}
+
+.social_media .pointer {
+  position: relative;
+}
+
+.social_media .pointer::after {
+  position: absolute;
+  content: "";
+  bottom: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100px;
+  background: var(--grey-colour);
+}

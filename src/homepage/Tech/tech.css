@@ -1,0 +1,20 @@
+.stack {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 2rem;
+    max-width: 300px;
+    margin: auto;
+}
+
+.stack img {
+    margin: auto;
+}
+
+@media (min-width: 1350px) {
+    .stack {
+        margin: auto;
+        margin-right: 0;
+    }
+}
