@@ -56,7 +56,7 @@ function App() {
             <Introduction />
             <Steps />
             <Tech />
-            <Recent post={projects} />
+            <Recent post={projects} handleBackClick={handleBackClick} />
             <Experience />
             <Posts posts={projects} ref={projectsRef} />
             <Packages packages={packages} />
