@@ -1,6 +1,6 @@
 import "./recent.css";
 
-const Recent = ({ post }) => {
+const Recent = ({ post, handleBackClick }) => {
   const { title, image, description, category, behance, github } =
     post[0].fields;
   console.log(github, category, behance);
@@ -16,7 +16,7 @@ const Recent = ({ post }) => {
           <span className="circle_button">
             <span className="icon_button icon_arrow"></span>
           </span>
-          <button className="projects_button">
+          <button onClick={handleBackClick} className="projects_button">
             <span>More projects</span>
           </button>
         </div>
