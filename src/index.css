@@ -85,10 +85,6 @@ h1::before {
   margin: auto;
 }
 
-.about .grid-2 {
-  gap: 3rem;
-}
-
 button {
   outline: none;
   border: none;
@@ -103,17 +99,11 @@ button {
 }
 
 @media (min-width: 1280px) {
-  body {
-    max-width: 1300px;
-    margin: 60px auto;
-  }
-
   h1 {
     max-width: fit-content;
   }
 
   .heading {
-    margin: 0;
     margin-top: 2rem;
   }
 
@@ -128,5 +118,12 @@ button {
   .grid-2 {
     grid-template-columns: repeat(auto-fill, 480px);
     justify-content: space-between;
+  }
+}
+
+@media (min-width: 1720px) {
+  body {
+    max-width: 1300px;
+    margin: 60px auto;
   }
 }

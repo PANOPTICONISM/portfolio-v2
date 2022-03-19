@@ -17,7 +17,7 @@ const Header = () => {
             <a href="#steps">What I can do</a>
           </li>
           <li>
-            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
           </li>
           <li>
             <a href="#projects">Portfolio</a>
