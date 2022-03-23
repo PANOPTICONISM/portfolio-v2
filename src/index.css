@@ -31,9 +31,10 @@ html {
 body {
   background: var(--background-colour);
   color: var(--text-colour);
-  margin: 20px;
+  margin: 0;
   font-family: var(--secondary-font);
   overflow-x: hidden;
+  padding: 30px 70px;
 }
 
 main {
@@ -42,10 +43,6 @@ main {
 }
 
 /* grid of 2 columns */
-body {
-  margin: 30px 60px;
-}
-
 section {
   padding: 50px 0;
 }
@@ -94,7 +91,7 @@ button {
 
 @media (min-width: 900px) {
   body {
-    margin: 60px 100px;
+    padding: 60px 100px;
   }
 }
 
@@ -118,6 +115,7 @@ button {
 @media (min-width: 1720px) {
   body {
     max-width: 1300px;
-    margin: 60px auto;
+    padding: 60px 0;
+    margin: auto;
   }
 }
