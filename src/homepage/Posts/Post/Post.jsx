@@ -3,7 +3,7 @@ import {
   faGithubSquare,
   faBehanceSquare,
 } from "@fortawesome/free-brands-svg-icons";
-import { faEarthEurope } from "@fortawesome/free-solid-svg-icons";
+import { faChrome } from "@fortawesome/free-brands-svg-icons";
 
 const Post = ({ article }) => {
   const {
@@ -61,11 +61,7 @@ const Post = ({ article }) => {
               {livePreview ? (
                 <li>
                   <a href={livePreview}>
-                    <FontAwesomeIcon
-                      size="lg"
-                      color="black"
-                      icon={faEarthEurope}
-                    />
+                    <FontAwesomeIcon size="lg" color="black" icon={faChrome} />
                   </a>
                 </li>
               ) : null}

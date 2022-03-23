@@ -28,30 +28,18 @@
   border: 1px solid var(--green-colour);
 }
 
-.portfolio img {
-  width: 22.9rem;
-  height: 280px;
-  object-fit: cover;
-}
-
 .post {
   position: relative;
   max-width: 400px;
-  min-height: 270px;
-  height: auto;
   border: 1px solid var(--box-colour);
   padding: 30px;
   background: rgb(10, 25, 47);
   background: linear-gradient(
     153deg,
     rgba(10, 25, 47, 1) 0%,
-    rgba(0, 198, 189, 0.2) 67%,
-    rgba(16, 30, 53, 0.8250875350140056) 99%
+    rgba(7, 39, 37, 0.85) 67%,
+    rgba(16, 30, 53, 1) 99%
   );
-}
-
-.post:hover {
-  background: transparent;
 }
 
 .post img {
@@ -64,17 +52,26 @@
   z-index: -1;
 }
 
-.post .languages ul {
+.post .languages ul,
+.post .sources ul {
   display: flex;
   flex-wrap: wrap;
+}
+
+.post .languages ul > li,
+.post .sources ul > li {
+  margin-right: 12px;
+  margin-bottom: 12px;
+}
+
+.post .languages ul {
   font-size: 14px;
   margin-top: 26px;
 }
 
 .post .languages ul li {
   padding: 8px 12px;
-  background-color: var(--box-colour);
-  margin-right: 8px;
+  background-color: var(--premium);
   border-radius: 2px;
 }
 
@@ -83,11 +80,8 @@
   font-size: 30px;
 }
 
-.post .languages ul li {
-  padding: 8px 12px;
-  background-color: var(--box-colour);
-  margin-right: 8px;
-  border-radius: 2px;
+.post .sources svg:hover {
+  color: var(--primary-colour);
 }
 
 @media screen and (min-width: 1300px) {
@@ -104,9 +98,18 @@
     position: initial;
   }
 
+  .post h2 {
+    text-align: center;
+  }
+
   .post p:first-of-type {
-    background-color: var(--green-colour);
+    background-color: var(--box-colour);
     padding: 18px;
+  }
+
+  .post .languages ul,
+  .sources ul {
+    justify-content: center;
   }
 }
 
