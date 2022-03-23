@@ -4,7 +4,7 @@ import { images } from "../../images";
 const Steps = () => {
   return (
     <section id="steps">
-      <h1>WHAT I CAN DO</h1>
+      <h1>Competences</h1>
       <div className="steps">
         <article>
           <img src={images.Design} alt="design" />

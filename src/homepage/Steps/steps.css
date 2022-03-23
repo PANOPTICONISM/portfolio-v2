@@ -1,10 +1,9 @@
 .steps {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 500px);
+  grid-template-columns: 1fr;
   grid-template-rows: auto;
   grid-gap: 40px 30px;
   justify-content: center;
-  margin: auto;
   padding-top: 20px;
 }
 
@@ -28,4 +27,10 @@
   right: 30px;
   background: inherit;
   max-height: 50px;
+}
+
+@media screen and (min-width: 700px) {
+  .steps {
+    grid-template-columns: repeat(auto-fill, 500px);
+  }
 }

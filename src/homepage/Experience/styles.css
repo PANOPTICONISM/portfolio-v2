@@ -8,8 +8,6 @@
 
 #experience {
   position: relative;
-  max-width: calc(100% - 40px) !important;
-  margin: auto;
 }
 
 #experience .grid-2 {
