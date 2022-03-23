@@ -8,7 +8,7 @@ import {
   ProjectsCTA,
   LoadingScreen,
 } from "./components";
-import { Introduction, Steps, Tech, Recent, Posts, Packages } from "./homepage";
+import { Introduction, Steps, Tech, Recent, Posts } from "./homepage";
 import Experience from "./homepage/Experience/Experience";
 
 function App() {
@@ -59,7 +59,6 @@ function App() {
             <Recent post={projects} handleBackClick={handleBackClick} />
             <Experience />
             <Posts posts={projects} ref={projectsRef} />
-            <Packages packages={packages} />
           </main>
           <Footer />
         </>

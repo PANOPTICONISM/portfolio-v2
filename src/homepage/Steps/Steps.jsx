@@ -4,59 +4,28 @@ import { images } from "../../images";
 const Steps = () => {
   return (
     <section id="steps">
-      <h1>The process</h1>
+      <h1>WHAT I CAN DO</h1>
       <div className="steps">
         <article>
-          <img src={images.Strategy} alt="business-strategy" />
-          <h2>Business strategy</h2>
-          <p>
-            A partnership begins by discussing what the goals for the project
-            are, defining specific criterias, to be able to better plan and
-            utilise all our efforts.
-          </p>
-        </article>
-        <article>
-          <img src={images.Research} alt="research" />
-          <h2>Research</h2>
-          <p>
-            Because a website that exists is simply not enough to get in front
-            of the competition, I do several types of research, competitor
-            research included, in order to get ahead.
-          </p>
-        </article>
-        <article className="highlight">
           <img src={images.Design} alt="design" />
           <h2>Design</h2>
           <p>
-            Based on previous research and my expertise, I design your website
-            with focus on the end-user’s needs and the customer journey’s ideal
-            flow.
+            <b>The user's needs.</b> I began my journey by designing user
+            interfaces, a foundation that gives me a very important insight into
+            the other side, and allows me to be a better developer and team
+            member with the skills to collaborate, and argue for what's the best
+            for the users.
           </p>
         </article>
         <article className="highlight">
           <img src={images.Development} alt="development" />
           <h2>Development</h2>
           <p>
-            From WordPress to React, all depends on which tools would fit the
-            project’s scope better, but always with accessibility, SEO and
-            performance on the forefront.
-          </p>
-        </article>
-        <article>
-          <img src={images.Testing} alt="testing" />
-          <h2>Testing</h2>
-          <p>
-            Before delivering you the final solution, your website has been
-            ensured to be functioning correctly, from beginning to end.
-          </p>
-        </article>
-        <article>
-          <img src={images.Support} alt="support" />
-          <h2>Ongoing support</h2>
-          <p>
-            No matter whether new requirements come up, design needs to be
-            updated or you’d rather I handle the technical part, I’m around to
-            help.
+            <b>From design to code.</b> My keen eye for design, derives from my
+            ability to pay attention to detail, which is a big factor in my
+            development process as well from scratch to finish - whether that is
+            code organization, folder structure, best practices or communication
+            overall.
           </p>
         </article>
       </div>

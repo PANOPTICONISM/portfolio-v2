@@ -107,7 +107,7 @@ nav input {
     -moz-transition: 0.08s ease-in;
     -webkit-transition: 0.08s ease-in;
     position: relative;
-    padding: 10px;
+    padding: 10px 20px;
   }
 
   .hire_me a::before {

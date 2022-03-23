@@ -1,32 +1,31 @@
 .steps {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 330px);
-    grid-template-rows: auto;
-    grid-gap: 40px 30px;
-    justify-content: center;
-    margin: auto;
-    padding-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 500px);
+  grid-template-rows: auto;
+  grid-gap: 40px 30px;
+  justify-content: center;
+  margin: auto;
+  padding-top: 20px;
 }
 
 .steps article {
-    max-width: 330px;
-    padding: 20px;
-    position: relative;
+  padding: 20px;
+  position: relative;
 }
 
 .steps article:not(.highlight) {
-    background: var(--box-colour);
+  background: var(--box-colour);
 }
 
 .highlight {
-    background: var(--green-colour);
+  background: var(--green-colour);
 }
 
 .steps article img {
-    position: absolute;
-    padding: 10px;
-    top: -20px;
-    right: 30px;
-    background: inherit;
-    max-height: 50px;
+  position: absolute;
+  padding: 10px;
+  top: -20px;
+  right: 30px;
+  background: inherit;
+  max-height: 50px;
 }
