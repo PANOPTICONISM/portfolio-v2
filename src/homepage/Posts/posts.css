@@ -1,8 +1,8 @@
 .portfolio {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 22.9rem);
-  grid-template-rows: 280px;
+  grid-template-columns: auto;
   justify-content: center;
+  gap: 18px;
 }
 
 .filters ul {
@@ -28,8 +28,7 @@
   border: 1px solid var(--green-colour);
 }
 
-.portfolio img,
-.post {
+.portfolio img {
   width: 22.9rem;
   height: 280px;
   object-fit: cover;
@@ -37,36 +36,32 @@
 
 .post {
   position: relative;
-}
-
-.container {
-  position: absolute;
-  top: 0%;
-  display: none;
-  transition: 1s ease-in-out;
-}
-
-.post:hover .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-  background: rgb(0, 125, 85);
+  max-width: 400px;
+  min-height: 270px;
+  height: auto;
+  border: 1px solid var(--box-colour);
+  padding: 30px;
+  background: rgb(10, 25, 47);
   background: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0.6) 0%,
-    rgba(0, 0, 0, 0.6) 100%
+    153deg,
+    rgba(10, 25, 47, 1) 0%,
+    rgba(0, 198, 189, 0.2) 67%,
+    rgba(16, 30, 53, 0.8250875350140056) 99%
   );
 }
 
-.post h2 {
-  width: 200px;
-  text-align: center;
-  padding: 10px;
-  background: url("../../images/brush.png") no-repeat;
-  background-size: 220px;
+.post:hover {
+  background: transparent;
+}
+
+.post img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 
 .post .languages ul {
@@ -79,45 +74,40 @@
 .post .languages ul li {
   padding: 8px 12px;
   background-color: var(--box-colour);
-  margin: 0 4px;
+  margin-right: 8px;
   border-radius: 2px;
 }
 
-.post ul {
-  list-style: none;
-  padding: 0;
-}
-
-.post ul li a svg {
-  fill: var(--background-colour);
-}
-
-.container .sources ul {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 30px);
-  gap: 20px;
-  align-items: center;
-  justify-content: center;
-}
-
-.sources ul li {
-  grid-row: 1;
-}
-
-.sources ul svg {
-  background-color: var(--green-colour);
-  padding: 8px;
-  border-radius: 2px;
+.post .sources svg {
   color: #fff;
-  font-size: 26px;
+  font-size: 30px;
 }
 
-.sources ul svg:hover {
+.post .languages ul li {
+  padding: 8px 12px;
   background-color: var(--box-colour);
+  margin-right: 8px;
+  border-radius: 2px;
 }
 
-.sources ul {
-  margin: 0;
+@media screen and (min-width: 1300px) {
+  .portfolio .post {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    max-width: 100%;
+    background: none;
+    align-items: center;
+  }
+
+  .portfolio .post img {
+    position: initial;
+  }
+
+  .post p:first-of-type {
+    background-color: var(--green-colour);
+    padding: 18px;
+  }
 }
 
 @media screen and (min-width: 900px) {
