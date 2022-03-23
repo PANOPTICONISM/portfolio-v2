@@ -22,9 +22,6 @@ const Header = () => {
           <li>
             <a href="#projects">Portfolio</a>
           </li>
-          <li>
-            <a href="#packages">Packages</a>
-          </li>
           <li className="hire_me">
             <a href="#hire_me">Hire me</a>
           </li>
