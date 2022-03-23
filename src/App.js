@@ -13,7 +13,6 @@ import Experience from "./homepage/Experience/Experience";
 
 function App() {
   const [projects, setProjects] = useState([]);
-  const [packages, setPackages] = useState([]);
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -25,11 +24,7 @@ function App() {
       const returnProject = await client.getEntries({
         content_type: "project",
       });
-      const returnPackage = await client.getEntries({
-        content_type: "package",
-      });
       setProjects(returnProject.items);
-      setPackages(returnPackage.items);
       setLoading(false);
     } catch (err) {
       console.log(err);
