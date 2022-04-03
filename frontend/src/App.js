@@ -22,6 +22,8 @@ function App() {
 
   const fetchData = async () => {
     try {
+      const res = await fetch("http://localhost:1337/api/skills?populate=*");
+      const skills = await res.json();
       const returnProject = await client.getEntries({
         content_type: "project",
       });
@@ -29,7 +31,7 @@ function App() {
         content_type: "skills",
       });
       setProjects(returnProject.items);
-      setSkills(returnSkills.items);
+      setSkills(skills.data);
       setLoading(false);
     } catch (err) {
       console.log(err);
