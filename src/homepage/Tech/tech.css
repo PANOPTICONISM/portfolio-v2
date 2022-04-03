@@ -16,7 +16,9 @@
 }
 
 .stack img {
-  width: 40px;
+  max-width: 45px;
+  height: 40px;
+  object-fit: contain;
   margin-right: 8px;
 }
 
