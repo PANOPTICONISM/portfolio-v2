@@ -9,10 +9,11 @@ const Tech = ({ skills }) => {
         {skills?.map((skill, index) => (
           <div key={index}>
             <img
-              src={skill.fields.icon.fields.file.url}
-              alt={skill.fields.icon.fields.title}
+              src={`http://localhost:1337${skill.attributes.icon.data.attributes.url}`}
+              alt={skill.attributes.title}
             />
-            <p>{skill.fields.title}</p>
+            <p>{skill.attributes.title}</p>
+            {console.log(skill.attributes.icon.data.attributes.url)}
           </div>
         ))}
       </div>
