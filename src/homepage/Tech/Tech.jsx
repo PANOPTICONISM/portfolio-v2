@@ -1,20 +1,20 @@
 import "./tech.css";
-import { images } from "../../images";
 
-const Tech = () => {
+const Tech = ({ skills }) => {
+  console.log(skills);
   return (
     <section className="tech grid-2">
       <h1 className="heading">Tech stack</h1>
       <div className="stack">
-        <img src={images.HTML} alt="html" />
-        <img src={images.CSS} alt="css" />
-        <img src={images.JS} alt="javascript" />
-        <img src={images.React} alt="react" />
-        <img src={images.Docker} alt="docker" />
-        <img src={images.SASS} alt="sass" />
-        <img src={images.WordPress} alt="wordpress" />
-        <img src={images.Figma} alt="figma" />
-        <img src={images.Photoshop} alt="photoshop" />
+        {skills?.map((skill, index) => (
+          <div key={index}>
+            <img
+              src={skill.fields.icon.fields.file.url}
+              alt={skill.fields.icon.fields.title}
+            />
+            <p>{skill.fields.title}</p>
+          </div>
+        ))}
       </div>
     </section>
   );

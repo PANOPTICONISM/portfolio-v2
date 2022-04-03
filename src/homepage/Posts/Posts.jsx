@@ -11,10 +11,8 @@ const Posts = forwardRef(({ posts }, ref) => {
   const categories = ["all", "ui/ux design", "web development", "illustration"];
 
   const clickedFilter = (e) => {
-    // active class
     setActiveButton(e.target.textContent);
 
-    // filtered projects
     const trigger = e.target.textContent;
     let result = [];
 

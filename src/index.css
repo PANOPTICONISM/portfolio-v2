@@ -25,7 +25,8 @@ html {
   --premium: darkcyan;
   --label-size: 14px;
 
-  --h1-font-size: calc(40px + 6 * ((100vw - 320px) / 680));
+  --h1-font-size-desktop: 56px;
+  --h1-font-size-mobile: 32px;
 }
 
 body {
@@ -50,7 +51,7 @@ section {
 h1 {
   text-transform: uppercase;
   font-family: var(--primary-font);
-  font-size: var(--h1-font-size);
+  font-size: var(--h1-font-size-mobile);
   position: relative;
   max-width: min-content;
   margin: auto;
@@ -98,6 +99,7 @@ button {
 @media (min-width: 780px) {
   h1 {
     max-width: fit-content;
+    font-size: var(--h1-font-size-desktop);
   }
 
   .heading {
