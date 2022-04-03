@@ -13,6 +13,7 @@ import Experience from "./homepage/Experience/Experience";
 
 function App() {
   const [projects, setProjects] = useState([]);
+  const [skills, setSkills] = useState([]);
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -24,7 +25,11 @@ function App() {
       const returnProject = await client.getEntries({
         content_type: "project",
       });
+      const returnSkills = await client.getEntries({
+        content_type: "skills",
+      });
       setProjects(returnProject.items);
+      setSkills(returnSkills.items);
       setLoading(false);
     } catch (err) {
       console.log(err);
@@ -32,9 +37,7 @@ function App() {
   };
 
   const projectsRef = useRef(null);
-
   function handleBackClick() {
-    console.log(projectsRef);
     projectsRef.current.scrollIntoView({ behavior: "smooth" });
   }
 
@@ -50,7 +53,7 @@ function App() {
           <main>
             <Introduction />
             <Steps />
-            <Tech />
+            <Tech skills={skills} />
             <Recent post={projects} handleBackClick={handleBackClick} />
             <Experience />
             <Posts posts={projects} ref={projectsRef} />

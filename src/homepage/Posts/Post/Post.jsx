@@ -49,7 +49,7 @@ const Post = ({ article }) => {
               ) : null}
               {github ? (
                 <li>
-                  <a href={github}>
+                  <a href={github} target="_blank" rel="noreferrer">
                     <FontAwesomeIcon
                       size="lg"
                       color="black"
@@ -60,7 +60,7 @@ const Post = ({ article }) => {
               ) : null}
               {livePreview ? (
                 <li>
-                  <a href={livePreview}>
+                  <a href={livePreview} target="_blank" rel="noreferrer">
                     <FontAwesomeIcon size="lg" color="black" icon={faChrome} />
                   </a>
                 </li>
