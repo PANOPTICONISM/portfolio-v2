@@ -26,10 +26,11 @@ function App() {
         `${process.env.REACT_APP_STRAPI_URL_PROD}/api/skills?populate=*`
       );
       const skills = await res.json();
-      const returnProject = await client.getEntries({
-        content_type: "project",
-      });
-      setProjects(returnProject.items);
+      const resProjects = await fetch(
+        `${process.env.REACT_APP_STRAPI_URL_PROD}/api/projects?populate=*`
+      );
+      const projects = await resProjects.json();
+      setProjects(projects.data);
       setSkills(skills.data);
       setLoading(false);
     } catch (err) {

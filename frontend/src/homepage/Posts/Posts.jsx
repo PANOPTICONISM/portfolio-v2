@@ -3,7 +3,7 @@ import Post from "./Post/Post";
 import { useState, forwardRef } from "react";
 
 const Posts = forwardRef(({ posts }, ref) => {
-  let removeFirstPost = posts.slice(1);
+  let removeFirstPost = posts?.slice(1);
 
   const [filteredProjects, setFilteredProjects] = useState(removeFirstPost);
   const [activeButton, setActiveButton] = useState("all");
@@ -17,8 +17,9 @@ const Posts = forwardRef(({ posts }, ref) => {
     let result = [];
 
     removeFirstPost.map((project) => {
-      return project.fields.category.filter((cat) => {
-        if (trigger === cat) {
+      return project.attributes.categories.data.filter((cat) => {
+        console.log(cat, "cat");
+        if (trigger === cat.attributes.category) {
           result.push(project);
         }
         return false;
@@ -46,7 +47,7 @@ const Posts = forwardRef(({ posts }, ref) => {
       </div>
       <div className="portfolio">
         {filteredProjects.map((article) => (
-          <Post article={article} key={article.sys.id} />
+          <Post article={article.attributes} key={article.id} />
         ))}
       </div>
     </section>
