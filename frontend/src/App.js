@@ -22,13 +22,12 @@ function App() {
 
   const fetchData = async () => {
     try {
-      const res = await fetch("http://localhost:1337/api/skills?populate=*");
+      const res = await fetch(
+        `${process.env.REACT_APP_STRAPI_URL_PROD}/api/skills?populate=*`
+      );
       const skills = await res.json();
       const returnProject = await client.getEntries({
         content_type: "project",
-      });
-      const returnSkills = await client.getEntries({
-        content_type: "skills",
       });
       setProjects(returnProject.items);
       setSkills(skills.data);
