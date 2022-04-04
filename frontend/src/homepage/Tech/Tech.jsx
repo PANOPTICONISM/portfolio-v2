@@ -1,7 +1,6 @@
 import "./tech.css";
 
 const Tech = ({ skills }) => {
-  console.log(process.env, "log");
   return (
     <section className="tech grid-2">
       <h1 className="heading">Tech stack</h1>
