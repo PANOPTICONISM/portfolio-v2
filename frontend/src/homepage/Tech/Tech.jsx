@@ -1,7 +1,7 @@
 import "./tech.css";
 
 const Tech = ({ skills }) => {
-  console.log(skills);
+  console.log(process.env, "log");
   return (
     <section className="tech grid-2">
       <h1 className="heading">Tech stack</h1>
@@ -9,7 +9,7 @@ const Tech = ({ skills }) => {
         {skills?.map((skill, index) => (
           <div key={index}>
             <img
-              src={`http://localhost:1337${skill.attributes.icon.data.attributes.url}`}
+              src={`${process.env.REACT_APP_STRAPI_URL_PROD}${skill.attributes.icon.data.attributes.url}`}
               alt={skill.attributes.title}
             />
             <p>{skill.attributes.title}</p>
