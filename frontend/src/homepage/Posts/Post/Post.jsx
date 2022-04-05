@@ -16,7 +16,7 @@ const Post = ({ article }) => {
     preview,
     languages,
   } = article;
-  const category = categories.data.map((cat) => cat.attributes.category);
+  const category = categories?.data?.map((cat) => cat.attributes.category);
   const removeCommaCat = `${category}`.replace(/,/g, " ");
 
   return (
