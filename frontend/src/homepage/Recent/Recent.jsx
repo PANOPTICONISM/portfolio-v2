@@ -5,7 +5,7 @@ const Recent = ({ post, handleBackClick }) => {
 
   return (
     <section className="most_recent grid-2">
-      {image.data && (
+      {image?.data && (
         <img
           src={`${process.env.REACT_APP_STRAPI_URL_PROD}${image?.data?.attributes?.url}`}
           alt={title}

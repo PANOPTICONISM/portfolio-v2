@@ -9,6 +9,7 @@ import {
 } from "./components";
 import { Introduction, Steps, Tech, Recent, Posts } from "./homepage";
 import Experience from "./homepage/Experience/Experience";
+import qs from "qs";
 
 function App() {
   const [projects, setProjects] = useState([]);
@@ -21,13 +22,22 @@ function App() {
 
   const fetchData = async () => {
     try {
+      const query = qs.stringify(
+        {
+          sort: ["id:desc"],
+        },
+        {
+          encodeValuesOnly: true,
+        }
+      );
       const res = await fetch(
-        `${process.env.REACT_APP_STRAPI_URL_PROD}/api/skills?populate=*`
+        `${process.env.REACT_APP_STRAPI_URL_PROD}/api/skills?populate=*&${query}`
       );
       const skills = await res.json();
       const resProjects = await fetch(
-        `${process.env.REACT_APP_STRAPI_URL_PROD}/api/projects?populate=*`
+        `${process.env.REACT_APP_STRAPI_URL_PROD}/api/projects?populate=*&${query}`
       );
+      console.log(resProjects, "res");
       const projects = await resProjects.json();
       setProjects(projects.data);
       setSkills(skills.data);
@@ -36,6 +46,7 @@ function App() {
       console.log(err);
     }
   };
+  console.log(projects, "projects");
 
   const projectsRef = useRef(null);
   function handleBackClick() {
