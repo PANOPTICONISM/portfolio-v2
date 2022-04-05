@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
-import { client } from "./lib/Contentful";
 import {
   Header,
   Socials,
