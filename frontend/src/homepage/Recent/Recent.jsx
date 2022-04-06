@@ -1,16 +1,12 @@
 import "./recent.css";
 
 const Recent = ({ post, handleBackClick }) => {
-  const { title, image, description } = post?.[0]?.attributes;
+  const { title, image, description, category, behance, github } =
+    post?.[0]?.fields;
 
   return (
     <section className="most_recent grid-2">
-      {image?.data && (
-        <img
-          src={`${process.env.REACT_APP_STRAPI_URL_PROD}${image?.data?.attributes?.url}`}
-          alt={title}
-        />
-      )}
+      {image && <img src={image.fields.file.url} alt={title} />}
       <div className="desc">
         <h2>Most recent project, selected for your viewing.</h2>
         <p>{description}</p>
