@@ -1,21 +1,21 @@
 import "./tech.css";
 
 const Tech = ({ skills }) => {
+  console.log(skills);
   return (
     <section className="tech grid-2">
       <h1 className="heading">Tech stack</h1>
-      <div className="stack">
+      <ul className="stack">
         {skills?.map((skill, index) => (
-          <div key={index}>
+          <li key={index}>
             <img
-              src={`${process.env.REACT_APP_STRAPI_URL_PROD}${skill?.attributes?.icon?.data?.attributes?.url}`}
-              alt={skill?.attributes?.title}
+              src={skill.fields.icon.fields.file.url}
+              alt={skill.fields.icon.fields.title}
             />
-            <p>{skill?.attributes?.title}</p>
-            {console.log(skill?.attributes?.icon?.data?.attributes?.url)}
-          </div>
+            <p>{skill.fields.title}</p>
+          </li>
         ))}
-      </div>
+      </ul>
     </section>
   );
 };

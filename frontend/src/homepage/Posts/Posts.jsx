@@ -17,8 +17,8 @@ const Posts = forwardRef(({ posts }, ref) => {
     let result = [];
 
     removeFirstPost.map((project) => {
-      return project?.attributes?.categories?.data?.filter((cat) => {
-        if (trigger === cat.attributes.category) {
+      return project?.fields?.category?.filter((cat) => {
+        if (trigger === cat) {
           result.push(project);
         }
         return false;
@@ -28,12 +28,14 @@ const Posts = forwardRef(({ posts }, ref) => {
     setFilteredProjects(result);
   };
 
+  console.log(filteredProjects);
+
   return (
     <section id="projects" ref={ref}>
       <h1>Portfolio</h1>
       <div className="filters">
         <ul>
-          {categories.map((nameCat, index) => (
+          {categories?.map((nameCat, index) => (
             <li
               onClick={clickedFilter}
               key={index}
@@ -45,8 +47,8 @@ const Posts = forwardRef(({ posts }, ref) => {
         </ul>
       </div>
       <div className="portfolio">
-        {filteredProjects.map((article) => (
-          <Post article={article?.attributes} key={article?.id} />
+        {filteredProjects?.map((article) => (
+          <Post article={article} key={article.sys.id} />
         ))}
       </div>
     </section>

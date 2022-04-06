@@ -10,23 +10,17 @@ const Post = ({ article }) => {
     title,
     description,
     image,
-    categories,
+    category,
     behance,
     github,
-    preview,
+    livePreview,
     languages,
-  } = article;
-  const category = categories?.data?.map((cat) => cat.attributes.category);
+  } = article?.fields;
   const removeCommaCat = `${category}`.replace(/,/g, " ");
 
   return (
     <div className={`post ${removeCommaCat}`}>
-      {image && (
-        <img
-          src={`${process.env.REACT_APP_STRAPI_URL_PROD}${image?.data?.attributes?.url}`}
-          alt={title}
-        />
-      )}
+      {image && <img src={image.fields.file.url} alt={title} />}
       <div>
         <h2>{title}</h2>
         {description ? <p>{description}</p> : null}
@@ -39,7 +33,7 @@ const Post = ({ article }) => {
             </ul>
           </div>
         ) : null}
-        {behance || github || preview ? (
+        {behance || github || livePreview ? (
           <div className="sources">
             <ul>
               {behance ? (
@@ -64,9 +58,9 @@ const Post = ({ article }) => {
                   </a>
                 </li>
               ) : null}
-              {preview ? (
+              {livePreview ? (
                 <li>
-                  <a href={preview} target="_blank" rel="noreferrer">
+                  <a href={livePreview} target="_blank" rel="noreferrer">
                     <FontAwesomeIcon size="lg" color="black" icon={faChrome} />
                   </a>
                 </li>
