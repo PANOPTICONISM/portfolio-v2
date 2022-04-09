@@ -28,8 +28,6 @@ const Posts = forwardRef(({ posts }, ref) => {
     setFilteredProjects(result);
   };
 
-  console.log(filteredProjects);
-
   return (
     <section id="projects" ref={ref}>
       <h1>Portfolio</h1>
