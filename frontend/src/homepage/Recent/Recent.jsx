@@ -1,8 +1,7 @@
 import "./recent.css";
 
 const Recent = ({ post, handleBackClick }) => {
-  const { title, image, description, category, behance, github } =
-    post?.[0]?.fields;
+  const { title, image, description } = post?.[0]?.fields;
 
   return (
     <section className="most_recent grid-2">
