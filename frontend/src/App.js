@@ -9,12 +9,12 @@ import {
 } from "./components";
 import { Introduction, Steps, Tech, Recent, Posts } from "./homepage";
 import Experience from "./homepage/Experience/Experience";
-import qs from "qs";
 import { client } from "./lib/Contentful";
 
 function App() {
   const [projects, setProjects] = useState([]);
   const [skills, setSkills] = useState([]);
+  const [experience, setExperience] = useState([]);
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -31,8 +31,13 @@ function App() {
         content_type: "skills",
         order: "fields.id",
       });
+      const returnExperience = await client.getEntries({
+        content_type: "experience",
+        order: "fields.id",
+      });
       setProjects(returnProject.items);
       setSkills(returnSkills.items);
+      setExperience(returnExperience.items);
       setLoading(false);
     } catch (err) {
       console.log(err);
@@ -58,7 +63,7 @@ function App() {
             <Steps />
             <Tech skills={skills} />
             <Recent post={projects} handleBackClick={handleBackClick} />
-            <Experience />
+            <Experience jobs={experience} />
             <Posts posts={projects} ref={projectsRef} />
           </main>
           <Footer />
