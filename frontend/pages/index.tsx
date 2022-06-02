@@ -15,6 +15,7 @@ import {
   Posts,
 } from "../components/homepage";
 import Experience from "../components/homepage/Experience/Experience";
+import Modal from "../components/Modal/Modal";
 import { client } from "../lib/Contentful";
 
 const Home: NextPage = () => {
@@ -73,6 +74,7 @@ const Home: NextPage = () => {
             <Posts ref={projectsRef} projects={projects} />
           </main>
           <Footer />
+          <Modal />
         </>
       )}
     </>

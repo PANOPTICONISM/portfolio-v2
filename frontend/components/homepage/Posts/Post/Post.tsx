@@ -6,7 +6,6 @@ import {
 import { faChrome } from "@fortawesome/free-brands-svg-icons";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import styles from "../Posts.module.css";
-import Image from "next/image";
 
 interface ArticleProps {
   article: {
