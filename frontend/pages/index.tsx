@@ -12,12 +12,12 @@ import {
 } from "../components";
 import { Introduction, Steps, Tech, Recent, Posts } from "./homepage";
 import Experience from "./homepage/Experience/Experience";
-import { client } from "./api/lib/Contentful";
+import { client } from "./lib/Contentful";
 
 const Home: NextPage = () => {
-  const [projects, setProjects] = useState([]);
-  const [skills, setSkills] = useState([]);
-  const [experience, setExperience] = useState([]);
+  const [projects, setProjects] = useState<any>([]);
+  const [skills, setSkills] = useState<any>([]);
+  const [experience, setExperience] = useState<any>([]);
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -47,7 +47,7 @@ const Home: NextPage = () => {
     }
   };
 
-  const projectsRef = useRef(null);
+  const projectsRef = useRef<any>(null);
   function handleBackClick() {
     projectsRef?.current.scrollIntoView({ behavior: "smooth" });
   }
@@ -67,7 +67,7 @@ const Home: NextPage = () => {
             <Tech skills={skills} />
             <Recent post={projects} handleBackClick={handleBackClick} />
             <Experience jobs={experience} />
-            <Posts posts={projects} ref={projectsRef} />
+            <Posts ref={projectsRef} projects={projects} />
           </main>
           <Footer />
         </>
