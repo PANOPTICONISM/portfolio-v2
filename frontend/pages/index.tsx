@@ -10,9 +10,15 @@ import {
   ProjectsCTA,
   LoadingScreen,
 } from "../components";
-import { Introduction, Steps, Tech, Recent, Posts } from "./homepage";
-import Experience from "./homepage/Experience/Experience";
-import { client } from "./lib/Contentful";
+import {
+  Introduction,
+  Steps,
+  Tech,
+  Recent,
+  Posts,
+} from "../components/homepage";
+import Experience from "../components/homepage/Experience/Experience";
+import { client } from "../lib/Contentful";
 
 const Home: NextPage = () => {
   const [projects, setProjects] = useState<any>([]);
