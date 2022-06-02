@@ -1,0 +1,37 @@
+.intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.intro img {
+  max-width: 350px;
+}
+
+.presentation {
+  padding: 15px;
+  background: #fff;
+  color: #000;
+  border-radius: 2px;
+  max-width: 480px;
+}
+
+.footer span {
+  font-size: 14px;
+}
+
+.intro ul {
+  margin: 0;
+}
+
+@media (min-width: 1400px) {
+  .intro {
+    justify-content: space-between;
+    margin: 60px auto;
+  }
+
+  .intro img {
+    max-width: 500px;
+  }
+}
