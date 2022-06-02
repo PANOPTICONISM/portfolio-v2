@@ -4,9 +4,32 @@ import {
   faBehanceSquare,
 } from "@fortawesome/free-brands-svg-icons";
 import { faChrome } from "@fortawesome/free-brands-svg-icons";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import styles from "../Posts.module.css";
+import Image from "next/image";
 
-const Post = ({ article }) => {
+interface ArticleProps {
+  article: {
+    fields: {
+      title?: string;
+      description?: string;
+      image?: {
+        fields: {
+          file: {
+            url: string;
+          };
+        };
+      };
+      category?: string;
+      behance?: string;
+      github?: string;
+      livePreview?: string;
+      languages?: Array<string>;
+    };
+  };
+}
+
+const Post = ({ article }: ArticleProps) => {
   const {
     title,
     description,
@@ -21,7 +44,7 @@ const Post = ({ article }) => {
 
   return (
     <div className={`${styles.post} ${removeCommaCat}`}>
-      {image && <img src={image.fields.file.url} alt={title} />}
+      {image && <img src={image?.fields?.file?.url} alt={title} />}
       <div>
         <h2>{title}</h2>
         {description ? <p>{description}</p> : null}
@@ -43,7 +66,7 @@ const Post = ({ article }) => {
                     <FontAwesomeIcon
                       size="lg"
                       color="black"
-                      icon={faBehanceSquare}
+                      icon={faBehanceSquare as IconProp}
                     />
                   </a>
                 </li>
@@ -54,7 +77,7 @@ const Post = ({ article }) => {
                     <FontAwesomeIcon
                       size="lg"
                       color="black"
-                      icon={faGithubSquare}
+                      icon={faGithubSquare as IconProp}
                     />
                   </a>
                 </li>
@@ -62,7 +85,11 @@ const Post = ({ article }) => {
               {livePreview ? (
                 <li>
                   <a href={livePreview} target="_blank" rel="noreferrer">
-                    <FontAwesomeIcon size="lg" color="black" icon={faChrome} />
+                    <FontAwesomeIcon
+                      size="lg"
+                      color="black"
+                      icon={faChrome as IconProp}
+                    />
                   </a>
                 </li>
               ) : null}
