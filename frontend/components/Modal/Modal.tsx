@@ -21,7 +21,7 @@ const Modal = () => {
       <div className={styles.modal_content}>
         <h1>
           <span className={styles.yellow_line}></span>
-          Software Developer
+          Frontend Developer
         </h1>
         <p>
           From <b>design</b> to <b>development</b>, I can craft all the aspects
