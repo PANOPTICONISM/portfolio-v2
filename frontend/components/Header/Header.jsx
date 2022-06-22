@@ -7,9 +7,9 @@ const Header = () => {
     <header className={styles.header}>
       <img src="/logo.svg" alt="panopticonism-logo" />
       <nav>
-        <input type="checkbox" id="check" />
+        <input type="checkbox" id={styles.check} />
         <label htmlFor="check" className={styles.checkBtn}>
-          <FontAwesomeIcon size="xl" color="white" icon={faBars} />
+          <span></span>
         </label>
         <ul className={styles.list}>
           <li>

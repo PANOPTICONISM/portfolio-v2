@@ -77,13 +77,16 @@
   color: var(--white-colour);
   text-transform: uppercase;
   font-weight: 800;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .modal button svg,
 .modal article a svg {
   margin-left: 8px;
   color: #fff;
+  max-width: 16px;
 }
 
 .modal article div:first-of-type h2 {

@@ -1,7 +1,7 @@
 import styles from "./Recent.module.css";
 
 const Recent = ({ post, handleBackClick }) => {
-  const { title, image, description } = post?.[0]?.fields;
+  const { title, image, description } = post?.fields;
 
   return (
     <section className={`${styles.most_recent} grid_2`}>

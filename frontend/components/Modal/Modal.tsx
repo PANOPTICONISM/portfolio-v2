@@ -37,11 +37,7 @@ const Modal = () => {
             <Link href="https://freelance.panopticonism.dev">
               <a>
                 <span>Let's go</span>
-                <FontAwesomeIcon
-                  size="lg"
-                  color="black"
-                  icon={faArrowRight as IconProp}
-                />
+                <FontAwesomeIcon icon={faArrowRight as IconProp} />
               </a>
             </Link>
           </div>
@@ -53,11 +49,7 @@ const Modal = () => {
             </p>
             <button onClick={() => setShowModal(false)}>
               Let's go
-              <FontAwesomeIcon
-                size="lg"
-                color="black"
-                icon={faArrowRight as IconProp}
-              />
+              <FontAwesomeIcon icon={faArrowRight as IconProp} />
             </button>
           </div>
         </article>
