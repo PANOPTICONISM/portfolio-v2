@@ -7,14 +7,16 @@
 
 .filters ul {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 16rem);
+  grid-template-columns: 1fr;
   justify-content: center;
   gap: 0.5rem;
+  max-width: 400px;
+  margin: 16px auto;
 }
 
 .filters ul li {
   padding: 10px;
-  width: 100%;
+  max-width: 100%;
   text-align: center;
   border: 1px solid transparent;
   cursor: pointer;
@@ -107,14 +109,12 @@
     padding: 18px;
   }
 
+  .filters ul {
+    max-width: 100%;
+  }
+
   .post .languages ul,
   .sources ul {
     justify-content: center;
-  }
-}
-
-@media screen and (min-width: 900px) {
-  .filters ul {
-    justify-content: space-between;
   }
 }
