@@ -8,6 +8,11 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Head>
         <title>Panopticonism</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="description" content="Software Developer" />
+        <meta
+          name="keywords"
+          content="Software Developer, Frontend Developer, Software Engineer, HTML, CSS, JavaScript, React, NextJS, Angular, NodeJS, SASS, Docker"
+        />
         <link rel="icon" href="/logo.svg" />
       </Head>
       <Component {...pageProps} />

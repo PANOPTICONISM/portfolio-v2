@@ -1,4 +1,4 @@
-import type { NextPage } from "next";
+import type { GetServerSideProps, NextPage } from "next";
 import React, { useState, useEffect, useRef } from "react";
 import {
   Header,
@@ -16,46 +16,26 @@ import {
 } from "../components/homepage";
 import Experience from "../components/homepage/Experience/Experience";
 import Modal from "../components/Modal/Modal";
-import { client } from "../lib/Contentful";
 
-const Home: NextPage = () => {
-  const [projects, setProjects] = useState<any>([]);
-  const [skills, setSkills] = useState<any>([]);
-  const [experience, setExperience] = useState<any>([]);
+interface PageProps {
+  pri: any;
+  skills: any;
+  experience: any;
+}
+
+const Home: NextPage<PageProps> = ({ pri, skills, experience }) => {
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    try {
-      const returnProject = await client.getEntries({
-        content_type: "project",
-        order: "fields.id",
-      });
-      const returnSkills = await client.getEntries({
-        content_type: "skills",
-        order: "fields.id",
-      });
-      const returnExperience = await client.getEntries({
-        content_type: "experience",
-        order: "fields.id",
-      });
-      setProjects(returnProject.items);
-      setSkills(returnSkills.items);
-      setExperience(returnExperience.items);
+    if (pri.success && skills.success && experience.success === true) {
       setLoading(false);
-    } catch (err) {
-      console.log(err);
     }
-  };
+  }, [experience, pri, skills]);
 
   const projectsRef = useRef<any>(null);
   function handleBackClick() {
     projectsRef?.current.scrollIntoView({ behavior: "smooth" });
   }
-
   return (
     <>
       {isLoading ? (
@@ -68,10 +48,13 @@ const Home: NextPage = () => {
           <main>
             <Introduction />
             <Steps />
-            <Tech skills={skills} />
-            <Recent post={projects} handleBackClick={handleBackClick} />
-            <Experience jobs={experience} />
-            <Posts ref={projectsRef} projects={projects} />
+            <Tech skills={skills.skills.items} />
+            <Recent
+              post={pri.projects.items[0]}
+              handleBackClick={handleBackClick}
+            />
+            <Experience jobs={experience.jobs.items} />
+            <Posts ref={projectsRef} projects={pri.projects.items} />
           </main>
           <Footer />
           <Modal />
@@ -79,6 +62,22 @@ const Home: NextPage = () => {
       )}
     </>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const pri = await fetch("http://localhost:3000/api/projects").then((res) =>
+    res.json()
+  );
+  const skills = await fetch("http://localhost:3000/api/skills").then((res) =>
+    res.json()
+  );
+  const experience = await fetch("http://localhost:3000/api/experience").then(
+    (res) => res.json()
+  );
+
+  return {
+    props: { pri, skills, experience },
+  };
 };
 
 export default Home;
