@@ -66,14 +66,13 @@ const Home: NextPage<PageProps> = ({ pri, skills, experience }) => {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { req } = context;
-  const pri = await fetch(`${req.headers.referer}api/projects`).then((res) =>
+  const protocol = req.headers["x-forwarded-proto"] || "http";
+  const baseUrl = req ? `${protocol}://${req.headers.host}` : "";
+  console.log(protocol, baseUrl);
+  const pri = await fetch(`${baseUrl}/api/projects`).then((res) => res.json());
+  const skills = await fetch(`${baseUrl}/api/skills`).then((res) => res.json());
+  const experience = await fetch(`${baseUrl}/api/experience`).then((res) =>
     res.json()
-  );
-  const skills = await fetch(`${req.headers.referer}api/skills`).then((res) =>
-    res.json()
-  );
-  const experience = await fetch(`${req.headers.referer}api/experience`).then(
-    (res) => res.json()
   );
 
   return {
