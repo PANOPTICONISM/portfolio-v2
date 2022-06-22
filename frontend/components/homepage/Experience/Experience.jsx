@@ -1,9 +1,8 @@
 import styles from "./Styles.module.css";
 
 const Experience = ({ jobs }) => {
-  console.log(jobs);
   return (
-    <section className={styles.experience}>
+    <section id="experience" className={styles.experience}>
       <h1>Experience</h1>
       <div className={`grid_2 ${styles.jobs}`}>
         {jobs?.map((job) => (

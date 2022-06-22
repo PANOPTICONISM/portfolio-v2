@@ -2,7 +2,7 @@ import styles from "./Steps.module.css";
 
 const Steps = () => {
   return (
-    <section className={styles.stepsSection}>
+    <section id="steps" className={styles.stepsSection}>
       <h1>Competences</h1>
       <div className={styles.steps}>
         <article>
