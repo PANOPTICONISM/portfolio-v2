@@ -1,6 +1,6 @@
 import styles from "./Posts.module.css";
 import Post from "./Post/Post";
-import { useState, forwardRef, RefObject, SetStateAction } from "react";
+import { useState, forwardRef } from "react";
 
 interface ProjectsProps {
   projects?: any;
@@ -13,16 +13,9 @@ const Posts = forwardRef<HTMLInputElement, ProjectsProps>(
     const [filteredProjects, setFilteredProjects] = useState(removeFirstPost);
     const [activeButton, setActiveButton] = useState("all");
 
-    const categories = [
-      "all",
-      "ui/ux design",
-      "web development",
-      "illustration",
-    ];
+    const categories = ["all", "ui/ux design", "web development"];
 
-    const clickedFilter = (e: {
-      target: { textContent: SetStateAction<string> };
-    }) => {
+    const clickedFilter = (e: any) => {
       setActiveButton(e.target.textContent);
 
       const trigger = e.target.textContent;
@@ -41,13 +34,13 @@ const Posts = forwardRef<HTMLInputElement, ProjectsProps>(
     };
 
     return (
-      <section id="projects" className={styles.projects} ref={ref}>
+      <section className={styles.projects} ref={ref}>
         <h1>Portfolio</h1>
         <div className={styles.filters}>
           <ul>
             {categories?.map((nameCat, index) => (
               <li
-                onClick={() => clickedFilter}
+                onClick={(e) => clickedFilter(e)}
                 key={index}
                 className={nameCat === activeButton ? styles.active : ""}
               >

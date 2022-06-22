@@ -4,7 +4,6 @@ import { useState } from "react";
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
-  console.log(isOpen);
   return (
     <header className={styles.header}>
       <img src="/logo.svg" alt="panopticonism-logo" />
