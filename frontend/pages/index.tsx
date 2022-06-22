@@ -1,6 +1,12 @@
 import type { GetServerSideProps, NextPage } from "next";
 import React, { useState, useEffect, useRef } from "react";
-import { Socials, Footer, ProjectsCTA, LoadingScreen } from "../components";
+import {
+  Header,
+  Socials,
+  Footer,
+  ProjectsCTA,
+  LoadingScreen,
+} from "../components";
 import {
   Introduction,
   Steps,
@@ -36,6 +42,7 @@ const Home: NextPage<PageProps> = ({ pri, skills, experience }) => {
         <LoadingScreen />
       ) : (
         <>
+          <Header />
           <Socials />
           <ProjectsCTA onClick={handleBackClick} />
           <main>
