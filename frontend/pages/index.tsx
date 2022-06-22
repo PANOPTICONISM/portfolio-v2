@@ -64,14 +64,15 @@ const Home: NextPage<PageProps> = ({ pri, skills, experience }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const pri = await fetch("http://localhost:3000/api/projects").then((res) =>
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { req } = context;
+  const pri = await fetch(`${req.headers.referer}api/projects`).then((res) =>
     res.json()
   );
-  const skills = await fetch("http://localhost:3000/api/skills").then((res) =>
+  const skills = await fetch(`${req.headers.referer}api/skills`).then((res) =>
     res.json()
   );
-  const experience = await fetch("http://localhost:3000/api/experience").then(
+  const experience = await fetch(`${req.headers.referer}api/experience`).then(
     (res) => res.json()
   );
 
