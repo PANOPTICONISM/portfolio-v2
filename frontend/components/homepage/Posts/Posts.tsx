@@ -34,7 +34,7 @@ const Posts = forwardRef<HTMLInputElement, ProjectsProps>(
     };
 
     return (
-      <section className={styles.projects} ref={ref}>
+      <section id="projects" className={styles.projects} ref={ref}>
         <h1>Portfolio</h1>
         <div className={styles.filters}>
           <ul>
