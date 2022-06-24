@@ -78,12 +78,11 @@
 }
 
 .post .sources svg {
-  color: #fff;
-  font-size: 30px;
+  transition: all 0.3s;
 }
 
 .post .sources svg:hover {
-  color: var(--primary-colour);
+  transform: translateY(4px);
 }
 
 @media screen and (min-width: 1300px) {
