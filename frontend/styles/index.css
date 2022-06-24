@@ -116,12 +116,17 @@ button {
 
 @media (min-width: 780px) {
   h1 {
-    max-width: fit-content;
     font-size: var(--h1-font-size-desktop);
   }
 
   .heading {
     margin-top: 2rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  h1 {
+    max-width: fit-content;
   }
 }
 
