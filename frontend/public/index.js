@@ -18,6 +18,9 @@ import strategy from "./strategy.png";
 import support from "./support.png";
 import testing from "./testing.png";
 import wordpress from "./wordpress.png";
+import BehanceIcon from "./behance";
+import GitHubIcon from "./github";
+import WebsiteIcon from "./website";
 
 export const images = {
   CSS: css,
@@ -40,4 +43,7 @@ export const images = {
   Support: support,
   Testing: testing,
   WordPress: wordpress,
+  BehanceIcon: BehanceIcon,
+  GitHubIcon: GitHubIcon,
+  PreviewIcon: WebsiteIcon,
 };
