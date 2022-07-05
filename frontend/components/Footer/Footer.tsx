@@ -1,21 +1,23 @@
 import styles from "./Form.module.css";
 import { useForm, ValidationError } from "@formspree/react";
+import { forwardRef } from "react";
+interface PropsType {}
 
-const Footer = () => {
-  const [state, handleSubmit] = useForm("xnqwzlnb");
+const Footer = forwardRef<HTMLInputElement, PropsType>((props, ref) => {
+  const [state, handleSubmit] = useForm("mpzkjgrq");
   const currentYear = new Date().getFullYear();
 
   return (
     <>
       {state.succeeded ? (
-        <section id="hire_me">
+        <section id="hire_me" ref={ref}>
           <h1>Let's get started</h1>
           <p className={styles.submit_message}>
             Thank you! Your message has been received.
           </p>
         </section>
       ) : (
-        <section className={styles.hire_me} id="hire_me">
+        <section className={styles.hire_me} id="hire_me" ref={ref}>
           <h1>Let's get started</h1>
           <p>
             Send me a detailed message below and I'll get back to you as soon as
@@ -53,17 +55,22 @@ const Footer = () => {
                 />
               </div>
               <div>
-                <label htmlFor="email">Phone-number</label>
-                <input id="phone" type="tel" name="phone" required />
-                <ValidationError
-                  prefix="Tel"
-                  field="tel"
-                  errors={state.errors}
-                />
+                <label htmlFor="subject">Choose a package</label>
+                <select name="subject" id="subject" defaultValue="" required>
+                  <option value="" disabled>
+                    Pick an option
+                  </option>
+                  <option value="Basic package">Basic package</option>
+                  <option value="Professional package">
+                    Professional package
+                  </option>
+                  <option value="Premium package">Premium package</option>
+                  <option value="Other">Other</option>
+                </select>
               </div>
             </fieldset>
             <label htmlFor="message">Message</label>
-            <textarea id="message" name="message" rows="4" cols="50" required />
+            <textarea id="message" name="message" rows={4} cols={50} required />
             <ValidationError
               prefix="Message"
               field="message"
@@ -81,6 +88,7 @@ const Footer = () => {
       </footer>
     </>
   );
-};
+});
 
+Footer.displayName = "Footer";
 export default Footer;

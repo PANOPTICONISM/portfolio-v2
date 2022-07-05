@@ -21,8 +21,8 @@ const Header = () => {
             </a>
           </li>
           <li>
-            <a href="#experience" onClick={toggle}>
-              Experience
+            <a href="#packages" onClick={toggle}>
+              Packages
             </a>
           </li>
           <li>

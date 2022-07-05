@@ -6,6 +6,7 @@ import {
   Footer,
   ProjectsCTA,
   LoadingScreen,
+  Packages,
 } from "../components";
 import {
   Introduction,
@@ -14,16 +15,16 @@ import {
   Recent,
   Posts,
 } from "../components/homepage";
-import Experience from "../components/homepage/Experience/Experience";
 import Modal from "../components/Modal/Modal";
 
 interface PageProps {
   pri: any;
   skills: any;
   experience: any;
+  packages: any;
 }
 
-const Home: NextPage<PageProps> = ({ pri, skills, experience }) => {
+const Home: NextPage<PageProps> = ({ pri, skills, experience, packages }) => {
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -35,6 +36,11 @@ const Home: NextPage<PageProps> = ({ pri, skills, experience }) => {
   const projectsRef = useRef<any>(null);
   function handleBackClick() {
     projectsRef?.current.scrollIntoView({ behavior: "smooth" });
+  }
+
+  const submitFormRef = useRef<any>(null);
+  function handleScrollingToForm() {
+    submitFormRef?.current.scrollIntoView({ behavior: "smooth" });
   }
   return (
     <>
@@ -48,15 +54,18 @@ const Home: NextPage<PageProps> = ({ pri, skills, experience }) => {
           <main>
             <Introduction />
             <Steps />
-            <Tech skills={skills.skills.items} />
+            <Tech skills={skills?.skills?.items} />
             <Recent
-              post={pri.projects.items[0]}
+              post={pri?.projects?.items[0]}
               handleBackClick={handleBackClick}
             />
-            <Experience jobs={experience.jobs.items} />
-            <Posts ref={projectsRef} projects={pri.projects.items} />
+            <Packages
+              handleScrollingToForm={handleScrollingToForm}
+              packages={packages?.packages?.items}
+            />
+            <Posts ref={projectsRef} projects={pri?.projects?.items} />
           </main>
-          <Footer />
+          <Footer ref={submitFormRef} />
           <Modal />
         </>
       )}
@@ -68,15 +77,17 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const { req } = context;
   const protocol = req.headers["x-forwarded-proto"] || "http";
   const baseUrl = req ? `${protocol}://${req.headers.host}` : "";
-  console.log(protocol, baseUrl);
   const pri = await fetch(`${baseUrl}/api/projects`).then((res) => res.json());
   const skills = await fetch(`${baseUrl}/api/skills`).then((res) => res.json());
   const experience = await fetch(`${baseUrl}/api/experience`).then((res) =>
     res.json()
   );
+  const packages = await fetch(`${baseUrl}/api/packages`).then((res) =>
+    res.json()
+  );
 
   return {
-    props: { pri, skills, experience },
+    props: { pri, skills, experience, packages },
   };
 };
 
