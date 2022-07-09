@@ -4,7 +4,7 @@ import Head from "next/head";
 import Script from "next/script";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const GTM_ID = "GTM-MRT3J7N";
+  const GTM_ID = "GTM-W5J28MX";
   return (
     <>
       <Head>
