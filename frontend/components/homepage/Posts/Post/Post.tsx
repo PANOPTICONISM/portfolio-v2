@@ -1,11 +1,5 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faGithubSquare,
-  faBehanceSquare,
-} from "@fortawesome/free-brands-svg-icons";
-import { faChrome } from "@fortawesome/free-brands-svg-icons";
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import styles from "../Posts.module.css";
+import { images } from "../../../../public";
 
 interface ArticleProps {
   article: {
@@ -43,7 +37,13 @@ const Post = ({ article }: ArticleProps) => {
 
   return (
     <div className={`${styles.post} ${removeCommaCat}`}>
-      {image && <img src={image?.fields?.file?.url} alt={title} />}
+      {image && (
+        <img
+          className={styles.bgImage}
+          src={image?.fields?.file?.url}
+          alt={title}
+        />
+      )}
       <div>
         <h2>{title}</h2>
         {description ? <p>{description}</p> : null}
@@ -62,33 +62,21 @@ const Post = ({ article }: ArticleProps) => {
               {behance ? (
                 <li>
                   <a href={behance} target="_blank" rel="noreferrer">
-                    <FontAwesomeIcon
-                      size="lg"
-                      color="black"
-                      icon={faBehanceSquare as IconProp}
-                    />
+                    <images.BehanceIcon width={30} height={30} />
                   </a>
                 </li>
               ) : null}
               {github ? (
                 <li>
                   <a href={github} target="_blank" rel="noreferrer">
-                    <FontAwesomeIcon
-                      size="lg"
-                      color="black"
-                      icon={faGithubSquare as IconProp}
-                    />
+                    <images.GitHubIcon width={30} height={30} />
                   </a>
                 </li>
               ) : null}
               {livePreview ? (
                 <li>
                   <a href={livePreview} target="_blank" rel="noreferrer">
-                    <FontAwesomeIcon
-                      size="lg"
-                      color="black"
-                      icon={faChrome as IconProp}
-                    />
+                    <images.PreviewIcon width={30} height={30} />
                   </a>
                 </li>
               ) : null}
