@@ -15,8 +15,6 @@ import {
   Recent,
   Posts,
 } from "../components/homepage";
-import Modal from "../components/Modal/Modal";
-
 interface PageProps {
   pri: any;
   skills: any;
@@ -66,7 +64,6 @@ const Home: NextPage<PageProps> = ({ pri, skills, experience, packages }) => {
             <Posts ref={projectsRef} projects={pri?.projects?.items} />
           </main>
           <Footer ref={submitFormRef} />
-          <Modal />
         </>
       )}
     </>
