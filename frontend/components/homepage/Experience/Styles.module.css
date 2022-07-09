@@ -1,0 +1,33 @@
+.job {
+  max-width: 420px;
+  margin: auto;
+  margin-right: 0;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.experience {
+  position: relative;
+}
+
+.experience .grid_2 {
+  grid-gap: 3rem;
+}
+
+.experience h3,
+.experience h4 {
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.experience h4 {
+  color: var(--professional);
+}
+
+.experience p {
+  margin: 0;
+  line-height: 26px;
+}

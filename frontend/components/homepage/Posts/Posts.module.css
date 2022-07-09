@@ -1,0 +1,119 @@
+.portfolio {
+  display: grid;
+  grid-template-columns: auto;
+  justify-content: center;
+  gap: 18px;
+}
+
+.filters ul {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  gap: 0.5rem;
+  max-width: 400px;
+  margin: 16px auto;
+}
+
+.filters ul li {
+  padding: 10px;
+  max-width: 100%;
+  text-align: center;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.active {
+  background: var(--green-colour);
+}
+
+.filters ul li:hover {
+  border: 1px solid var(--green-colour);
+}
+
+.post {
+  position: relative;
+  max-width: 400px;
+  border: 1px solid var(--box-colour);
+  padding: 30px;
+  background: rgb(10, 25, 47);
+  background: linear-gradient(
+    153deg,
+    rgba(10, 25, 47, 1) 0%,
+    rgba(7, 39, 37, 0.85) 67%,
+    rgba(16, 30, 53, 1) 99%
+  );
+}
+
+.post .bgImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.post .languages ul,
+.post .sources ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.post .languages ul > li,
+.post .sources ul > li {
+  margin-right: 12px;
+  margin-bottom: 12px;
+}
+
+.post .languages ul {
+  font-size: 14px;
+  margin-top: 26px;
+}
+
+.post .languages ul li {
+  padding: 8px 12px;
+  background-color: var(--premium);
+  border-radius: 2px;
+}
+
+.post .sources svg {
+  transition: all 0.3s;
+}
+
+.post .sources svg:hover {
+  transform: translateY(4px);
+}
+
+@media screen and (min-width: 1300px) {
+  .portfolio .post {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    max-width: 100%;
+    background: none;
+    align-items: center;
+  }
+
+  .portfolio .post .bgImage {
+    position: initial;
+  }
+
+  .post h2 {
+    text-align: center;
+  }
+
+  .post p:first-of-type {
+    background-color: var(--box-colour);
+    padding: 18px;
+  }
+
+  .filters ul {
+    max-width: 100%;
+  }
+
+  .post .languages ul,
+  .sources ul {
+    justify-content: center;
+  }
+}

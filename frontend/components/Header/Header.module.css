@@ -1,0 +1,174 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.header nav li {
+  margin: 12px 0;
+}
+
+.header nav li a {
+  text-decoration: none;
+  color: var(--text-colour);
+  font-weight: 600;
+  position: relative;
+}
+
+.header nav .list li a:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -1px;
+  left: 0;
+  background-color: var(--primary-colour);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.8s;
+}
+
+.header nav .list li a:not(.hire_me a):hover:after {
+  transform-origin: bottom left;
+  transform: scaleX(1);
+}
+
+/* BURGER MENU */
+.closeBox {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 900;
+}
+
+.closeBtn,
+.closeBtn::before,
+.closeBtn::after {
+  display: block;
+  position: absolute;
+  right: 0;
+  width: 30px;
+  height: 2px;
+  background-color: #fff;
+  transition-duration: 0.26s;
+}
+
+.show > .closeBtn {
+  transform: rotate(45deg);
+}
+
+.show > .closeBtn::before {
+  top: 0;
+  transform: rotate(0deg);
+}
+
+.show > .closeBtn::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+.closeBtn::before {
+  content: "";
+  top: -8px;
+}
+
+.closeBtn::after {
+  content: "";
+  top: 8px;
+}
+
+@media screen and (max-width: 1100px) {
+  .header nav .list {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--background-colour);
+    right: -100%;
+    transition: all 1s;
+    z-index: 1;
+    padding: 80px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header nav .list li {
+    margin: 20px 0;
+  }
+
+  .header nav .show {
+    right: 0;
+  }
+
+  .header nav input:checked > body,
+  .header nav input:checked ~ #root {
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .header nav .list li a:hover:after {
+    transform-origin: bottom left;
+    transform: scaleX(1);
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  .closeBox {
+    display: none;
+  }
+
+  .header nav .list {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .header nav .list li {
+    margin: 0 18px;
+  }
+
+  .header nav .list li:last-child {
+    margin-right: 0;
+  }
+
+  .hire_me a {
+    border-radius: 2px;
+    border: 1px solid var(--primary-colour);
+    transition: 0.08s ease-in;
+    -o-transition: 0.08s ease-in;
+    -ms-transition: 0.08s ease-in;
+    -moz-transition: 0.08s ease-in;
+    -webkit-transition: 0.08s ease-in;
+    position: relative;
+    padding: 10px 20px;
+  }
+
+  .hire_me a::before {
+    content: "";
+    position: absolute;
+    background: var(--primary-colour);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 100%;
+    z-index: -1;
+    transition: top 0.4s ease-in;
+    -webkit-transition: top 0.4s ease-in;
+  }
+
+  .hire_me a:hover:before {
+    top: 0;
+  }
+}
