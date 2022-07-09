@@ -1,0 +1,114 @@
+.hire_me p {
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: auto;
+}
+
+.form input,
+.form textarea {
+  border: 1px solid grey;
+  padding: 10px;
+  background: none;
+  color: var(--white-colour);
+}
+
+.form button {
+  padding: 20px;
+  width: 200px;
+  margin: auto;
+  border: 1px solid var(--primary-colour);
+  color: var(--white-colour);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.form button:hover {
+  background-color: var(--primary-colour);
+}
+
+.form label,
+.form button {
+  margin-top: 20px;
+}
+
+.form label {
+  font-size: var(--label-size);
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.submit_message {
+  text-align: center;
+}
+
+.form option {
+  background: var(--background-colour);
+}
+
+.form option:nth-child(2) {
+  background: var(--basic);
+}
+
+.form option:nth-child(3) {
+  background: var(--professional);
+}
+
+.form option:nth-child(4) {
+  background: var(--premium);
+}
+
+.form fieldset {
+  border: none;
+  padding: 0%;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.form fieldset div {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-weight: 600;
+  border-top: 1px dotted grey;
+  padding-top: 20px;
+}
+
+.footer img {
+  margin: auto;
+  margin-bottom: 20px;
+  max-width: 40px;
+}
+
+.footer span {
+  font-size: 14px;
+}
+
+@media (min-width: 700px) {
+  .form fieldset {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .footer {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer img {
+    margin: 0;
+  }
+}
