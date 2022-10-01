@@ -16,6 +16,7 @@ import {
 } from "../components/homepage";
 import Experience from "../components/homepage/Experience/Experience";
 import Modal from "../components/Modal/Modal";
+import { useThemeContext } from "../contexts/theme-context";
 
 interface PageProps {
   pri: any;
@@ -25,6 +26,11 @@ interface PageProps {
 
 const Home: NextPage<PageProps> = ({ pri, skills, experience }) => {
   const [isLoading, setLoading] = useState(true);
+  const {theme, setTheme} = useThemeContext();
+  const handleThemeChange = () => {
+    const isCurrentDark = theme === 'dark';
+    setTheme(isCurrentDark ? 'light' : 'dark');
+  };
 
   useEffect(() => {
     if (pri.success && skills.success && experience.success === true) {
@@ -36,8 +42,9 @@ const Home: NextPage<PageProps> = ({ pri, skills, experience }) => {
   function handleBackClick() {
     projectsRef?.current.scrollIntoView({ behavior: "smooth" });
   }
+
   return (
-    <>
+    <div className={`common theme-${theme}`}>
       {isLoading ? (
         <LoadingScreen />
       ) : (
@@ -60,7 +67,7 @@ const Home: NextPage<PageProps> = ({ pri, skills, experience }) => {
           <Modal />
         </>
       )}
-    </>
+    </div>
   );
 };
 

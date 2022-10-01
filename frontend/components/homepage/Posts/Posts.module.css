@@ -97,6 +97,7 @@
 
   .portfolio .post .bgImage {
     position: initial;
+    z-index: inherit;
   }
 
   .post h2 {
