@@ -23,6 +23,11 @@ a {
 }
 
 :root {
+  --spacing-area-pd-m: 30px 60px;
+  --spacing-area-pd-t: 30px 70px;
+}
+
+.theme-dark {
   --primary-font: "Syncopate", sans-serif;
   --secondary-font: "Open Sans", sans-serif;
   --background-colour: #0a192f;
@@ -42,13 +47,41 @@ a {
   --h1-font-size-mobile: 32px;
 }
 
-body {
-  background: var(--background-colour);
-  color: var(--text-colour);
-  margin: 0;
+.theme-light {
+  --primary-font: "Syncopate", sans-serif;
+  --secondary-font: "Open Sans", sans-serif;
+  --background-colour: #f7f7f7;
+  --background-colour-accent: #f1f4f6;
+  --text-colour: #000;
+  --text-colour-w-box: #fff;
+  --primary-colour: #00c6bd;
+  --yellow-colour: #f6be3b;
+  --green-colour: #007d55;
+  --grey-colour: #a5abbd;
+  --box-colour: #38445d;
+
+  --basic: purple;
+  --professional: #ff641a;
+  --premium: darkcyan;
+  --label-size: 14px;
+
+  --h1-font-size-desktop: 56px;
+  --h1-font-size-mobile: 32px;
+}
+
+.common {
   font-family: var(--secondary-font);
+  color: var(--text-colour);
+  background: var(--background-colour);
+}
+
+.common main section, .common > section {
+  padding: var(--spacing-area-pd-m);
+}
+
+body {
+  margin: 0;
   overflow-x: hidden;
-  padding: 30px 70px;
 }
 
 ul {
@@ -107,12 +140,12 @@ button {
   cursor: pointer;
   background: none;
 }
-
+/* 
 @media (min-width: 900px) {
   body {
     padding: 60px 100px;
   }
-}
+} */
 
 @media (min-width: 780px) {
   h1 {
@@ -137,10 +170,10 @@ button {
   }
 }
 
-@media (min-width: 1720px) {
+/* @media (min-width: 1720px) {
   body {
     max-width: 1300px;
     padding: 60px 0;
     margin: auto;
   }
-}
+} */
