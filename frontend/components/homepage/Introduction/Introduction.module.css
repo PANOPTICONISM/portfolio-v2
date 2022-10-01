@@ -29,7 +29,6 @@
 @media (min-width: 1400px) {
   .intro {
     justify-content: space-between;
-    margin: 60px auto;
   }
 
   .intro img {

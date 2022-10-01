@@ -126,7 +126,12 @@
   }
 }
 
-@media screen and (min-width: 1100px) {
+@media screen and (min-width: 1101px) {
+  .header {
+    max-width: 1200px;
+    margin: auto;
+  }
+
   .closeBox {
     display: none;
   }
@@ -171,5 +176,11 @@
 
   .hire_me a:hover:before {
     top: 0;
+  }
+}
+
+@media screen and (min-width: 1230px) {
+  .header {
+    padding: 30px 0;
   }
 }

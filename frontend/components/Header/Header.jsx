@@ -1,9 +1,18 @@
 import styles from "./Header.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
+
+  useEffect(() => {
+    if (isOpen === false) {
+      document.body.style.overflow = "auto";
+    } else {
+      document.body.style.overflow = "hidden";
+    }
+  }, [isOpen]);
+
   return (
     <header className={styles.header}>
       <img src="/logo.svg" alt="panopticonism-logo" />
