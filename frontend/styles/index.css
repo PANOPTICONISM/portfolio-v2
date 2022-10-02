@@ -108,6 +108,7 @@ h1 {
   margin: auto;
   text-align: center;
   margin-bottom: 2rem;
+  z-index: 1;
 }
 
 h1::before {
