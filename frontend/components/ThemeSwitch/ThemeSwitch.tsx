@@ -13,7 +13,7 @@ export const ThemeSwitch = () => {
 
     return (
         <label className={styles.switch}>
-            <input type="checkbox" onClick={changeThemeMode} checked={isChecked} />
+            <input type="checkbox" onClick={changeThemeMode} defaultChecked={isChecked} />
             <span className={`${styles.slider} ${styles.round}`}></span>
         </label>
     )

@@ -1,15 +1,17 @@
 import styles from "./Header.module.css";
 import { useState, useEffect } from "react";
+import useIsDesktop from "../../hooks/useIsDesktop";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
+  const isDesktop = useIsDesktop();
 
   useEffect(() => {
-    if (isOpen === false) {
-      document.body.style.overflow = "auto";
-    } else {
+    if (isOpen === true && !isDesktop) {
       document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
     }
   }, [isOpen]);
 
@@ -41,7 +43,7 @@ const Header = () => {
           </li>
           <li className={styles.hire_me}>
             <a href="#hire_me" onClick={toggle}>
-              Hire me
+              <span>Hire me</span>
             </a>
           </li>
         </ul>
