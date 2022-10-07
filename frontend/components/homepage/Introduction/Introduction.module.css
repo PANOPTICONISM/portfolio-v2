@@ -1,8 +1,7 @@
 .intro {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  flex-wrap: wrap;
   background: var(--background-colour-accent);
 }
 
@@ -26,8 +25,9 @@
   margin: 0;
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 1200px) {
   .intro {
+    flex-direction: row;
     justify-content: space-between;
   }
 

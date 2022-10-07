@@ -124,7 +124,7 @@ h1::before {
 
 .grid_2 {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: auto;
   justify-content: center;
   align-items: center;
   grid-gap: 1rem;
@@ -137,17 +137,11 @@ button {
   background: none;
 }
 
-@media (min-width: 780px) {
+@media (min-width: 900px) {
   h1 {
     font-size: var(--h1-font-size-desktop);
   }
 
-  .heading {
-    margin-top: 2rem;
-  }
-}
-
-@media (min-width: 900px) {
   .common main section, .common > section {
     padding: var(--spacing-area-pd-t);
   }
@@ -157,22 +151,9 @@ button {
   h1 {
     max-width: fit-content;
   }
-}
 
-@media (min-width: 1300px) {
   .grid_2 {
     grid-template-columns: repeat(auto-fill, 480px);
     justify-content: space-between;
   }
-}
-
-@media (min-width: 1720px) {
-  body {
-    max-width: 1300px;
-    margin: auto;
-  }
-
-  /* .common main section {
-    padding: var(--spacing-area-pd-t);
-  } */
 }

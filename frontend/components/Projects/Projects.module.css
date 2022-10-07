@@ -24,14 +24,14 @@
   background: var(--grey-colour);
 }
 
-@media (min-width: 1780px) {
-  .projects_breadcumbs {
-    right: 200px;
-  }
-}
-
 @media (min-width: 1200px)  {
   .projects_breadcumbs {
     display: flex;
+  }
+}
+
+@media (min-width: 1780px) {
+  .projects_breadcumbs {
+    right: 200px;
   }
 }
