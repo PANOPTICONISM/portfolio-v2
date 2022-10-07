@@ -9,6 +9,10 @@
   margin: 16px 0;
 }
 
+.post p:first-of-type, .languages ul li  {
+  color: var(--text-colour-w-dark-box);
+}
+
 .filters ul {
   display: grid;
   grid-template-columns: 1fr;

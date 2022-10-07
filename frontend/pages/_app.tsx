@@ -6,7 +6,6 @@ import { useState } from "react";
 import { ThemeProvider } from "../contexts/theme-context";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [theme, setTheme] = useState("light");
   const GTM_ID = "GTM-W7FJHRQ";
   return (
     <>

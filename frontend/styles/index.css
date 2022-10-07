@@ -26,6 +26,9 @@ a {
   --spacing-area-pd-m: 30px;
   --spacing-area-pd-t: 60px 100px;
   --spacing-area-pd-d: 60px 0;
+
+  --text-colour-w-dark-box: #fff;
+  --text-colour-w-light-box: #000;
 }
 
 .theme-dark {
@@ -38,6 +41,8 @@ a {
   --green-colour: #007d55;
   --grey-colour: #a5abbd;
   --box-colour: #38445d;
+
+  --black: #000;
 
   --basic: purple;
   --professional: #ff641a;
@@ -52,13 +57,12 @@ a {
   --primary-font: "Syncopate", sans-serif;
   --secondary-font: "Open Sans", sans-serif;
   --background-colour: #f7f7f7;
-  --background-colour-accent: #f1f4f6;
-  --text-colour: #000;
-  --text-colour-w-box: #fff;
+  --background-colour-accent: #e8eef2;
+  --text-colour: #0a192f;
   --primary-colour: #00c6bd;
   --yellow-colour: #f6be3b;
   --green-colour: #007d55;
-  --grey-colour: #a5abbd;
+  --grey-colour: #7a7d88;
   --box-colour: #38445d;
 
   --basic: purple;

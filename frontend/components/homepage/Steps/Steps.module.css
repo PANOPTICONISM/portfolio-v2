@@ -5,7 +5,7 @@
   grid-gap: 40px 30px;
   justify-content: center;
   padding-top: 20px;
-  color: var(--text-colour-w-box);
+  color: var(--text-colour-w-dark-box);
 }
 
 .steps article {
