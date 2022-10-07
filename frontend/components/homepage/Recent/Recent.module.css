@@ -22,6 +22,7 @@
   height: auto;
   display: flex;
   align-items: center;
+  margin: auto;
 }
 
 .learn_more button span {
@@ -88,6 +89,7 @@
   line-height: 1.6;
   text-align: center;
   text-transform: uppercase;
+  display: block;
 }
 
 .learn_more:hover .circle_button {

@@ -50,7 +50,7 @@ const Home: NextPage<PageProps> = ({ pri, skills, experience }) => {
       ) : (
         <>
           <Header />
-          <Socials />
+          {/* <Socials /> */}
           <ProjectsCTA onClick={handleBackClick} />
           <main>
             <Introduction />
@@ -64,7 +64,7 @@ const Home: NextPage<PageProps> = ({ pri, skills, experience }) => {
             <Posts ref={projectsRef} projects={pri.projects.items} />
           </main>
           <Footer />
-          <Modal />
+          {/* <Modal /> */}
         </>
       )}
     </div>

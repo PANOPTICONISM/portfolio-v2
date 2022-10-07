@@ -23,7 +23,7 @@ a {
 }
 
 :root {
-  --spacing-area-pd-m: 30px 60px;
+  --spacing-area-pd-m: 30px;
   --spacing-area-pd-t: 60px 100px;
   --spacing-area-pd-d: 60px 0;
 }
@@ -45,7 +45,7 @@ a {
   --label-size: 14px;
 
   --h1-font-size-desktop: 56px;
-  --h1-font-size-mobile: 32px;
+  --h1-font-size-mobile: 28px;
 }
 
 .theme-light {
@@ -67,7 +67,7 @@ a {
   --label-size: 14px;
 
   --h1-font-size-desktop: 56px;
-  --h1-font-size-mobile: 32px;
+  --h1-font-size-mobile: 28px;
 }
 
 .common {
@@ -128,11 +128,6 @@ h1::before {
   justify-content: center;
   align-items: center;
   grid-gap: 1rem;
-}
-
-.grid_2 > *:not(h1) {
-  max-width: 480px;
-  margin: auto;
 }
 
 button {

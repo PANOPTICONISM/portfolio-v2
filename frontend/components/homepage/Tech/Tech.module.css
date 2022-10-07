@@ -1,13 +1,11 @@
 .stack {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-  justify-content: center;
   justify-content: space-around;
   align-items: center;
-  grid-gap: 2rem;
+  gap: 2rem;
   max-width: 300px;
   margin: auto;
-  padding: 0 70px;
 }
 
 .stack li {
