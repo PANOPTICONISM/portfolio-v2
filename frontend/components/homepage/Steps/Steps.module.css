@@ -5,6 +5,7 @@
   grid-gap: 40px 30px;
   justify-content: center;
   padding-top: 20px;
+  color: var(--text-colour-w-dark-box);
 }
 
 .steps article {
@@ -29,8 +30,8 @@
   max-height: 50px;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 600px) {
   .steps {
-    grid-template-columns: repeat(auto-fill, 500px);
+    grid-template-columns: repeat(auto-fill, 485px);
   }
 }

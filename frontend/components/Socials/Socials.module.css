@@ -2,6 +2,7 @@
   bottom: 100px;
   position: fixed;
   left: 20px;
+  display: none;
 }
 
 .social_media svg {
@@ -23,6 +24,12 @@
   width: 2px;
   height: 100px;
   background: var(--grey-colour);
+}
+
+@media (min-width: 1200px)  {
+  .social_media {
+    display: flex;
+  }
 }
 
 @media (min-width: 1780px) {

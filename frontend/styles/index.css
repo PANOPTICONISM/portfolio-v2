@@ -23,6 +23,15 @@ a {
 }
 
 :root {
+  --spacing-area-pd-m: 30px;
+  --spacing-area-pd-t: 60px 100px;
+  --spacing-area-pd-d: 60px 0;
+
+  --text-colour-w-dark-box: #fff;
+  --text-colour-w-light-box: #000;
+}
+
+.theme-dark {
   --primary-font: "Syncopate", sans-serif;
   --secondary-font: "Open Sans", sans-serif;
   --background-colour: #0a192f;
@@ -33,22 +42,50 @@ a {
   --grey-colour: #a5abbd;
   --box-colour: #38445d;
 
+  --black: #000;
+
   --basic: purple;
   --professional: #ff641a;
   --premium: darkcyan;
   --label-size: 14px;
 
   --h1-font-size-desktop: 56px;
-  --h1-font-size-mobile: 32px;
+  --h1-font-size-mobile: 28px;
+}
+
+.theme-light {
+  --primary-font: "Syncopate", sans-serif;
+  --secondary-font: "Open Sans", sans-serif;
+  --background-colour: #f7f7f7;
+  --background-colour-accent: #e8eef2;
+  --text-colour: #0a192f;
+  --primary-colour: #00c6bd;
+  --yellow-colour: #f6be3b;
+  --green-colour: #007d55;
+  --grey-colour: #7a7d88;
+  --box-colour: #38445d;
+
+  --basic: purple;
+  --professional: #ff641a;
+  --premium: darkcyan;
+  --label-size: 14px;
+
+  --h1-font-size-desktop: 56px;
+  --h1-font-size-mobile: 28px;
+}
+
+.common {
+  font-family: var(--secondary-font);
+  color: var(--text-colour);
+  background: var(--background-colour);
+}
+
+.common main section, .common > section {
+  padding: var(--spacing-area-pd-m);
 }
 
 body {
-  background: var(--background-colour);
-  color: var(--text-colour);
   margin: 0;
-  font-family: var(--secondary-font);
-  overflow-x: hidden;
-  padding: 30px 70px;
 }
 
 ul {
@@ -61,11 +98,6 @@ main {
   margin: auto;
 }
 
-/* grid of 2 columns */
-section {
-  padding: 50px 0;
-}
-
 h1 {
   text-transform: uppercase;
   font-family: var(--primary-font);
@@ -75,6 +107,7 @@ h1 {
   margin: auto;
   text-align: center;
   margin-bottom: 2rem;
+  z-index: 1;
 }
 
 h1::before {
@@ -90,15 +123,10 @@ h1::before {
 
 .grid_2 {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: auto;
   justify-content: center;
   align-items: center;
   grid-gap: 1rem;
-}
-
-.grid_2 > *:not(h1) {
-  max-width: 480px;
-  margin: auto;
 }
 
 button {
@@ -109,38 +137,22 @@ button {
 }
 
 @media (min-width: 900px) {
-  body {
-    padding: 60px 100px;
-  }
-}
-
-@media (min-width: 780px) {
   h1 {
     font-size: var(--h1-font-size-desktop);
   }
 
-  .heading {
-    margin-top: 2rem;
+  .common main section, .common > section {
+    padding: var(--spacing-area-pd-t);
   }
-}
+} 
 
-@media (min-width: 1000px) {
+@media (min-width: 1200px) {
   h1 {
     max-width: fit-content;
   }
-}
 
-@media (min-width: 1300px) {
   .grid_2 {
     grid-template-columns: repeat(auto-fill, 480px);
     justify-content: space-between;
-  }
-}
-
-@media (min-width: 1720px) {
-  body {
-    max-width: 1300px;
-    padding: 60px 0;
-    margin: auto;
   }
 }

@@ -10,16 +10,12 @@
   position: relative;
 }
 
-.experience .grid_2 {
-  grid-gap: 3rem;
-}
-
 .experience h3,
 .experience h4 {
   font-size: 16px;
   font-weight: 800;
   letter-spacing: 1px;
-  margin: 0;
+  margin: 2px 0;
   text-transform: uppercase;
 }
 
@@ -28,6 +24,6 @@
 }
 
 .experience p {
-  margin: 0;
+  margin: 8px 0;
   line-height: 26px;
 }

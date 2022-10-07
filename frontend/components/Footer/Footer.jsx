@@ -9,14 +9,14 @@ const Footer = () => {
     <>
       {state.succeeded ? (
         <section id="hire_me">
-          <h1>Let's get started</h1>
+          <h1>Contact me</h1>
           <p className={styles.submit_message}>
             Thank you! Your message has been received.
           </p>
         </section>
       ) : (
         <section className={styles.hire_me} id="hire_me">
-          <h1>Let's get started</h1>
+          <h1>Contact me</h1>
           <p>
             Send me a detailed message below and I'll get back to you as soon as
             possible.
