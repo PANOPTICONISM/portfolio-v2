@@ -29,12 +29,6 @@
     padding: 0;
   }
 
-  .tech {
-    display: grid;
-    grid-template-columns: 4fr 8fr;
-    align-items: center;
-  }
-
   .tech h1 {
     max-width: min-content;
     text-align: left;
