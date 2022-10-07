@@ -16,6 +16,8 @@ import {
 } from "../components/homepage";
 import Experience from "../components/homepage/Experience/Experience";
 import Modal from "../components/Modal/Modal";
+import { ThemeSwitch } from "../components/ThemeSwitch/ThemeSwitch";
+import { useThemeContext } from "../contexts/theme-context";
 
 interface PageProps {
   pri: any;
@@ -25,6 +27,7 @@ interface PageProps {
 
 const Home: NextPage<PageProps> = ({ pri, skills, experience }) => {
   const [isLoading, setLoading] = useState(true);
+  const {theme} = useThemeContext();
 
   useEffect(() => {
     if (pri.success && skills.success && experience.success === true) {
@@ -36,12 +39,14 @@ const Home: NextPage<PageProps> = ({ pri, skills, experience }) => {
   function handleBackClick() {
     projectsRef?.current.scrollIntoView({ behavior: "smooth" });
   }
+
   return (
-    <>
+    <div className={`common theme-${theme}`}>
       {isLoading ? (
         <LoadingScreen />
       ) : (
         <>
+        <ThemeSwitch />
           <Header />
           <Socials />
           <ProjectsCTA onClick={handleBackClick} />
@@ -57,10 +62,10 @@ const Home: NextPage<PageProps> = ({ pri, skills, experience }) => {
             <Posts ref={projectsRef} projects={pri.projects.items} />
           </main>
           <Footer />
-          <Modal />
+          {/* <Modal /> */}
         </>
       )}
-    </>
+    </div>
   );
 };
 

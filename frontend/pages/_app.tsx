@@ -2,6 +2,8 @@ import "../styles/index.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import Script from "next/script";
+import { useState } from "react";
+import { ThemeProvider } from "../contexts/theme-context";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const GTM_ID = "GTM-W7FJHRQ";
@@ -26,7 +28,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         })(window,document,'script','dataLayer','${GTM_ID}');
       `}
       </Script>
-      <Component {...pageProps} />
+      <ThemeProvider>
+        <Component {...pageProps} />
+      </ThemeProvider>
     </>
   );
 }

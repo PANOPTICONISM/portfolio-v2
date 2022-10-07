@@ -5,6 +5,14 @@
   gap: 18px;
 }
 
+.post h2 {
+  margin: 16px 0;
+}
+
+.post p:first-of-type, .languages ul li  {
+  color: var(--text-colour-w-dark-box);
+}
+
 .filters ul {
   display: grid;
   grid-template-columns: 1fr;
@@ -34,24 +42,13 @@
   position: relative;
   max-width: 400px;
   border: 1px solid var(--box-colour);
-  padding: 30px;
-  background: rgb(10, 25, 47);
-  background: linear-gradient(
-    153deg,
-    rgba(10, 25, 47, 1) 0%,
-    rgba(7, 39, 37, 0.85) 67%,
-    rgba(16, 30, 53, 1) 99%
-  );
+  padding: 20px;
 }
 
 .post .bgImage {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
+  height: auto;
+  object-fit: contain;
 }
 
 .post .languages ul,
@@ -60,10 +57,13 @@
   flex-wrap: wrap;
 }
 
-.post .languages ul > li,
-.post .sources ul > li {
+.post .languages ul > li {
   margin-right: 12px;
   margin-bottom: 12px;
+}
+
+.post .sources ul > li {
+  margin-right: 12px;
 }
 
 .post .languages ul {
@@ -77,6 +77,10 @@
   border-radius: 2px;
 }
 
+.post .sources ul {
+  margin: 0;
+}
+
 .post .sources svg {
   transition: all 0.3s;
 }
@@ -85,7 +89,7 @@
   transform: translateY(4px);
 }
 
-@media screen and (min-width: 1300px) {
+@media screen and (min-width: 1200px) {
   .portfolio .post {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -93,10 +97,12 @@
     max-width: 100%;
     background: none;
     align-items: center;
+    padding: 30px;
   }
 
   .portfolio .post .bgImage {
     position: initial;
+    z-index: inherit;
   }
 
   .post h2 {

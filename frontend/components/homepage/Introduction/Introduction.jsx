@@ -48,13 +48,9 @@ const Introduction = () => {
           <li>13 &nbsp; &nbsp; &nbsp; const job = &#123; </li>
           <li>
             14 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type: &#91;
-            "Freelance", "Part-time" &#93;,
+            "Internship - Winter 2023" &#93;,
           </li>
-          <li>
-            15 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; location: &#91;
-            "Remote", "Hybrid" &#93;,
-          </li>
-          <li>12 &nbsp; &nbsp; &nbsp; &#125;;</li>
+          <li>15 &nbsp; &nbsp; &nbsp; &#125;;</li>
         </ul>
       </div>
     </section>

@@ -1,3 +1,8 @@
+.most_recent {
+  max-width: 700px;
+  margin: auto;
+}
+
 .most_recent img {
   width: 100%;
 }
@@ -22,6 +27,7 @@
   height: auto;
   display: flex;
   align-items: center;
+  margin: auto;
 }
 
 .learn_more button span {
@@ -37,7 +43,7 @@
   margin: 0;
   width: 3rem;
   height: 2.8rem;
-  background: #fff;
+  background: var(--text-colour-w-dark-box);;
   border-radius: 1.625rem;
 }
 
@@ -48,7 +54,7 @@
   top: 0;
   bottom: 0;
   margin: auto;
-  background: #000;
+  background: var(--text-colour-w-light-box);;
 }
 
 .learn_more .circle_button .icon_button.icon_arrow {
@@ -67,8 +73,8 @@
   right: 0.0625rem;
   width: 0.625rem;
   height: 0.625rem;
-  border-top: 0.125rem solid #000;
-  border-right: 0.125rem solid #000;
+  border-top: 0.125rem solid var(--text-colour-w-light-box);;
+  border-right: 0.125rem solid var(--text-colour-w-light-box);;
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
 }
@@ -83,11 +89,12 @@
   bottom: 0;
   padding: 0.75rem 0;
   margin: 0 0 0 1.85rem;
-  color: #fff;
+  color: var(--text-colour);
   font-weight: 700;
   line-height: 1.6;
   text-align: center;
   text-transform: uppercase;
+  display: block;
 }
 
 .learn_more:hover .circle_button {
@@ -95,16 +102,20 @@
 }
 
 .learn_more:hover .circle_button .icon_button.icon_arrow {
-  background: #000;
+  background: var(--text-colour-w-light-box);
   -webkit-transform: translate(1rem, 0);
   transform: translate(1rem, 0);
 }
 
 .learn_more:hover .projects_button {
-  color: #000;
+  color: var(--text-colour-w-light-box);;
 }
 
-@media (min-width: 1300px) {
+@media (min-width: 1200px) {
+  .most_recent {
+    max-width: inherit;
+  }
+
   .most_recent img {
     grid-column: 1;
     grid-row: 1/12;
@@ -120,7 +131,10 @@
 
   .most_recent .button_container {
     grid-row: 6/7;
-    margin: 0%;
+  }
+
+  .most_recent .learn_more {
+    margin: 0;
   }
 
   .desc p {
