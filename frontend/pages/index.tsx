@@ -50,7 +50,7 @@ const Home: NextPage<PageProps> = ({ pri, skills, experience }) => {
       ) : (
         <>
           <Header />
-          {/* <Socials /> */}
+          <Socials />
           <ProjectsCTA onClick={handleBackClick} />
           <main>
             <Introduction />

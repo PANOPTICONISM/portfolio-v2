@@ -122,7 +122,10 @@
 
   .most_recent .button_container {
     grid-row: 6/7;
-    margin: 0%;
+  }
+
+  .most_recent .learn_more {
+    margin: 0;
   }
 
   .desc p {
