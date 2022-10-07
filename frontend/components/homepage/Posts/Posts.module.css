@@ -5,6 +5,10 @@
   gap: 18px;
 }
 
+.post h2 {
+  margin: 16px 0;
+}
+
 .filters ul {
   display: grid;
   grid-template-columns: 1fr;

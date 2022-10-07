@@ -2,6 +2,7 @@
   bottom: 128px;
   position: fixed;
   right: 20px;
+  display: none;
 }
 
 .projects_breadcumbs button {
@@ -26,5 +27,11 @@
 @media (min-width: 1780px) {
   .projects_breadcumbs {
     right: 200px;
+  }
+}
+
+@media (min-width: 1200px)  {
+  .projects_breadcumbs {
+    display: flex;
   }
 }
