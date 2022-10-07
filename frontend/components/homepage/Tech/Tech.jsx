@@ -2,7 +2,7 @@ import styles from "./Tech.module.css";
 
 const Tech = ({ skills }) => {
   return (
-    <section className={`${styles.tech}`}>
+    <section className={`${styles.tech} grid_2`}>
       <h1 className={styles.heading}>Tech stack</h1>
       <ul className={styles.stack}>
         {skills?.map((skill, index) => (
