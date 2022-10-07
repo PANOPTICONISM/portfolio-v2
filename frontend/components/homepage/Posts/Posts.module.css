@@ -89,7 +89,7 @@
   transform: translateY(4px);
 }
 
-@media screen and (min-width: 1300px) {
+@media screen and (min-width: 1200px) {
   .portfolio .post {
     display: grid;
     grid-template-columns: 1fr 1fr;

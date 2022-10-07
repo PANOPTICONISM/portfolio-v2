@@ -89,7 +89,7 @@
   top: 8px;
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1200px) {
   .header nav .list {
     position: fixed;
     top: 0;
@@ -126,7 +126,7 @@
   }
 }
 
-@media screen and (min-width: 1101px) {
+@media screen and (min-width: 1201px) {
   .header {
     max-width: 1200px;
     margin: auto;
@@ -176,11 +176,5 @@
 
   .hire_me a:hover:before {
     top: 0;
-  }
-}
-
-@media screen and (min-width: 1230px) {
-  .header {
-    padding: 30px 0;
   }
 }

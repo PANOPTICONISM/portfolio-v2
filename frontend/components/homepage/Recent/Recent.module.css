@@ -1,3 +1,8 @@
+.most_recent {
+  max-width: 700px;
+  margin: auto;
+}
+
 .most_recent img {
   width: 100%;
 }
@@ -106,7 +111,11 @@
   color: #000;
 }
 
-@media (min-width: 1300px) {
+@media (min-width: 1200px) {
+  .most_recent {
+    max-width: inherit;
+  }
+  
   .most_recent img {
     grid-column: 1;
     grid-row: 1/12;
