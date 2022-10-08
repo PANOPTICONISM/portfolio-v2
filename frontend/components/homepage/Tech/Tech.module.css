@@ -4,8 +4,6 @@
   justify-content: space-around;
   align-items: center;
   gap: 2rem;
-  max-width: 460px;
-  margin: auto;
 }
 
 .heading {
@@ -22,6 +20,17 @@
   height: 40px;
   object-fit: contain;
   margin-right: 8px;
+}
+
+@media (min-width: 500px) and (max-width: 1200px) {
+  .tech {
+    grid-template-columns: 1fr;
+  }
+
+  .stack {
+    max-width: 460px;
+    margin: auto;
+  }
 }
 
 @media (min-width: 1200px) {
