@@ -1,13 +1,9 @@
-.job {
-  max-width: 420px;
-  margin: auto;
-  margin-right: 0;
-  margin-bottom: 10px;
-  position: relative;
+.jobs {
+  align-items: baseline;
 }
 
-.experience {
-  position: relative;
+.job {
+  max-width: 420px;
 }
 
 .experience h3,
@@ -26,4 +22,10 @@
 .experience p {
   margin: 8px 0;
   line-height: 26px;
+}
+
+@media (min-width: 1200px) {
+  .job {
+    max-width: inherit;
+  }
 }
