@@ -1,5 +1,6 @@
 .jobs {
   align-items: baseline;
+  text-align: justify;
 }
 
 .job {
@@ -25,6 +26,10 @@
 }
 
 @media (min-width: 1200px) {
+  .jobs {
+    grid-template-columns: repeat(auto-fill, 470px);
+  }
+
   .job {
     max-width: inherit;
   }
