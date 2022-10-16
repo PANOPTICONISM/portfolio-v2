@@ -87,7 +87,6 @@
   border-top: 1px dotted grey;
   padding: 30px 0;
   margin: 0 30px;
-
 }
 
 .footer img {
@@ -117,5 +116,12 @@
 
   .footer img {
     margin: 0;
+  }
+}
+
+@media (min-width: 1460px) {
+  .footer {
+    max-width: 1200px;
+    margin: auto;
   }
 }

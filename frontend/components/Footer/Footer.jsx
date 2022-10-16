@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <>
       {state.succeeded ? (
-        <section id="hire_me">
+        <section className={styles.hire_me} id="hire_me">
           <h1>Contact me</h1>
           <p className={styles.submit_message}>
             Thank you! Your message has been received.

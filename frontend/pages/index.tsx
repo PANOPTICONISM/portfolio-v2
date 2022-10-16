@@ -27,7 +27,7 @@ interface PageProps {
 
 const Home: NextPage<PageProps> = ({ pri, skills, experience }) => {
   const [isLoading, setLoading] = useState(true);
-  const {theme} = useThemeContext();
+  const { theme } = useThemeContext();
 
   useEffect(() => {
     if (pri.success && skills.success && experience.success === true) {
@@ -46,11 +46,9 @@ const Home: NextPage<PageProps> = ({ pri, skills, experience }) => {
         <LoadingScreen />
       ) : (
         <>
-        <ThemeSwitch />
           <Header />
-          <Socials />
-          <ProjectsCTA onClick={handleBackClick} />
           <main>
+            <Socials />
             <Introduction />
             <Steps />
             <Tech skills={skills.skills.items} />
@@ -60,6 +58,7 @@ const Home: NextPage<PageProps> = ({ pri, skills, experience }) => {
             />
             <Experience jobs={experience.jobs.items} />
             <Posts ref={projectsRef} projects={pri.projects.items} />
+            <ProjectsCTA onClick={handleBackClick} />
           </main>
           <Footer />
           {/* <Modal /> */}
