@@ -78,7 +78,8 @@ a {
   background: var(--background-colour);
 }
 
-.common main section, .common > section {
+.common main section,
+.common > section {
   padding: var(--spacing-area-pd-m);
 }
 
@@ -145,10 +146,11 @@ button {
     font-size: var(--h1-font-size-desktop);
   }
 
-  .common main section, .common > section {
+  .common main section,
+  .common > section {
     padding: var(--spacing-area-pd-t);
   }
-} 
+}
 
 @media (min-width: 1200px) {
   h1 {

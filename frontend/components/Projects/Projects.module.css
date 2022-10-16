@@ -1,32 +1,36 @@
 .projects_breadcumbs {
-  bottom: 128px;
-  position: fixed;
-  right: 20px;
   display: none;
 }
 
-.projects_breadcumbs button {
-  color: var(--grey-colour);
-}
-
-.projects_breadcumbs .pointer {
-  position: relative;
-}
-
-.projects_breadcumbs .pointer::after {
-  position: absolute;
-  content: "";
-  bottom: -110px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 2px;
-  height: 100px;
-  background: var(--grey-colour);
-}
-
-@media (min-width: 1200px)  {
+@media (min-width: 1200px) {
   .projects_breadcumbs {
+    bottom: 128px;
+    position: fixed;
+    right: 20px;
     display: flex;
+  }
+
+  .wrapper {
+    position: relative;
+  }
+
+  .projects_breadcumbs button {
+    color: var(--grey-colour);
+  }
+
+  .projects_breadcumbs .pointer {
+    position: relative;
+  }
+
+  .projects_breadcumbs .pointer::after {
+    position: absolute;
+    content: "";
+    bottom: -110px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100px;
+    background: var(--grey-colour);
   }
 }
 
