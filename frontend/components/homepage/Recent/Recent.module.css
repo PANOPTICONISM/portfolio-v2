@@ -3,6 +3,35 @@
   margin: auto;
 }
 
+.image_wrapper {
+  position: relative;
+}
+
+.most_recent .sources {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.most_recent .sources ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
+.most_recent .sources svg {
+  transition: all 0.3s;
+}
+
+.most_recent .sources svg:hover {
+  transform: translateY(4px);
+}
+
+.most_recent .sources ul > li {
+  margin-right: 12px;
+  margin-bottom: 12px;
+}
+
 .most_recent img {
   width: 100%;
 }
@@ -87,7 +116,7 @@
     max-width: inherit;
   }
 
-  .most_recent img {
+  .most_recent .image_wrapper {
     grid-column: 1;
     grid-row: 1/12;
   }
