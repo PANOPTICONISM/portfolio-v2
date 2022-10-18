@@ -9,7 +9,8 @@
   margin: 16px 0;
 }
 
-.post p:first-of-type, .languages ul li  {
+.post p:first-of-type,
+.languages ul li {
   color: var(--text-colour-w-dark-box);
 }
 
@@ -74,7 +75,6 @@
 .post .languages ul li {
   padding: 8px 12px;
   background-color: var(--premium);
-  border-radius: 2px;
 }
 
 .post .sources ul {

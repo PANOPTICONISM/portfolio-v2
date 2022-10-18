@@ -18,7 +18,7 @@
   border: 1px solid grey;
   padding: 10px;
   background: none;
-  color: var(--white-colour);
+  color: var(--text-colour);
 }
 
 .form button {
@@ -26,7 +26,7 @@
   width: 200px;
   margin: auto;
   border: 1px solid var(--primary-colour);
-  color: var(--white-colour);
+  color: var(--text-colour);
   font-weight: 600;
   text-transform: uppercase;
 }

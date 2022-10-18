@@ -17,98 +17,69 @@
 
 .learn_more {
   position: relative;
-  font-size: 12px;
-  border: 0;
-  vertical-align: middle;
-  text-decoration: none;
-  background: transparent;
-  padding: 0;
-  width: 12rem;
-  height: auto;
-  display: flex;
-  align-items: center;
-  margin: auto;
-}
-
-.learn_more button span {
-  margin-left: 10px;
-}
-
-.learn_more .circle_button {
-  -webkit-transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-  position: relative;
-  display: flex;
-  align-items: center;
-  margin: 0;
-  width: 3rem;
-  height: 2.8rem;
-  background: var(--text-colour-w-dark-box);;
-  border-radius: 1.625rem;
-}
-
-.learn_more .circle_button .icon_button {
-  -webkit-transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  background: var(--text-colour-w-light-box);;
-}
-
-.learn_more .circle_button .icon_button.icon_arrow {
-  -webkit-transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-  left: 0.625rem;
-  width: 1.125rem;
-  height: 0.125rem;
-  background: none;
-}
-
-.learn_more .circle_button .icon_button.icon_arrow::before {
-  position: absolute;
-  content: "";
-  top: -0.32rem;
-  right: 0.0625rem;
-  width: 0.625rem;
-  height: 0.625rem;
-  border-top: 0.125rem solid var(--text-colour-w-light-box);;
-  border-right: 0.125rem solid var(--text-colour-w-light-box);;
-  -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-
-.learn_more .projects_button {
-  -webkit-transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 0.75rem 0;
-  margin: 0 0 0 1.85rem;
-  color: var(--text-colour);
-  font-weight: 700;
-  line-height: 1.6;
-  text-align: center;
-  text-transform: uppercase;
-  display: block;
-}
-
-.learn_more:hover .circle_button {
   width: 100%;
+  height: auto;
+  max-width: 200px;
+  margin: 12px auto;
+  padding: 20px;
+  border: 1px solid var(--primary-colour);
+  transition: 0.5s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.learn_more:hover .circle_button .icon_button.icon_arrow {
-  background: var(--text-colour-w-light-box);
-  -webkit-transform: translate(1rem, 0);
-  transform: translate(1rem, 0);
+.learn_more:before,
+.learn_more:after,
+.learn_more .projects_button:before,
+.learn_more .projects_button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 25.25%;
+  height: 0;
+  background-color: var(--primary-colour);
+  transition: 0.5s ease-in-out;
 }
 
-.learn_more:hover .projects_button {
-  color: var(--text-colour-w-light-box);;
+.learn_more:before {
+  left: 0;
+  z-index: 1;
+}
+
+.learn_more:after {
+  left: 50%;
+  z-index: 1;
+}
+
+.learn_more .projects_button:before,
+.learn_more .projects_button::after {
+  top: auto;
+  bottom: 0;
+  z-index: 2;
+}
+
+.learn_more .projects_button:before {
+  left: 25%;
+}
+
+.learn_more .projects_button:after {
+  left: 75%;
+}
+
+.learn_more:hover:before,
+.learn_more:hover:after,
+.learn_more:hover .projects_button:before,
+.learn_more:hover .projects_button:after {
+  height: 100%;
+}
+
+.projects_button span {
+  position: relative;
+  z-index: 5;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--text-colour);
 }
 
 @media (min-width: 1200px) {
@@ -129,16 +100,16 @@
     grid-row: 5/6;
   }
 
-  .most_recent .button_container {
-    grid-row: 6/7;
-  }
-
-  .most_recent .learn_more {
-    margin: 0;
-  }
-
   .desc p {
     margin-top: 10px;
     margin-bottom: 6px;
+  }
+
+  .button_container {
+    grid-row: 6/7;
+  }
+
+  .learn_more {
+    margin: 0;
   }
 }

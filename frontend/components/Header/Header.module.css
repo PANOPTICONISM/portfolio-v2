@@ -150,7 +150,6 @@
   }
 
   .hire_me a {
-    border-radius: 2px;
     border: 1px solid var(--primary-colour);
     transition: 0.08s ease-in;
     -o-transition: 0.08s ease-in;

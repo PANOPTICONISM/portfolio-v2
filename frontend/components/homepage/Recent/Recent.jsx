@@ -11,16 +11,11 @@ const Recent = ({ post, handleBackClick }) => {
         <p>{description}</p>
       </div>
       <div className={styles.button_container}>
-        <div className={styles.learn_more}>
-          <span className={styles.circle_button}>
-            <span
-              className={`${styles.icon_button} ${styles.icon_arrow}`}
-            ></span>
-          </span>
-          <button onClick={handleBackClick} className={styles.projects_button}>
+        <button onClick={handleBackClick} className={styles.learn_more}>
+          <div className={styles.projects_button}>
             <span>More projects</span>
-          </button>
-        </div>
+          </div>
+        </button>
       </div>
     </section>
   );
