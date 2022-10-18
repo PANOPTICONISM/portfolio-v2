@@ -69,8 +69,14 @@ const Footer = () => {
               field="message"
               errors={state.errors}
             />
-            <button type="submit" disabled={state.submitting}>
-              Send message
+            <button
+              type="submit"
+              disabled={state.submitting}
+              className={styles.learn_more}
+            >
+              <div className={styles.projects_button}>
+                <span>Send message</span>
+              </div>
             </button>
           </form>
         </section>

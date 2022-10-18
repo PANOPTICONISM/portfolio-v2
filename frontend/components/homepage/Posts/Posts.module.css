@@ -9,7 +9,10 @@
   margin: 16px 0;
 }
 
-.post p:first-of-type,
+.post p:first-of-type {
+  color: var(--text-colour);
+}
+
 .languages ul li {
   color: var(--text-colour-w-dark-box);
 }
