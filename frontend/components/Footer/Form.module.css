@@ -21,20 +21,6 @@
   color: var(--text-colour);
 }
 
-.form button {
-  padding: 20px;
-  width: 200px;
-  margin: auto;
-  border: 1px solid var(--primary-colour);
-  color: var(--text-colour);
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
-.form button:hover {
-  background-color: var(--primary-colour);
-}
-
 .form label,
 .form button {
   margin-top: 20px;
@@ -45,6 +31,73 @@
   text-transform: uppercase;
   font-weight: 700;
   margin-bottom: 6px;
+}
+
+.learn_more {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 200px;
+  margin: 12px auto;
+  padding: 20px;
+  border: 1px solid var(--primary-colour);
+  transition: 0.5s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.learn_more:before,
+.learn_more:after,
+.learn_more .projects_button:before,
+.learn_more .projects_button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 25.25%;
+  height: 0;
+  background-color: var(--primary-colour);
+  transition: 0.5s ease-in-out;
+}
+
+.learn_more:before {
+  left: 0;
+  z-index: 1;
+}
+
+.learn_more:after {
+  left: 50%;
+  z-index: 1;
+}
+
+.learn_more .projects_button:before,
+.learn_more .projects_button::after {
+  top: auto;
+  bottom: 0;
+  z-index: 2;
+}
+
+.learn_more .projects_button:before {
+  left: 25%;
+}
+
+.learn_more .projects_button:after {
+  left: 75%;
+}
+
+.learn_more:hover:before,
+.learn_more:hover:after,
+.learn_more:hover .projects_button:before,
+.learn_more:hover .projects_button:after {
+  height: 100%;
+}
+
+.projects_button span {
+  position: relative;
+  z-index: 5;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--text-colour);
 }
 
 .submit_message {
