@@ -1,4 +1,6 @@
-export default function BehanceIcon({ width, height, color = "#000" }: any) {
+import { IconProps } from "./types";
+
+export default function BehanceSquare({ width, height, color = "#000" }: IconProps) {
   return (
     <svg
       width={width}
