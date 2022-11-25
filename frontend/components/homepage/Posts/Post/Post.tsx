@@ -1,26 +1,6 @@
 import styles from "../Posts.module.css";
 import { icons } from "../../../../public/icons";
-
-interface ArticleProps {
-  article: {
-    fields: {
-      title?: string;
-      description?: string;
-      image?: {
-        fields: {
-          file: {
-            url: string;
-          };
-        };
-      };
-      category?: string;
-      behance?: string;
-      github?: string;
-      livePreview?: string;
-      languages?: Array<string>;
-    };
-  };
-}
+import { ArticleProps } from "../types";
 
 const Post = ({ article }: ArticleProps) => {
   const {
