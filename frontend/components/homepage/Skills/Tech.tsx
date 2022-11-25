@@ -9,8 +9,6 @@ const TabSkills = ({ skills }: TechProps) => {
     setActiveTab(e.target.textContent);
   }
 
-  console.log(skills, 'skills')
-
   return (
     <section className={styles.tech}>
       <h1 className={styles.heading}>Toolshed</h1>

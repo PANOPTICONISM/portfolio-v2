@@ -1,5 +1,5 @@
 import styles from "../Posts.module.css";
-import { icons } from "../../../../public/icons";
+import { icons } from "public/icons";
 import { ArticleProps } from "../types";
 
 const Post = ({ article }: ArticleProps) => {
