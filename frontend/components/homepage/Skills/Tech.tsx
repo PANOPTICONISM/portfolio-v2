@@ -1,12 +1,15 @@
 import styles from "./Tech.module.css";
-import { useState } from "react";
+import { SetStateAction, useState } from "react";
+import { TechProps } from "./types";
 
-const TabSkills = ({ skills }) => {
+const TabSkills = ({ skills }: TechProps) => {
   const [activeTab, setActiveTab] = useState("languages");
   const categories = ['languages', 'tools'];
-  const switchTab = (e) => {
+  const switchTab = (e: { target: { textContent: SetStateAction<string>; }; }) => {
     setActiveTab(e.target.textContent);
   }
+
+  console.log(skills, 'skills')
 
   return (
     <section className={styles.tech}>
@@ -14,12 +17,12 @@ const TabSkills = ({ skills }) => {
       <div className={styles.container}>
         <ul className={styles.filters}>
           {categories.map((category) =>
-            <li onClick={switchTab} key={category} className={activeTab === category ? styles.active : ""}>{category}</li>
+            <li onClick={() => switchTab} key={category} className={activeTab === category ? styles.active : ""}>{category}</li>
           )}
         </ul>
         <ul className={styles.stack}>
-          {skills.items.map((skill, index) =>
-            (activeTab === skill.metadata.tags?.[0]?.sys?.id) && <li key={index}>
+          {skills.items.map((skill) =>
+            (activeTab === skill.metadata.tags?.[0]?.sys?.id) && <li key={skill.fields.id}>
               <img
                 src={skill?.fields?.image?.fields?.file?.url}
                 alt={skill?.fields?.title}
