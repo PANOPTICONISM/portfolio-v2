@@ -1,11 +1,11 @@
 import styles from "./Tech.module.css";
-import { SetStateAction, useState } from "react";
+import { MouseEvent, SetStateAction, useState } from "react";
 import { TechProps } from "./types";
 
 const TabSkills = ({ skills }: TechProps) => {
   const [activeTab, setActiveTab] = useState("languages");
   const categories = ['languages', 'tools'];
-  const switchTab = (e: { target: { textContent: SetStateAction<string>; }; }) => {
+  const switchTab = (e: any) => {
     setActiveTab(e.target.textContent);
   }
 
@@ -15,7 +15,7 @@ const TabSkills = ({ skills }: TechProps) => {
       <div className={styles.container}>
         <ul className={styles.filters}>
           {categories.map((category) =>
-            <li onClick={() => switchTab} key={category} className={activeTab === category ? styles.active : ""}>{category}</li>
+            <li onClick={switchTab} key={category} className={activeTab === category ? styles.active : ""}>{category}</li>
           )}
         </ul>
         <ul className={styles.stack}>
