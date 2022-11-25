@@ -1,8 +1,8 @@
 import styles from "./Recent.module.css";
-import { images } from "../../../public";
-import { icons } from "../../../public/icons";
+import { icons } from "public/icons";
+import { RecentProps } from "./types";
 
-const Recent = ({ post, handleBackClick }) => {
+const Recent = ({ post, handleBackClick }: RecentProps) => {
   const { title, image, description, behance, github, livePreview } =
     post?.fields;
 
