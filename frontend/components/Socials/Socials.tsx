@@ -1,7 +1,4 @@
-import { Behance } from "../../icons/Behance";
-import { CodeAndSandbox } from "../../icons/CodeAndSandbox";
-import { GitHub } from "../../icons/GitHub";
-import { LinkedIn } from "../../icons/LinkedIn";
+import { icons } from "../../public/icons";
 import styles from "./Socials.module.css";
 
 const Socials = () => {
@@ -10,22 +7,22 @@ const Socials = () => {
       <ul>
         <li>
           <a href="https://www.linkedin.com/in/mariajalmeida/">
-            <LinkedIn width="30" height="30" />
+            <icons.LinkedInIcon width="30" height="30" />
           </a>
         </li>
         <li>
           <a href="https://www.behance.net/panopticonism">
-            <Behance width="30" height="30" />
+            <icons.BehanceIcon width="30" height="30" />
           </a>
         </li>
         <li>
           <a href="https://github.com/PANOPTICONISM">
-            <GitHub width="30" height="30" />
+            <icons.GitHubIcon width="30" height="30" />
           </a>
         </li>
         <li className={styles.pointer}>
           <a href="https://codesandbox.io/u/panopticonism">
-            <CodeAndSandbox width="30" height="30" />
+            <icons.SandboxIcon width="30" height="30" />
           </a>
         </li>
       </ul>

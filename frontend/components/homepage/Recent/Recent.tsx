@@ -1,5 +1,6 @@
 import styles from "./Recent.module.css";
 import { images } from "../../../public";
+import { icons } from "../../../public/icons";
 
 const Recent = ({ post, handleBackClick }) => {
   const { title, image, description, behance, github, livePreview } =
@@ -16,21 +17,21 @@ const Recent = ({ post, handleBackClick }) => {
                 {behance ? (
                   <li>
                     <a href={behance} target="_blank" rel="noreferrer">
-                      <images.BehanceIcon width={30} height={30} />
+                      <icons.BehanceSquare width="30" height="30" />
                     </a>
                   </li>
                 ) : null}
                 {github ? (
                   <li>
                     <a href={github} target="_blank" rel="noreferrer">
-                      <images.GitHubIcon width={30} height={30} />
+                      <icons.GithubSquare width="30" height="30" />
                     </a>
                   </li>
                 ) : null}
                 {livePreview ? (
                   <li>
                     <a href={livePreview} target="_blank" rel="noreferrer">
-                      <images.PreviewIcon width={30} height={30} />
+                      <icons.PreviewIcon width="30" height="30" />
                     </a>
                   </li>
                 ) : null}

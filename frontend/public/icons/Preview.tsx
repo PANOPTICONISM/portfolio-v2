@@ -1,4 +1,8 @@
-export default function WebsiteIcon({ width, height, color = "#000" }: any) {
+import { IconProps } from "./types";
+
+export default function Preview(props: IconProps) {
+  const { width, height, color = "#000" } = props;
+
   return (
     <svg
       width={width}

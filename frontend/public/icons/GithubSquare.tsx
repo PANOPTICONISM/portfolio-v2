@@ -1,4 +1,8 @@
-export default function GitHubIcon({ width, height, color = "#000" }: any) {
+import { IconProps } from "./types";
+
+export default function GitHubIcon(props: IconProps) {
+  const { width, height, color = "#000" } = props;
+
   return (
     <svg
       width={width}
