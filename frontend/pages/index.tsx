@@ -6,24 +6,19 @@ import {
   Footer,
   ProjectsCTA,
   LoadingScreen,
-} from "../components";
+} from "components";
 import {
   Introduction,
   Steps,
   Recent,
   Posts,
   TabSkills,
-} from "../components/homepage";
-import Experience from "../components/homepage/Experience/Experience";
-import { useThemeContext } from "../contexts/theme-context";
+} from "components/homepage";
+import Experience from "components/homepage/Experience/Experience";
+import { useThemeContext } from "contexts/theme-context";
+import { FetchDataProps } from "types/types";
 
-interface PageProps {
-  pri: any;
-  skills: any;
-  experience: any;
-}
-
-const Home: NextPage<PageProps> = ({ pri, skills, experience }) => {
+const Home: NextPage<FetchDataProps> = ({ pri, skills, experience }) => {
   const [isLoading, setLoading] = useState(true);
   const { theme } = useThemeContext();
 

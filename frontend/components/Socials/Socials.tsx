@@ -1,4 +1,4 @@
-import { icons } from "../../public/icons";
+import { icons } from "public/icons";
 import styles from "./Socials.module.css";
 
 const Socials = () => {

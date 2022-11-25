@@ -1,13 +1,15 @@
 export type ExperienceProps = {
-    jobs: {
-        fields: {
-            id: number,
-            company: string,
-            jobTitle: string,
-            description: string,
-        },
-        sys: {
-            id: string,
-        }
-    }[]
+    jobs: ExperienceFieldsProps[],
+};
+
+export type ExperienceFieldsProps = {
+    fields: {
+        id: number,
+        company: string,
+        jobTitle: string,
+        description: string,
+    },
+    sys: {
+        id: string,
+    }
 };
