@@ -1,6 +1,6 @@
 import styles from "./Header.module.css";
 import { useState, useEffect } from "react";
-import useIsDesktop from "../../hooks/useIsDesktop";
+import useIsDesktop from "hooks/useIsDesktop";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,7 +13,7 @@ const Header = () => {
     } else {
       document.body.style.overflow = "auto";
     }
-  }, [isOpen]);
+  }, [isDesktop, isOpen]);
 
   return (
     <header className={styles.header}>

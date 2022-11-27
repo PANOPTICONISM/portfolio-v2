@@ -6,26 +6,19 @@ import {
   Footer,
   ProjectsCTA,
   LoadingScreen,
-} from "../components";
+} from "components";
 import {
   Introduction,
   Steps,
-  Tech,
   Recent,
   Posts,
-} from "../components/homepage";
-import Experience from "../components/homepage/Experience/Experience";
-import Modal from "../components/Modal/Modal";
-import { ThemeSwitch } from "../components/ThemeSwitch/ThemeSwitch";
-import { useThemeContext } from "../contexts/theme-context";
+  TabSkills,
+} from "components/homepage";
+import Experience from "components/homepage/Experience/Experience";
+import { useThemeContext } from "contexts/theme-context";
+import { FetchDataProps } from "types/types";
 
-interface PageProps {
-  pri: any;
-  skills: any;
-  experience: any;
-}
-
-const Home: NextPage<PageProps> = ({ pri, skills, experience }) => {
+const Home: NextPage<FetchDataProps> = ({ pri, skills, experience }) => {
   const [isLoading, setLoading] = useState(true);
   const { theme } = useThemeContext();
 
@@ -33,7 +26,7 @@ const Home: NextPage<PageProps> = ({ pri, skills, experience }) => {
     if (pri.success && skills.success && experience.success === true) {
       setLoading(false);
     }
-  }, [experience, pri, skills]);
+  }, [experience, skills, pri]);
 
   const projectsRef = useRef<any>(null);
   function handleBackClick() {
@@ -51,7 +44,7 @@ const Home: NextPage<PageProps> = ({ pri, skills, experience }) => {
             <Socials />
             <Introduction />
             <Steps />
-            <Tech skills={skills.skills.items} />
+            <TabSkills skills={skills.skills} />
             <Recent
               post={pri.projects.items[0]}
               handleBackClick={handleBackClick}
@@ -72,12 +65,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const { req } = context;
   const protocol = req.headers["x-forwarded-proto"] || "http";
   const baseUrl = req ? `${protocol}://${req.headers.host}` : "";
-  console.log(protocol, baseUrl);
   const pri = await fetch(`${baseUrl}/api/projects`).then((res) => res.json());
   const skills = await fetch(`${baseUrl}/api/skills`).then((res) => res.json());
-  const experience = await fetch(`${baseUrl}/api/experience`).then((res) =>
-    res.json()
-  );
+  const experience = await fetch(`${baseUrl}/api/experience`).then((res) => res.json());
 
   return {
     props: { pri, skills, experience },

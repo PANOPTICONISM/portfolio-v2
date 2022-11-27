@@ -1,6 +1,8 @@
 import styles from "./Styles.module.css";
+import { ExperienceProps } from "./types";
 
-const Experience = ({ jobs }) => {
+const Experience = ({ jobs }: ExperienceProps) => {
+
   return (
     <section id="experience" className={styles.experience}>
       <h1>Experience</h1>

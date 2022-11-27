@@ -63,7 +63,7 @@ const Footer = () => {
               </div>
             </fieldset>
             <label htmlFor="message">Message</label>
-            <textarea id="message" name="message" rows="4" cols="50" required />
+            <textarea id="message" name="message" rows={4} cols={50} required />
             <ValidationError
               prefix="Message"
               field="message"
