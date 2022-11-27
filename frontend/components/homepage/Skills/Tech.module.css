@@ -27,6 +27,8 @@
   gap: 0.5rem;
   max-width: 400px;
   margin: 16px auto;
+  text-transform: capitalize;
+  font-weight: 600;
 }
 
 .filters li {

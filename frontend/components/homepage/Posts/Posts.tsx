@@ -14,7 +14,7 @@ const Posts = forwardRef<HTMLInputElement, ProjectsProps>(
     const [filteredProjects, setFilteredProjects] = useState(removeFirstPost);
     const [activeButton, setActiveButton] = useState("all");
 
-    const categories = ["all", "ui/ux design", "web development"];
+    const categories = ["all", "design", "development"];
 
     const clickedFilter = (e: any) => {
       setActiveButton(e.target.textContent);
