@@ -23,11 +23,8 @@ const Blog: NextPage<DataProps> = ({ entries }) => {
 
 export default Blog;
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-    const { req } = context;
-    const protocol = req.headers["x-forwarded-proto"] || "http";
-    const baseUrl = req ? `${protocol}://${req.headers.host}` : "";
-    const entries = await fetch(`${baseUrl}/api/blog`).then((res) => res.json());
+export const getServerSideProps: GetServerSideProps = async () => {
+    const entries = await fetch(`${process.env.BASE_FETCH_URL}/api/blog/table`).then((res) => res.json());
 
     return {
         props: { entries },
