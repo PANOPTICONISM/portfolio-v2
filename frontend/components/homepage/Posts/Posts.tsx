@@ -1,9 +1,10 @@
 import styles from "./Posts.module.css";
 import Post from "./Post/Post";
 import { useState, forwardRef } from "react";
+import { ArticleFieldsProps } from "./types";
 
 interface ProjectsProps {
-  projects?: any;
+  projects: ArticleFieldsProps[];
 }
 
 const Posts = forwardRef<HTMLInputElement, ProjectsProps>(
@@ -13,7 +14,7 @@ const Posts = forwardRef<HTMLInputElement, ProjectsProps>(
     const [filteredProjects, setFilteredProjects] = useState(removeFirstPost);
     const [activeButton, setActiveButton] = useState("all");
 
-    const categories = ["all", "ui/ux design", "web development"];
+    const categories = ["all", "design", "development"];
 
     const clickedFilter = (e: any) => {
       setActiveButton(e.target.textContent);
@@ -21,7 +22,7 @@ const Posts = forwardRef<HTMLInputElement, ProjectsProps>(
       const trigger = e.target.textContent;
       let result: any[] = [];
 
-      removeFirstPost.map((project: { fields: { category: any[] } }) => {
+      removeFirstPost.map((project) => {
         return project?.fields?.category?.filter((cat) => {
           if (trigger === cat) {
             result.push(project);

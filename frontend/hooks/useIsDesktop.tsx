@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 
 const useIsDesktop = () => {
     const [width, setWidth] = useState(window.innerWidth);
     const handleWindowSizeChange = () => {
-            setWidth(window.innerWidth);
+        setWidth(window.innerWidth);
     }
 
     useEffect(() => {

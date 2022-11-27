@@ -13,7 +13,7 @@ export default async function retrieveData(
 ) {
   try {
     const skills = await client.getEntries({
-      content_type: "skills",
+      content_type: "toolshed",
       order: "fields.id",
     });
     return res.json({
