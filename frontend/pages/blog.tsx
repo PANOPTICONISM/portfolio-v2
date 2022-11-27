@@ -1,4 +1,6 @@
+import { TextField } from 'components/Notion/Blocks';
 import { GetServerSideProps, NextPage } from 'next';
+import Link from 'next/link';
 import React from 'react';
 
 type DataProps = {
@@ -7,9 +9,15 @@ type DataProps = {
 
 const Blog: NextPage<DataProps> = ({ entries }) => {
     const { results } = entries.posts;
-    console.log(entries, 'cheers')
     return (
-        <div>blog</div>
+        <section>
+            {results.map((entry) =>
+                <article key={entry.id}>
+                    <TextField text={entry.properties.Name.title} />
+                    <Link href={`/${entry.id}`}>Read post →</Link>
+                </article>
+            )}
+        </section>
     )
 }
 

@@ -61,13 +61,10 @@ const Home: NextPage<FetchDataProps> = ({ pri, skills, experience }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { req } = context;
-  const protocol = req.headers["x-forwarded-proto"] || "http";
-  const baseUrl = req ? `${protocol}://${req.headers.host}` : "";
-  const pri = await fetch(`${baseUrl}/api/projects`).then((res) => res.json());
-  const skills = await fetch(`${baseUrl}/api/skills`).then((res) => res.json());
-  const experience = await fetch(`${baseUrl}/api/experience`).then((res) => res.json());
+export const getServerSideProps = async () => {
+  const pri = await fetch(`${process.env.BASE_FETCH_URL}/api/projects`).then((res) => res.json());
+  const skills = await fetch(`${process.env.BASE_FETCH_URL}/api/skills`).then((res) => res.json());
+  const experience = await fetch(`${process.env.BASE_FETCH_URL}/api/experience`).then((res) => res.json());
 
   return {
     props: { pri, skills, experience },
