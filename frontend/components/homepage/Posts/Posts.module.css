@@ -21,6 +21,8 @@
   gap: 0.5rem;
   max-width: 400px;
   margin: 16px auto;
+  text-transform: capitalize;
+  font-weight: 600;
 }
 
 .filters ul li {
@@ -59,12 +61,12 @@
   flex-wrap: wrap;
 }
 
-.post .languages ul > li {
+.post .languages ul>li {
   margin-right: 12px;
   margin-bottom: 12px;
 }
 
-.post .sources ul > li {
+.post .sources ul>li {
   margin-right: 12px;
 }
 
