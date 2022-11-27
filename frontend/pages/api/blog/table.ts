@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { notionClient } from "./lib/Notion";
+import { notionClient } from "../lib/Notion";
 
 type Data = {
     message: ErrorConstructor | string;

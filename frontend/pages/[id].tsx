@@ -6,11 +6,12 @@ export default function Post({ page, blocks }) {
   if (!page || !blocks) {
     return;
   }
+
   return (
     <div>
       <article>
         <h1>
-          <TextField text={page.properties.Name.title} />
+          <TextField text={page.page.properties?.Name?.title} />
         </h1>
         <section>
           {blocks.map((block) => (
@@ -23,7 +24,7 @@ export default function Post({ page, blocks }) {
 }
 
 export const getStaticPaths = async () => {
-  const entries = await fetch(`${process.env.BASE_FETCH_URL}/api/blog`).then((res) => res.json());
+  const entries = await fetch(`${process.env.BASE_FETCH_URL}/api/blog/table`).then((res) => res.json());
 
   return {
     paths: entries.posts.results.map((page) => ({ params: { id: page.id } })),
@@ -33,7 +34,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context) => {
   const { id } = context.params;
-  const page = await getPage(id);
+  const page = await fetch(`${process.env.BASE_FETCH_URL}/api/blog/${id}`).then((res) => res.json());
   const blocks = await getBlocks(id);
 
   const childBlocks = await Promise.all(
