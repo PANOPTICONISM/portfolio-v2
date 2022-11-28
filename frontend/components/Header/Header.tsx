@@ -1,6 +1,7 @@
 import styles from "./Header.module.css";
 import { useState, useEffect } from "react";
 import useIsDesktop from "hooks/useIsDesktop";
+import Link from "next/link";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,7 +18,11 @@ const Header = () => {
 
   return (
     <header className={styles.header}>
-      <img src="/logo.svg" alt="panopticonism-logo" />
+      <Link href="/">
+        <a>
+          <img src="/logo.svg" alt="panopticonism-logo" />
+        </a>
+      </Link>
       <div
         className={`${styles.closeBox} ${isOpen ? styles.show : ""}`}
         onClick={toggle}

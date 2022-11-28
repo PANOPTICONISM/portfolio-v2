@@ -1,20 +1,37 @@
+import { Footer, Header, LoadingScreen } from 'components';
+import { Entries } from 'components/Entries/Entries';
 import { TextField } from 'components/Notion/Blocks';
+import { useThemeContext } from 'contexts/theme-context';
 import { GetServerSideProps, NextPage } from 'next';
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BlogDataProps } from 'types/types';
 
 const Blog: NextPage<BlogDataProps> = ({ entries }) => {
+    const { theme } = useThemeContext();
     const { results } = entries.posts;
+    const [isLoading, setLoading] = useState(true);
+
+    useEffect(() => {
+        if (entries.success === true) {
+            setLoading(false);
+        }
+    }, [entries]);
+
     return (
-        <section>
-            {results.map((entry) =>
-                <article key={entry.id}>
-                    <TextField text={entry.properties.Name.title} />
-                    <Link href={`/${entry.id}`}>Read post →</Link>
-                </article>
-            )}
-        </section>
+        <div className={`common theme-${theme}`}>
+            {isLoading ?
+                <LoadingScreen /> :
+                <>
+                    <Header />
+                    <h1>Archive</h1>
+                    <main>
+                        <Entries posts={results} />
+                    </main>
+                    <Footer />
+                </>
+            }
+        </div>
     )
 }
 

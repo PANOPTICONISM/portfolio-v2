@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Fragment } from "react";
 import styles from "./Blocks.module.css";
+import { Code } from "./Code";
 import { TextProps } from "./types";
 
 export const TextField = ({ text }: { text: TextProps }) => {
@@ -27,7 +28,7 @@ export const TextField = ({ text }: { text: TextProps }) => {
                         {text.link ? <a href={text.link.url}>{text.content}</a> : text.content}
                     </span>
                 );
-            })};
+            })}
         </section>)
 };
 
@@ -119,11 +120,7 @@ export const renderBlock = (block: any) => {
             return <blockquote key={id}>{value.rich_text[0].plain_text}</blockquote>;
         case "code":
             return (
-                <pre className={styles.pre}>
-                    <code className={styles.code_block} key={id}>
-                        {value.rich_text[0]?.plain_text}
-                    </code>
-                </pre>
+                <Code content={value.rich_text[0]?.plain_text} />
             );
         case "file":
             const src_file =

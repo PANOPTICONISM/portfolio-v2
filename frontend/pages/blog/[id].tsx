@@ -1,6 +1,7 @@
 import { renderBlock, TextField } from "components/Notion/Blocks";
 import { Fragment } from "react";
 import { PostProps } from "types/types";
+import styles from "./Post.module.css";
 
 export default function Post({ page, blocks }: PostProps) {
   if (!page || !blocks) {
@@ -8,7 +9,7 @@ export default function Post({ page, blocks }: PostProps) {
   }
   return (
     <div>
-      <article>
+      <article className={styles.container}>
         <h1>
           <TextField text={page.page.properties?.Name?.title} />
         </h1>
