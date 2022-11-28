@@ -1,36 +1,37 @@
 import Link from "next/link";
 import { Fragment } from "react";
 import styles from "./Blocks.module.css";
+import { TextProps } from "./types";
 
-export const TextField = ({ text }) => {
-    if (!text) {
-        return null;
-    }
+export const TextField = ({ text }: { text: TextProps }) => {
 
-    return text.map((value, index) => {
-        const {
-            annotations: { bold, code, color, italic, strikethrough, underline },
-            text,
-        } = value;
-        return (
-            <span
-                key={index}
-                className={[
-                    bold ? styles.bold : "",
-                    code ? styles.code : "",
-                    italic ? styles.italic : "",
-                    strikethrough ? styles.strikethrough : "",
-                    underline ? styles.underline : "",
-                ].join(" ")}
-                style={color !== "default" ? { color } : {}}
-            >
-                {text.link ? <a href={text.link.url}>{text.content}</a> : text.content}
-            </span>
-        );
-    });
+    return (
+        <section>
+            {text.map((value, index) => {
+                const {
+                    annotations: { bold, code, color, italic, strikethrough, underline },
+                    text,
+                } = value;
+                return (
+                    <span
+                        key={index}
+                        className={[
+                            bold ? styles.bold : "",
+                            code ? styles.code : "",
+                            italic ? styles.italic : "",
+                            strikethrough ? styles.strikethrough : "",
+                            underline ? styles.underline : "",
+                        ].join(" ")}
+                        style={color !== "default" ? { color } : {}}
+                    >
+                        {text.link ? <a href={text.link.url}>{text.content}</a> : text.content}
+                    </span>
+                );
+            })};
+        </section>)
 };
 
-export const renderNestedList = (block) => {
+export const renderNestedList = (block: any) => {
     const { type } = block;
     const value = block[type];
     if (!value) return null;
@@ -38,12 +39,12 @@ export const renderNestedList = (block) => {
     const isNumberedList = value.children[0].type === "numbered_list_item";
 
     if (isNumberedList) {
-        return <ol>{value.children.map((block) => renderBlock(block))}</ol>;
+        return <ol>{value.children.map((block: any) => renderBlock(block))}</ol>;
     }
-    return <ul>{value.children.map((block) => renderBlock(block))}</ul>;
+    return <ul>{value.children.map((block: any) => renderBlock(block))}</ul>;
 };
 
-export const renderBlock = (block) => {
+export const renderBlock = (block: any) => {
     const { type, id } = block;
     const value = block[type];
 
@@ -95,7 +96,7 @@ export const renderBlock = (block) => {
                     <summary>
                         <TextField text={value.rich_text} />
                     </summary>
-                    {value.children?.map((block) => (
+                    {value.children?.map((block: any) => (
                         <Fragment key={block.id}>{renderBlock(block)}</Fragment>
                     ))}
                 </details>

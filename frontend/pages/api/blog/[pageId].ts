@@ -1,6 +1,15 @@
+import { GetPageResponse } from "@notionhq/client/build/src/api-endpoints";
+import { NextApiRequest, NextApiResponse } from "next";
 import { notionClient } from "../lib/Notion";
 
-export default async function handler(req, res) {
+type Data = {
+    message: ErrorConstructor | string;
+    success: boolean;
+    page?: GetPageResponse,
+};
+
+export default async function handler(req: { query: { pageId: string; }; },
+    res: NextApiResponse<Data>) {
     const { pageId } = req.query;
 
     try {
