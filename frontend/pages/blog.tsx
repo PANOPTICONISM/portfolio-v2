@@ -2,12 +2,9 @@ import { TextField } from 'components/Notion/Blocks';
 import { GetServerSideProps, NextPage } from 'next';
 import Link from 'next/link';
 import React from 'react';
+import { BlogDataProps } from 'types/types';
 
-type DataProps = {
-    entries: any,
-}
-
-const Blog: NextPage<DataProps> = ({ entries }) => {
+const Blog: NextPage<BlogDataProps> = ({ entries }) => {
     const { results } = entries.posts;
     return (
         <section>
