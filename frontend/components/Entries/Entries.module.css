@@ -1,0 +1,16 @@
+.entries {
+    display: grid;
+    gap: 20px;
+}
+
+.entries article {
+    background: var(--box-colour);
+    padding: 20px;
+}
+
+@media screen and (min-width: 600px) {
+    .entries {
+        grid-template-columns: repeat(auto-fit, 300px);
+        justify-content: center;
+    }
+}
