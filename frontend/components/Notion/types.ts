@@ -17,3 +17,12 @@ export type TextProps = {
         underline: boolean,
     }
 }[];
+
+export type CalloutProps = {
+    icon: {
+        emoji: string,
+    },
+    rich_text: {
+        plain_text: string,
+    }[]
+}

@@ -2,10 +2,9 @@ import Link from "next/link";
 import { Fragment } from "react";
 import styles from "./Blocks.module.css";
 import { Code } from "./Code";
-import { TextProps } from "./types";
+import { CalloutProps, TextProps } from "./types";
 
 export const TextField = ({ text }: { text: TextProps }) => {
-
     return (
         <section>
             {text.map((value, index) => {
@@ -32,6 +31,14 @@ export const TextField = ({ text }: { text: TextProps }) => {
         </section>)
 };
 
+export const Callout = ({ text }: { text: CalloutProps }) => {
+    return (
+        <section className={styles.callout}>
+            <span>{text.icon.emoji} {text?.rich_text?.[0].plain_text}</span>
+        </section>
+    )
+}
+
 export const renderNestedList = (block: any) => {
     const { type } = block;
     const value = block[type];
@@ -54,6 +61,12 @@ export const renderBlock = (block: any) => {
             return (
                 <p>
                     <TextField text={value.rich_text} />
+                </p>
+            );
+        case "callout":
+            return (
+                <p>
+                    <Callout text={value} />
                 </p>
             );
         case "heading_1":
