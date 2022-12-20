@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 const useIsDesktop = () => {
-    const [width, setWidth] = useState(window.innerWidth);
+    const [width, setWidth] = useState(typeof window !== "undefined" && window.innerWidth);
     const handleWindowSizeChange = () => {
         setWidth(window.innerWidth);
     }
