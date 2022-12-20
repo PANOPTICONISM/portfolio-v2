@@ -3,6 +3,10 @@
     gap: 20px;
 }
 
+.entries h2 {
+    margin-top: 0;
+}
+
 .entries article {
     background: var(--box-colour);
     padding: 20px;
