@@ -14,6 +14,7 @@ export default function Post({ page, blocks }: PostProps) {
     setLoading(true);
     return null;
   }
+
   return (
     <div className={`common theme-${theme}`}>
       {isLoading ?

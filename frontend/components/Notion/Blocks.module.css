@@ -3,3 +3,8 @@
     padding: 40px;
     overflow: auto;
 }
+
+.callout {
+    background-color: #081323;
+    padding: 40px;
+}
