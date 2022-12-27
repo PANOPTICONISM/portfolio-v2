@@ -46,6 +46,13 @@ const Header = () => {
               Portfolio
             </a>
           </li>
+          <li>
+            <Link href="/blog">
+              <a>
+                Blog
+              </a>
+            </Link>
+          </li>
           <li className={styles.hire_me}>
             <a href="#hire_me" onClick={toggle}>
               <span>Hire me</span>

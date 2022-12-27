@@ -32,7 +32,7 @@ const Introduction = () => {
           </li>
           <li>
             &nbsp; 8 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-            &nbsp; &nbsp; &nbsp; development: "Software Developer"
+            &nbsp; &nbsp; &nbsp; development: "Software Engineer"
           </li>
           <li>
             &nbsp; 9 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &#125;,
@@ -48,9 +48,13 @@ const Introduction = () => {
           <li>13 &nbsp; &nbsp; &nbsp; const job = &#123; </li>
           <li>
             14 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type: &#91;
-            "Internship - Winter 2023" &#93;,
+            "Full-time" &#93;,
           </li>
-          <li>15 &nbsp; &nbsp; &nbsp; &#125;;</li>
+          <li>
+            15 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; location: &#91;
+            "Hybrid", "Remote" &#93;,
+          </li>
+          <li>16 &nbsp; &nbsp; &nbsp; &#125;;</li>
         </ul>
       </div>
     </section>
