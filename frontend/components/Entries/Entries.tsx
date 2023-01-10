@@ -49,13 +49,13 @@ export const Entries = ({ posts }: { posts: PostProps }) => {
                     {entry.properties.Tags.multi_select && <ul>{entry.properties.Tags.multi_select.map((tag) =>
                         <li key={tag.id} style={{ background: colors[tag.name] }}>{tag.name}</li>)}</ul>}
                     <p>{entry.properties.Summary.rich_text[0]?.plain_text}</p>
-                    <div className={styles.learn_more}>
-                        <Link href={`/blog/${entry.id}`}>
+                    <Link href={`/blog/${entry.id}`}>
+                        <div className={styles.learn_more}>
                             <div className={styles.projects_button}>
                                 <span>Read article →</span>
                             </div>
-                        </Link>
-                    </div>
+                        </div>
+                    </Link>
                 </article>
             )}
         </section>
