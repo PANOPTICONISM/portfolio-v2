@@ -34,7 +34,7 @@ export const TextField = ({ text }: { text: TextProps }) => {
 export const Callout = ({ text }: { text: CalloutProps }) => {
     return (
         <section className={styles.callout}>
-            <span>{text.icon.emoji} {text?.rich_text?.[0].plain_text}</span>
+            <span>{text.icon.emoji} {text?.rich_text?.[0]?.plain_text}</span>
         </section>
     )
 }
