@@ -95,9 +95,11 @@
 .projects_button span {
   position: relative;
   z-index: 5;
+  color: var(--text-colour);
   text-transform: uppercase;
   font-weight: 600;
-  color: var(--text-colour);
+  font-family: var(--buttons-font);
+  font-size: 13px;
 }
 
 .submit_message {

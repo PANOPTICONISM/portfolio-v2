@@ -27,7 +27,7 @@
   transform: translateY(4px);
 }
 
-.most_recent .sources ul > li {
+.most_recent .sources ul>li {
   margin-right: 12px;
   margin-bottom: 12px;
 }
@@ -106,9 +106,11 @@
 .projects_button span {
   position: relative;
   z-index: 5;
+  color: var(--text-colour);
   text-transform: uppercase;
   font-weight: 600;
-  color: var(--text-colour);
+  font-family: var(--buttons-font);
+  font-size: 13px;
 }
 
 @media (min-width: 1200px) {
