@@ -39,7 +39,6 @@ const colors: ColorsProps = {
 }
 
 export const Entries = ({ posts }: { posts: PostProps }) => {
-    console.log(colors["React"])
     return (
         <section className={styles.entries}>
             {posts.map((entry) =>
