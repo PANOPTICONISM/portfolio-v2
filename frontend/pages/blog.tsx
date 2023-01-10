@@ -3,20 +3,18 @@ import { Entries } from 'components/Entries/Entries';
 import { TextField } from 'components/Notion/Blocks';
 import { useThemeContext } from 'contexts/theme-context';
 import { GetServerSideProps, NextPage } from 'next';
-import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { BlogDataProps } from 'types/types';
 
-const Blog: NextPage<BlogDataProps> = ({ entries }) => {
+const Blog: NextPage<BlogDataProps> = ({ posts, success }) => {
     const { theme } = useThemeContext();
-    const { results } = entries.posts;
     const [isLoading, setLoading] = useState(true);
 
     useEffect(() => {
-        if (entries.success === true) {
+        if (success === true) {
             setLoading(false);
         }
-    }, [entries]);
+    }, [success]);
 
     return (
         <div className={`common theme-${theme}`}>
@@ -26,7 +24,7 @@ const Blog: NextPage<BlogDataProps> = ({ entries }) => {
                     <Header />
                     <h1>Archive</h1>
                     <main>
-                        <Entries posts={results} />
+                        <Entries posts={posts} />
                     </main>
                     <Footer />
                 </>
@@ -39,8 +37,9 @@ export default Blog;
 
 export const getServerSideProps: GetServerSideProps = async () => {
     const entries = await fetch(`${process.env.BASE_FETCH_URL}/api/blog/table`).then((res) => res.json());
+    const readyOnlyEntries = entries.posts.results.filter((entry: { properties: { Status: { status: { name: string; }; }; }; }) => entry.properties.Status.status.name === 'Done');
 
     return {
-        props: { entries },
+        props: { posts: readyOnlyEntries, success: entries.success },
     };
 };
