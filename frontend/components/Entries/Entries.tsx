@@ -44,12 +44,18 @@ export const Entries = ({ posts }: { posts: PostProps }) => {
         <section className={styles.entries}>
             {posts.map((entry) =>
                 <article key={entry.id}>
-                    <span>{entry.icon.emoji}</span>
+                    <span className={styles.icon}>{entry.icon.emoji}</span>
                     <h2>{entry.properties.Name.title[0].plain_text}</h2>
                     {entry.properties.Tags.multi_select && <ul>{entry.properties.Tags.multi_select.map((tag) =>
                         <li key={tag.id} style={{ background: colors[tag.name] }}>{tag.name}</li>)}</ul>}
                     <p>{entry.properties.Summary.rich_text[0]?.plain_text}</p>
-                    <Link href={`/blog/${entry.id}`}>Read article →</Link>
+                    <div className={styles.learn_more}>
+                        <Link href={`/blog/${entry.id}`}>
+                            <div className={styles.projects_button}>
+                                <span>Read article →</span>
+                            </div>
+                        </Link>
+                    </div>
                 </article>
             )}
         </section>

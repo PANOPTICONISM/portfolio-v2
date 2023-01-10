@@ -27,12 +27,14 @@
   gap: 0.5rem;
   max-width: 400px;
   margin: 16px auto;
-  text-transform: capitalize;
+  text-transform: uppercase;
   font-weight: 600;
+  font-family: var(--buttons-font);
+  font-size: 13px;
 }
 
 .filters li {
-  padding: 10px;
+  padding: 14px;
   max-width: 100%;
   text-align: center;
   border: 1px solid transparent;
