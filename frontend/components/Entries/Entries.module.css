@@ -18,9 +18,22 @@
     font-size: 23px;
 }
 
+.entries ul {
+    display: flex;
+}
+
+.entries ul li {
+    padding: 4px 6px;
+    font-weight: 600;
+}
+
+.entries ul li:not(:last-child) {
+    margin-right: 10px;
+}
+
 @media screen and (min-width: 600px) {
     .entries {
-        grid-template-columns: repeat(auto-fit, 300px);
+        grid-template-columns: repeat(auto-fit, 350px);
         justify-content: center;
     }
 }
