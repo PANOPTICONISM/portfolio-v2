@@ -39,6 +39,10 @@ a {
   --primary-font: "Syncopate", sans-serif;
   --secondary-font: "Open Sans", sans-serif;
   --buttons-font: Arial, Helvetica, sans-serif;
+
+  --basic: purple;
+  --professional: #ff641a;
+  --premium: darkcyan;
 }
 
 .theme-dark {
@@ -51,10 +55,6 @@ a {
   --box-colour: #38445d;
 
   --black: #000;
-
-  --basic: purple;
-  --professional: #ff641a;
-  --premium: darkcyan;
 }
 
 .theme-light {
@@ -66,10 +66,6 @@ a {
   --green-colour: #007d55;
   --grey-colour: #7a7d88;
   --box-colour: #38445d;
-
-  --basic: purple;
-  --professional: #ff641a;
-  --premium: darkcyan;
 }
 
 .common {

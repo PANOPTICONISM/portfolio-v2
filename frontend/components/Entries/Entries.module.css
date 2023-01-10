@@ -34,12 +34,10 @@
 .learn_more {
     position: relative;
     max-width: fit-content;
-    padding: 8px 12px;
+    padding: 12px 16px;
     border: 1px solid var(--primary-colour);
     transition: 0.5s ease-in-out;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    cursor: pointer;
 }
 
 .learn_more:before,
@@ -85,6 +83,12 @@
 .learn_more:hover .projects_button:before,
 .learn_more:hover .projects_button:after {
     height: 100%;
+}
+
+.projects_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .projects_button span {
