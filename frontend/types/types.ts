@@ -1,4 +1,4 @@
-import { ExperienceFieldsProps, ExperienceProps } from "components/homepage/Experience/types";
+import { ExperienceFieldsProps } from "components/homepage/Experience/types";
 import { ArticleFieldsProps } from "components/homepage/Posts/types";
 import { TechItemsProps } from "components/homepage/Skills/types";
 import { TextProps } from "components/Notion/types";
@@ -27,20 +27,15 @@ export type FetchDataProps = {
 };
 
 export type BlogDataProps = {
-    entries: {
-        message: string,
-        success: boolean,
-        posts: {
-            results: {
-                id: string,
-                properties: {
-                    Name: {
-                        title: TextProps,
-                    }
-                },
-            }[],
+    posts: {
+        id: string,
+        properties: {
+            Name: {
+                title: TextProps,
+            }
         },
-    },
+    }[],
+    success: boolean,
 }
 
 export type PostProps = {
