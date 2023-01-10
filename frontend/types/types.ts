@@ -1,3 +1,4 @@
+import { PostProps } from "components/Entries/Entries";
 import { ExperienceFieldsProps } from "components/homepage/Experience/types";
 import { ArticleFieldsProps } from "components/homepage/Posts/types";
 import { TechItemsProps } from "components/homepage/Skills/types";
@@ -27,18 +28,11 @@ export type FetchDataProps = {
 };
 
 export type BlogDataProps = {
-    posts: {
-        id: string,
-        properties: {
-            Name: {
-                title: TextProps,
-            }
-        },
-    }[],
+    posts: PostProps,
     success: boolean,
 }
 
-export type PostProps = {
+export type SinglePostProps = {
     page: PageProps,
     blocks: BlocksProps,
 }

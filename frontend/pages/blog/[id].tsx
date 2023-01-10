@@ -4,10 +4,10 @@ import LoadingScreen from "components/Loading/Loading";
 import { renderBlock, TextField } from "components/Notion/Blocks";
 import { useThemeContext } from "contexts/theme-context";
 import { Fragment, useState } from "react";
-import { PostProps } from "types/types";
+import { SinglePostProps } from "types/types";
 import styles from "./Post.module.css";
 
-export default function Post({ page, blocks }: PostProps) {
+export default function Post({ page, blocks }: SinglePostProps) {
   const { theme } = useThemeContext();
   const [isLoading, setLoading] = useState(false);
   if (!page || !blocks) {
