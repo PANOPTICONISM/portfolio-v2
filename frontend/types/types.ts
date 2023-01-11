@@ -33,15 +33,6 @@ export type BlogDataProps = {
 }
 
 export type SinglePostProps = {
-    page: PageProps,
-    blocks: {
-        results: {
-            id: string,
-        }[],
-    },
-}
-
-type PageProps = {
     page: {
         properties: {
             Name: {
@@ -49,6 +40,9 @@ type PageProps = {
             }
         },
     },
-    message: string,
-    success: boolean,
+    blocks: {
+        results: {
+            id: string,
+        }[],
+    },
 }

@@ -65,9 +65,7 @@ export const renderBlock = (block: any) => {
             );
         case "callout":
             return (
-                <p>
-                    <Callout text={value} />
-                </p>
+                <Callout text={value} />
             );
         case "heading_1":
             return (
