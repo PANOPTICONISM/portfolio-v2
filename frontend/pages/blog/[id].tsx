@@ -40,6 +40,13 @@ export default function Post({ page, blocks }: SinglePostProps) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  if (process.env.SKIP_BUILD_STATIC_GENERATION) {
+    return {
+      paths: [],
+      fallback: 'blocking',
+    }
+  }
+
   const entries = await fetch(`${process.env.VERCEL_URL}/api/blog/table`).then((res) => res.json());
 
   return {
