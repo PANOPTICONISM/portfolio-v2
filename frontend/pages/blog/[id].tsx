@@ -25,10 +25,10 @@ export default function Post({ page, blocks }: SinglePostProps) {
           <Header />
           <article className={styles.container}>
             <h1>
-              <TextField text={page.page.properties?.Name?.title} />
+              {/* <TextField text={page.page.properties?.Name?.title} /> */}
             </h1>
             <section>
-              {blocks.blocks.map((block) => (
+              {blocks.results.map((block) => (
                 <Fragment key={block.id}>{renderBlock(block)}</Fragment>
               ))}
             </section>
@@ -66,8 +66,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps = async (context: { params: { id: string; }; }) => {
   const { id } = context.params;
-  const page = await fetch(`${process.env.VERCEL_URL}/api/blog/${id}`).then((res) => res.json());
-  const blocks = await fetch(`${process.env.VERCEL_URL}/api/blog/blocks/${id}`).then((res) => res.json());
+  const page = await notionClient.pages.retrieve({
+    page_id: id,
+  })
+  const blocks = await notionClient.blocks.children.list({
+    block_id: id,
+  });
 
   return {
     props: {

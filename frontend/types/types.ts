@@ -34,15 +34,11 @@ export type BlogDataProps = {
 
 export type SinglePostProps = {
     page: PageProps,
-    blocks: BlocksProps,
-}
-
-type BlocksProps = {
     blocks: {
-        id: string,
-    }[],
-    message: string,
-    success: boolean,
+        results: {
+            id: string,
+        }[],
+    },
 }
 
 type PageProps = {
