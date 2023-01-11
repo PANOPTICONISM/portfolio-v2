@@ -25,7 +25,7 @@ export default function Post({ page, blocks }: SinglePostProps) {
           <Header />
           <article className={styles.container}>
             <h1>
-              {/* <TextField text={page.page.properties?.Name?.title} /> */}
+              <TextField text={page?.properties?.Name?.title} />
             </h1>
             <section>
               {blocks.results.map((block) => (
