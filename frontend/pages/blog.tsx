@@ -5,16 +5,17 @@ import { useThemeContext } from 'contexts/theme-context';
 import { GetServerSideProps, NextPage } from 'next';
 import React, { useEffect, useState } from 'react';
 import { BlogDataProps } from 'types/types';
+import { notionClient } from './api/lib/Notion';
 
-const Blog: NextPage<BlogDataProps> = ({ posts, success }) => {
+const Blog: NextPage<BlogDataProps> = ({ posts }) => {
     const { theme } = useThemeContext();
     const [isLoading, setLoading] = useState(true);
 
     useEffect(() => {
-        if (success === true) {
+        if (posts) {
             setLoading(false);
         }
-    }, [success]);
+    }, [posts]);
 
     return (
         <div className={`common theme-${theme}`}>
@@ -36,10 +37,20 @@ const Blog: NextPage<BlogDataProps> = ({ posts, success }) => {
 export default Blog;
 
 export const getServerSideProps: GetServerSideProps = async () => {
-    const entries = await fetch(`${process.env.VERCEL_URL}/api/blog/table`).then((res) => res.json());
-    const readyOnlyEntries = entries.posts.results.filter((entry: { properties: { Status: { status: { name: string; }; }; }; }) => entry.properties.Status.status.name === 'Done');
+    const databaseId = "75de570ce04946ba8ddc3c6f48f6a723";
 
+    const entries = await notionClient.databases.query({
+        database_id: databaseId
+    });
+    const readyOnlyEntries = entries.results.filter((entry) => {
+        if ("properties" in entry) {
+            const status = entry.properties.Status;
+            if (status.type === "status" && status.status) {
+                return status.status.name === 'Done'
+            }
+        }
+    });
     return {
-        props: { posts: readyOnlyEntries, success: entries.success },
+        props: { posts: readyOnlyEntries },
     };
 };
