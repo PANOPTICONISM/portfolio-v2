@@ -5,31 +5,17 @@ import { TechItemsProps } from "components/homepage/Skills/types";
 import { TextProps } from "components/Notion/types";
 
 export type FetchDataProps = {
-    pri: {
-        message: string,
-        projects: {
-            items: ArticleFieldsProps[],
-        },
-        success: boolean,
-
+    projects: {
+        items: ArticleFieldsProps[],
     },
-    skills: {
-        message: string,
-        skills: TechItemsProps,
-        success: boolean,
-    },
+    skills: TechItemsProps,
     experience: {
-        message: string,
-        jobs: {
-            items: ExperienceFieldsProps[],
-        },
-        success: boolean,
+        items: ExperienceFieldsProps[],
     },
 };
 
 export type BlogDataProps = {
     posts: PostProps,
-    success: boolean,
 }
 
 export type SinglePostProps = {
