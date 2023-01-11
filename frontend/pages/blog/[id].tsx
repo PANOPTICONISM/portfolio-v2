@@ -3,6 +3,7 @@ import Header from "components/Header/Header";
 import LoadingScreen from "components/Loading/Loading";
 import { renderBlock, TextField } from "components/Notion/Blocks";
 import { useThemeContext } from "contexts/theme-context";
+import { GetStaticPaths } from "next";
 import { Fragment, useState } from "react";
 import { SinglePostProps } from "types/types";
 import styles from "./Post.module.css";
@@ -38,8 +39,8 @@ export default function Post({ page, blocks }: SinglePostProps) {
   );
 }
 
-export const getStaticPaths = async () => {
-  const entries = await fetch(`${process.env.BASE_FETCH_URL}/api/blog/table`).then((res) => res.json());
+export const getStaticPaths: GetStaticPaths = async () => {
+  const entries = await fetch(`${process.env.VERCEL_URL}/api/blog/table`).then((res) => res.json());
 
   return {
     paths: entries.posts.results.map((page: { id: string; }) => ({ params: { id: page.id } })),
@@ -49,8 +50,8 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context: { params: { id: string; }; }) => {
   const { id } = context.params;
-  const page = await fetch(`${process.env.BASE_FETCH_URL}/api/blog/${id}`).then((res) => res.json());
-  const blocks = await fetch(`${process.env.BASE_FETCH_URL}/api/blog/blocks/${id}`).then((res) => res.json());
+  const page = await fetch(`${process.env.VERCEL_URL}/api/blog/${id}`).then((res) => res.json());
+  const blocks = await fetch(`${process.env.VERCEL_URL}/api/blog/blocks/${id}`).then((res) => res.json());
 
   return {
     props: {
