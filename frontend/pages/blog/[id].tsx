@@ -4,6 +4,7 @@ import LoadingScreen from "components/Loading/Loading";
 import { renderBlock, TextField } from "components/Notion/Blocks";
 import { useThemeContext } from "contexts/theme-context";
 import { GetStaticPaths } from "next";
+import { notionClient } from "pages/api/lib/Notion";
 import { Fragment, useState } from "react";
 import { SinglePostProps } from "types/types";
 import styles from "./Post.module.css";
@@ -40,19 +41,19 @@ export default function Post({ page, blocks }: SinglePostProps) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  if (process.env.SKIP_BUILD_STATIC_GENERATION) {
+  const databaseId = "75de570ce04946ba8ddc3c6f48f6a723";
+  try {
+    const posts = await notionClient.databases.query({
+      database_id: databaseId
+    });
+
     return {
-      paths: [],
-      fallback: 'blocking',
-    }
+      paths: posts.results.map((page: { id: string; }) => ({ params: { id: page.id } })),
+      fallback: true,
+    };
+  } catch (err) {
+    throw new Error("Static paths failed", err as ErrorOptions)
   }
-
-  const entries = await fetch(`${process.env.VERCEL_URL}/api/blog/table`).then((res) => res.json());
-
-  return {
-    paths: entries.posts.results.map((page: { id: string; }) => ({ params: { id: page.id } })),
-    fallback: true,
-  };
 };
 
 export const getStaticProps = async (context: { params: { id: string; }; }) => {
