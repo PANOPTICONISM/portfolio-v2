@@ -42,18 +42,26 @@ export default function Post({ page, blocks }: SinglePostProps) {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const databaseId = "75de570ce04946ba8ddc3c6f48f6a723";
-  try {
-    const posts = await notionClient.databases.query({
-      database_id: databaseId
-    });
 
-    return {
-      paths: posts.results.map((page: { id: string; }) => ({ params: { id: page.id } })),
-      fallback: true,
-    };
-  } catch (err) {
-    throw new Error("Static paths failed", err as ErrorOptions)
-  }
+  const posts = await notionClient.databases.query({
+    database_id: databaseId
+  });
+  const readyOnlyEntries = posts.results.filter((entry) => {
+    if ("properties" in entry) {
+      const status = entry.properties.Status;
+      if (status.type === "status" && status.status) {
+        return status.status.name === 'Done'
+      }
+    }
+  });
+
+  const paths = readyOnlyEntries.map((page: { id: string; }) => ({ params: { id: page.id } }));
+
+  return {
+    paths,
+    fallback: false,
+  };
+
 };
 
 export const getStaticProps = async (context: { params: { id: string; }; }) => {
