@@ -36,7 +36,7 @@ const Blog: NextPage<BlogDataProps> = ({ posts, success }) => {
 export default Blog;
 
 export const getServerSideProps: GetServerSideProps = async () => {
-    const entries = await fetch(`${process.env.BASE_FETCH_URL}/api/blog/table`).then((res) => res.json());
+    const entries = await fetch(`${process.env.VERCEL_URL}/api/blog/table`).then((res) => res.json());
     const readyOnlyEntries = entries.posts.results.filter((entry: { properties: { Status: { status: { name: string; }; }; }; }) => entry.properties.Status.status.name === 'Done');
 
     return {

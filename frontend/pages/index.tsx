@@ -61,10 +61,10 @@ const Home: NextPage<FetchDataProps> = ({ pri, skills, experience }) => {
   );
 };
 
-export const getServerSideProps = async () => {
-  const pri = await fetch(`${process.env.BASE_FETCH_URL}/api/projects`).then((res) => res.json());
-  const skills = await fetch(`${process.env.BASE_FETCH_URL}/api/skills`).then((res) => res.json());
-  const experience = await fetch(`${process.env.BASE_FETCH_URL}/api/experience`).then((res) => res.json());
+export const getServerSideProps: GetServerSideProps = async () => {
+  const pri = await fetch(`${process.env.VERCEL_URL}/api/projects`).then((res) => res.json());
+  const skills = await fetch(`${process.env.VERCEL_URL}/api/skills`).then((res) => res.json());
+  const experience = await fetch(`${process.env.VERCEL_URL}/api/experience`).then((res) => res.json());
 
   return {
     props: { pri, skills, experience },
