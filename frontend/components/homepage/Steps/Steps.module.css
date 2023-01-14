@@ -31,6 +31,6 @@
 
 @media screen and (min-width: 700px) {
   .steps {
-    grid-template-columns: repeat(auto-fill, 500px);
+    grid-template-columns: repeat(auto-fill, 340px);
   }
 }
