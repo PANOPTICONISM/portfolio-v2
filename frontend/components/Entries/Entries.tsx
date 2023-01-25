@@ -33,7 +33,8 @@ type ColorsProps = {
 }
 
 const colors: ColorsProps = {
-    "React": "#61dafb",
+    "JavaScript": "#d8c547",
+    "React": "#57c4e1",
     "Frontend": "#007d55",
     "Material UI": "rgb(0, 127, 255)",
 }
