@@ -2,11 +2,11 @@ import Link from "next/link";
 import { Fragment } from "react";
 import styles from "./Blocks.module.css";
 import { Code } from "./Code";
-import { CalloutProps, TextProps } from "./types";
+import { CalloutProps, HeadlineProps, TextProps } from "./types";
 
 export const TextField = ({ text }: { text: TextProps }) => {
     return (
-        <section>
+        <>
             {text.map((value, index) => {
                 const {
                     annotations: { bold, code, color, italic, strikethrough, underline },
@@ -28,7 +28,23 @@ export const TextField = ({ text }: { text: TextProps }) => {
                     </span>
                 );
             })}
-        </section>)
+        </>)
+};
+
+export const Headline = ({ title }: { title: HeadlineProps }) => {
+    return (
+        <h2 className={styles.headline}>
+            {title.link ? <a href={title.link.url}>{title.plain_text}</a> : title.plain_text}
+        </h2>
+    );
+};
+
+export const Subheadline = ({ title }: { title: HeadlineProps }) => {
+    return (
+        <h3 className={styles.subheadline}>
+            {title.link ? <a href={title.link.url}>{title.plain_text}</a> : title.plain_text}
+        </h3>
+    );
 };
 
 export const Callout = ({ text }: { text: CalloutProps }) => {
@@ -69,21 +85,17 @@ export const renderBlock = (block: any) => {
             );
         case "heading_1":
             return (
-                <h1>
-                    <TextField text={value.rich_text} />
-                </h1>
+                <Headline title={value.rich_text[0]} />
             );
         case "heading_2":
             return (
-                <h2>
-                    <TextField text={value.rich_text} />
-                </h2>
+                <Subheadline title={value.rich_text[0]} />
             );
         case "heading_3":
             return (
-                <h3>
+                <h4>
                     <TextField text={value.rich_text} />
-                </h3>
+                </h4>
             );
         case "bulleted_list_item":
         case "numbered_list_item":

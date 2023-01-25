@@ -1,3 +1,10 @@
+export type HeadlineProps = {
+    link: {
+        url: string,
+    } | null,
+    plain_text: string,
+};
+
 export type TextProps = {
     href: null,
     plain_text: string,

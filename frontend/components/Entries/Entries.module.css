@@ -1,6 +1,6 @@
 .entries {
     display: grid;
-    gap: 20px;
+    gap: 80px 30px;
 }
 
 .entries article {
