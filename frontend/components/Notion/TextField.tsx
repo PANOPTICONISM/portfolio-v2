@@ -3,7 +3,7 @@ import styles from "./Blocks.module.css";
 
 export const TextField = ({ text }: { text: TextProps }) => {
     return (
-        <>
+        <p>
             {text.map((value, index) => {
                 const {
                     annotations: { bold, code, color, italic, strikethrough, underline },
@@ -14,7 +14,7 @@ export const TextField = ({ text }: { text: TextProps }) => {
                         key={index}
                         className={[
                             bold ? styles.bold : "",
-                            code ? styles.code : "",
+                            code ? styles.codeText : "",
                             italic ? styles.italic : "",
                             strikethrough ? styles.strikethrough : "",
                             underline ? styles.underline : "",
@@ -25,5 +25,5 @@ export const TextField = ({ text }: { text: TextProps }) => {
                     </span>
                 );
             })}
-        </>)
+        </p>)
 };
