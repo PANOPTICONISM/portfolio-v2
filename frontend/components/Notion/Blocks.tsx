@@ -1,59 +1,10 @@
 import Link from "next/link";
 import { Fragment } from "react";
 import styles from "./Blocks.module.css";
+import { Callout } from "./Callout";
 import { Code } from "./Code";
-import { CalloutProps, HeadlineProps, TextProps } from "./types";
-
-export const TextField = ({ text }: { text: TextProps }) => {
-    return (
-        <>
-            {text.map((value, index) => {
-                const {
-                    annotations: { bold, code, color, italic, strikethrough, underline },
-                    text,
-                } = value;
-                return (
-                    <span
-                        key={index}
-                        className={[
-                            bold ? styles.bold : "",
-                            code ? styles.code : "",
-                            italic ? styles.italic : "",
-                            strikethrough ? styles.strikethrough : "",
-                            underline ? styles.underline : "",
-                        ].join(" ")}
-                        style={color !== "default" ? { color } : {}}
-                    >
-                        {text.link ? <a href={text.link.url}>{text.content}</a> : text.content}
-                    </span>
-                );
-            })}
-        </>)
-};
-
-export const Headline = ({ title }: { title: HeadlineProps }) => {
-    return (
-        <h2 className={styles.headline}>
-            {title.link ? <a href={title.link.url}>{title.plain_text}</a> : title.plain_text}
-        </h2>
-    );
-};
-
-export const Subheadline = ({ title }: { title: HeadlineProps }) => {
-    return (
-        <h3 className={styles.subheadline}>
-            {title.link ? <a href={title.link.url}>{title.plain_text}</a> : title.plain_text}
-        </h3>
-    );
-};
-
-export const Callout = ({ text }: { text: CalloutProps }) => {
-    return (
-        <section className={styles.callout}>
-            <span>{text.icon.emoji} {text?.rich_text?.[0]?.plain_text}</span>
-        </section>
-    )
-}
+import { Headline, Subheadline } from "./Headlines";
+import { TextField } from "./TextField";
 
 export const renderNestedList = (block: any) => {
     const { type } = block;
@@ -75,9 +26,7 @@ export const renderBlock = (block: any) => {
     switch (type) {
         case "paragraph":
             return (
-                <p>
-                    <TextField text={value.rich_text} />
-                </p>
+                <TextField text={value.rich_text} />
             );
         case "callout":
             return (
