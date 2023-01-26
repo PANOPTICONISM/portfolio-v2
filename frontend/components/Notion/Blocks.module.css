@@ -7,17 +7,17 @@
     margin-top: 30px;
 }
 
-.code {
+.code pre {
     background: var(--box-colour);
     color: var(--text-colour-w-dark-box);
-    padding: 40px;
+    padding: 25px;
     overflow: auto;
 }
 
 .callout {
     background: var(--box-colour);
     color: var(--text-colour-w-dark-box);
-    padding: 40px;
+    padding: 25px;
 }
 
 .list {
