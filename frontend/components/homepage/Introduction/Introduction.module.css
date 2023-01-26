@@ -21,6 +21,11 @@
   width: 100%;
 }
 
+.presentation ul {
+  list-style: none;
+  padding: 0;
+}
+
 .footer span {
   font-size: 14px;
 }

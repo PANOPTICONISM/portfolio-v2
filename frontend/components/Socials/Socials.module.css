@@ -5,6 +5,11 @@
   display: none;
 }
 
+.social_media ul {
+  list-style: none;
+  padding: 0;
+}
+
 .social_media svg {
   fill: var(--grey-colour);
   margin: 5px 0;
@@ -26,7 +31,7 @@
   background: var(--grey-colour);
 }
 
-@media (min-width: 1200px)  {
+@media (min-width: 1200px) {
   .social_media {
     display: flex;
   }
