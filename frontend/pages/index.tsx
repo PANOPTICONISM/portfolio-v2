@@ -17,16 +17,17 @@ import {
 import Experience from "components/homepage/Experience/Experience";
 import { useThemeContext } from "contexts/theme-context";
 import { FetchDataProps } from "types/types";
+import { client } from "./api/lib/Contentful";
 
-const Home: NextPage<FetchDataProps> = ({ pri, skills, experience }) => {
+const Home: NextPage<FetchDataProps> = ({ projects, skills, experience }) => {
   const [isLoading, setLoading] = useState(true);
   const { theme } = useThemeContext();
 
   useEffect(() => {
-    if (pri.success && skills.success && experience.success === true) {
+    if (projects && skills && experience) {
       setLoading(false);
     }
-  }, [experience, skills, pri]);
+  }, [experience, skills, projects]);
 
   const projectsRef = useRef<any>(null);
   function handleBackClick() {
@@ -44,13 +45,13 @@ const Home: NextPage<FetchDataProps> = ({ pri, skills, experience }) => {
             <Socials />
             <Introduction />
             <Steps />
-            <TabSkills skills={skills.skills} />
+            <TabSkills skills={skills} />
             <Recent
-              post={pri.projects.items[0]}
+              post={projects.items[0]}
               handleBackClick={handleBackClick}
             />
-            <Experience jobs={experience.jobs.items} />
-            <Posts ref={projectsRef} projects={pri.projects.items} />
+            <Experience jobs={experience.items} />
+            <Posts ref={projectsRef} projects={projects.items} />
             <ProjectsCTA onClick={handleBackClick} />
           </main>
           <Footer />
@@ -61,16 +62,22 @@ const Home: NextPage<FetchDataProps> = ({ pri, skills, experience }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { req } = context;
-  const protocol = req.headers["x-forwarded-proto"] || "http";
-  const baseUrl = req ? `${protocol}://${req.headers.host}` : "";
-  const pri = await fetch(`${baseUrl}/api/projects`).then((res) => res.json());
-  const skills = await fetch(`${baseUrl}/api/skills`).then((res) => res.json());
-  const experience = await fetch(`${baseUrl}/api/experience`).then((res) => res.json());
+export const getServerSideProps: GetServerSideProps = async () => {
+  const projects = await client.getEntries({
+    content_type: "project",
+    order: "fields.id",
+  });
+  const skills = await client.getEntries({
+    content_type: "toolshed",
+    order: "fields.id",
+  });
+  const experience = await client.getEntries({
+    content_type: "experience",
+    order: "fields.id",
+  });
 
   return {
-    props: { pri, skills, experience },
+    props: { projects, skills, experience },
   };
 };
 

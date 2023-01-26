@@ -1,6 +1,7 @@
 import styles from "./Header.module.css";
 import { useState, useEffect } from "react";
 import useIsDesktop from "hooks/useIsDesktop";
+import Link from "next/link";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,9 +16,23 @@ const Header = () => {
     }
   }, [isDesktop, isOpen]);
 
+  useEffect(() => {
+    setTimeout(() => {
+      const id = window.location.hash.slice(1);
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView()
+      }
+    }, 700)
+  }, [])
+
   return (
     <header className={styles.header}>
-      <img src="/logo.svg" alt="panopticonism-logo" />
+      <Link href="/">
+        <a>
+          <img src="/logo.svg" alt="panopticonism-logo" />
+        </a>
+      </Link>
       <div
         className={`${styles.closeBox} ${isOpen ? styles.show : ""}`}
         onClick={toggle}
@@ -27,24 +42,31 @@ const Header = () => {
       <nav>
         <ul className={`${styles.list} ${isOpen ? styles.show : ""}`}>
           <li>
-            <a href="#steps" onClick={toggle}>
-              Competences
-            </a>
+            <Link href="/#steps">
+              <a onClick={toggle}>Competences</a>
+            </Link>
           </li>
           <li>
-            <a href="#experience" onClick={toggle}>
-              Experience
-            </a>
+            <Link href="/#experience">
+              <a onClick={toggle}>Experience</a>
+            </Link>
           </li>
           <li>
-            <a href="#projects" onClick={toggle}>
-              Portfolio
-            </a>
+            <Link href="/#projects">
+              <a onClick={toggle}>Portfolio</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/blog">
+              <a onClick={toggle}>
+                Blog
+              </a>
+            </Link>
           </li>
           <li className={styles.hire_me}>
-            <a href="#hire_me" onClick={toggle}>
-              <span>Hire me</span>
-            </a>
+            <Link href="#hire_me">
+              <a onClick={toggle}><span>Hire me</span></a>
+            </Link>
           </li>
         </ul>
       </nav>
