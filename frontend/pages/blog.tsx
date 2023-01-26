@@ -1,6 +1,5 @@
 import { Footer, Header, LoadingScreen } from 'components';
 import { Entries } from 'components/Entries/Entries';
-import { TextField } from 'components/Notion/Blocks';
 import { useThemeContext } from 'contexts/theme-context';
 import { GetServerSideProps, NextPage } from 'next';
 import React, { useEffect, useState } from 'react';
