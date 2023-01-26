@@ -25,16 +25,14 @@
 }
 
 .entries ul {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, auto));
+    gap: 10px;
 }
 
 .entries ul li {
     padding: 4px 6px;
     font-weight: 600;
-}
-
-.entries ul li:not(:last-child) {
-    margin-right: 10px;
 }
 
 .learn_more {

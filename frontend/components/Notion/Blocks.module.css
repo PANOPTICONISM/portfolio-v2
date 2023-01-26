@@ -4,6 +4,7 @@
     font-size: var(--h1-font-size-mobile);
     text-align: center;
     margin-bottom: 15px;
+    margin-top: 30px;
 }
 
 .code {
@@ -17,6 +18,10 @@
     background: var(--box-colour);
     color: var(--text-colour-w-dark-box);
     padding: 40px;
+}
+
+.list {
+    overflow-wrap: break-word;
 }
 
 .bold {
