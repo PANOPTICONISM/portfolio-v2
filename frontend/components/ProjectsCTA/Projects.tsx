@@ -6,7 +6,6 @@ const ProjectsCTA = ({ onClick }: ProjectsCTAProps) => {
   return (
     <div className={styles.projects_breadcumbs}>
       <div className={styles.wrapper}>
-        <ThemeSwitch />
         <button className={styles.pointer} onClick={onClick}>
           <br />P<br />r<br />o<br />j<br />e<br />c<br />t<br />s
         </button>
