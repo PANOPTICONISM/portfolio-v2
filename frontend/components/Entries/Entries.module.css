@@ -9,6 +9,11 @@
     position: relative;
 }
 
+.entries ul {
+    list-style: none;
+    padding: 0;
+}
+
 .entries .icon {
     position: absolute;
     top: -25px;

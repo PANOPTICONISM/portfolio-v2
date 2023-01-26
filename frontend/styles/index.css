@@ -84,8 +84,7 @@ body {
 }
 
 ul {
-  list-style: none;
-  padding: 0;
+  padding-left: 16px;
 }
 
 main {

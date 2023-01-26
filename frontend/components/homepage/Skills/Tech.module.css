@@ -1,4 +1,6 @@
 .stack {
+  list-style: none;
+  padding: 0;
   display: grid;
   justify-content: center;
   gap: 2rem;
@@ -21,6 +23,8 @@
 }
 
 .filters {
+  list-style: none;
+  padding: 0;
   display: grid;
   grid-template-columns: 1fr;
   justify-content: center;
