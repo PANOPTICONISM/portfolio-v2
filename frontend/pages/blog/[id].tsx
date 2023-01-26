@@ -1,7 +1,8 @@
 import Footer from "components/Footer/Footer";
 import Header from "components/Header/Header";
 import LoadingScreen from "components/Loading/Loading";
-import { renderBlock, TextField } from "components/Notion/Blocks";
+import { renderBlock } from "components/Notion/Blocks";
+import { TextField } from "components/Notion/TextField";
 import { useThemeContext } from "contexts/theme-context";
 import { GetStaticPaths } from "next";
 import { notionClient } from "pages/api/lib/Notion";
@@ -17,6 +18,7 @@ export default function Post({ page, blocks }: SinglePostProps) {
     return null;
   }
 
+
   return (
     <div className={`common theme-${theme}`}>
       {isLoading ?
@@ -25,7 +27,7 @@ export default function Post({ page, blocks }: SinglePostProps) {
           <Header />
           <article className={styles.container}>
             <h1>
-              <TextField text={page?.properties?.Name?.title} />
+              {page?.properties?.Name?.title[0].plain_text}
             </h1>
             <section className={styles.articleSection}>
               {blocks.results.map((block) => (
