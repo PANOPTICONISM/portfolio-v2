@@ -15,22 +15,26 @@
 }
 
 .filters ul {
+  list-style: none;
+  padding: 0;
   display: grid;
   grid-template-columns: 1fr;
   justify-content: center;
   gap: 0.5rem;
   max-width: 400px;
   margin: 16px auto;
-  text-transform: capitalize;
-  font-weight: 600;
 }
 
 .filters ul li {
-  padding: 10px;
+  padding: 14px;
   max-width: 100%;
   text-align: center;
   border: 1px solid transparent;
   cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-family: var(--buttons-font);
+  font-size: 13px;
 }
 
 .active {
@@ -57,6 +61,8 @@
 
 .post .languages ul,
 .post .sources ul {
+  list-style: none;
+  padding: 0;
   display: flex;
   flex-wrap: wrap;
 }

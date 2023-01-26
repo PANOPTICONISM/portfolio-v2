@@ -1,0 +1,118 @@
+.entries {
+    display: grid;
+    gap: 80px 30px;
+}
+
+.entries article {
+    background: var(--box-colour);
+    color: var(--text-colour-w-dark-box);
+    padding: 20px;
+    position: relative;
+}
+
+.entries ul {
+    list-style: none;
+    padding: 0;
+}
+
+.entries .icon {
+    position: absolute;
+    top: -25px;
+    right: 25px;
+    background: var(--box-colour);
+    padding: 8px 16px;
+    font-size: 23px;
+}
+
+.entries ul {
+    display: flex;
+}
+
+.entries ul li {
+    padding: 4px 6px;
+    font-weight: 600;
+}
+
+.entries ul li:not(:last-child) {
+    margin-right: 10px;
+}
+
+.learn_more {
+    position: absolute;
+    bottom: -20px;
+    right: 25px;
+    max-width: fit-content;
+    padding: 12px 16px;
+    border: 1px solid var(--primary-colour);
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+    background: var(--floating-box-colour);
+}
+
+.learn_more:before,
+.learn_more:after,
+.learn_more .projects_button:before,
+.learn_more .projects_button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 25.25%;
+    height: 0;
+    background-color: var(--primary-colour);
+    transition: 0.5s ease-in-out;
+}
+
+.learn_more:before {
+    left: 0;
+    z-index: 1;
+}
+
+.learn_more:after {
+    left: 50%;
+    z-index: 1;
+}
+
+.learn_more .projects_button:before,
+.learn_more .projects_button::after {
+    top: auto;
+    bottom: 0;
+    z-index: 2;
+}
+
+.learn_more .projects_button:before {
+    left: 25%;
+}
+
+.learn_more .projects_button:after {
+    left: 75%;
+}
+
+.learn_more:hover:before,
+.learn_more:hover:after,
+.learn_more:hover .projects_button:before,
+.learn_more:hover .projects_button:after {
+    height: 100%;
+}
+
+.projects_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.projects_button span {
+    position: relative;
+    z-index: 5;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 13px;
+    font-family: var(--buttons-font);
+    color: var(--text-colour-w-dark-box);
+}
+
+@media screen and (min-width: 600px) {
+    .entries {
+        grid-template-columns: repeat(auto-fit, 350px);
+        justify-content: center;
+    }
+}

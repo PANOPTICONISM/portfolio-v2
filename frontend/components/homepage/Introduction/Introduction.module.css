@@ -14,7 +14,16 @@
   padding: 30px;
   background: #fff;
   color: #000;
-  max-width: 480px;
+  max-width: 460px;
+  display: block;
+  white-space: pre;
+  overflow: auto;
+  width: 100%;
+}
+
+.presentation ul {
+  list-style: none;
+  padding: 0;
 }
 
 .footer span {
