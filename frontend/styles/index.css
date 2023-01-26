@@ -53,6 +53,7 @@ a {
   --green-colour: #007d55;
   --grey-colour: #a5abbd;
   --box-colour: #38445d;
+  --floating-box-colour: transparent;
 
   --black: #000;
 }
@@ -66,6 +67,7 @@ a {
   --green-colour: #007d55;
   --grey-colour: #7a7d88;
   --box-colour: #38445d;
+  --floating-box-colour: #38445d;
 }
 
 .common {

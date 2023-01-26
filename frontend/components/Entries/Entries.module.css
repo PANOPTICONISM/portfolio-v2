@@ -5,6 +5,7 @@
 
 .entries article {
     background: var(--box-colour);
+    color: var(--text-colour-w-dark-box);
     padding: 20px;
     position: relative;
 }
@@ -38,13 +39,14 @@
 
 .learn_more {
     position: absolute;
-    bottom: -25px;
+    bottom: -20px;
     right: 25px;
     max-width: fit-content;
     padding: 12px 16px;
     border: 1px solid var(--primary-colour);
     transition: 0.5s ease-in-out;
     cursor: pointer;
+    background: var(--floating-box-colour);
 }
 
 .learn_more:before,
@@ -105,7 +107,7 @@
     font-weight: 600;
     font-size: 13px;
     font-family: var(--buttons-font);
-    color: var(--text-colour);
+    color: var(--text-colour-w-dark-box);
 }
 
 @media screen and (min-width: 600px) {

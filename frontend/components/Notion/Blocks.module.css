@@ -7,13 +7,15 @@
 }
 
 .code {
-    background-color: #081323;
+    background: var(--box-colour);
+    color: var(--text-colour-w-dark-box);
     padding: 40px;
     overflow: auto;
 }
 
 .callout {
-    background-color: #081323;
+    background: var(--box-colour);
+    color: var(--text-colour-w-dark-box);
     padding: 40px;
 }
 
