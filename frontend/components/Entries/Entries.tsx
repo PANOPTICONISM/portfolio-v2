@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import styles from "./Entries.module.css";
@@ -5,7 +6,11 @@ import styles from "./Entries.module.css";
 export type PostProps = {
     id: string,
     icon: {
+        file: {
+            url: string,
+        },
         emoji: string,
+        type: string,
     }
     properties: {
         Name: {
@@ -44,7 +49,7 @@ export const Entries = ({ posts }: { posts: PostProps }) => {
         <section className={styles.entries}>
             {posts.map((entry) =>
                 <article key={entry.id}>
-                    <span className={styles.icon}>{entry.icon.emoji}</span>
+                    <span className={styles.icon}>{entry.icon.type === "emoji" ? entry.icon.emoji : <img src={entry.icon.file.url} alt="icon" width={30} height={30} />}</span>
                     <h2>{entry.properties.Name.title[0].plain_text}</h2>
                     {entry.properties.Tags.multi_select && <ul>{entry.properties.Tags.multi_select.map((tag) =>
                         <li key={tag.id} style={{ background: colors[tag.name] }}>{tag.name}</li>)}</ul>}
