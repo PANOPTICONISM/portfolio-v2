@@ -27,7 +27,7 @@ export default function Post({ page, blocks }: SinglePostProps) {
             <h1>
               <TextField text={page?.properties?.Name?.title} />
             </h1>
-            <section>
+            <section className={styles.articleSection}>
               {blocks.results.map((block) => (
                 <Fragment key={block.id}>{renderBlock(block)}</Fragment>
               ))}

@@ -25,7 +25,7 @@
 
 @media (min-width: 900px) {
     .headline {
-        font-size: var(--h1-font-size-desktop);
+        font-size: calc(var(--h1-font-size-desktop) - 10px);
     }
 
     .subheadline {
