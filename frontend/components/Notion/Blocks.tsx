@@ -4,6 +4,7 @@ import styles from "./Blocks.module.css";
 import { Callout } from "./Callout";
 import { Code } from "./Code";
 import { Headline, Subheadline } from "./Headlines";
+import { BulletedList } from "./Lists";
 import { TextField } from "./TextField";
 
 export const renderNestedList = (block: any) => {
@@ -47,11 +48,13 @@ export const renderBlock = (block: any) => {
                 </h4>
             );
         case "bulleted_list_item":
+            return (
+                <BulletedList text={value.rich_text} />
+            );
         case "numbered_list_item":
             return (
                 <li>
-                    <TextField text={value.rich_text} />
-                    {!!value.children && renderNestedList(block)}
+                    {/* {!!value.children && renderNestedList(block)} */}
                 </li>
             );
         case "to_do":
