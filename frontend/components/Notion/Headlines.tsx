@@ -1,4 +1,4 @@
-import styles from "./Blocks.module.css";
+import styles from "./styles.module.css";
 import { HeadlineProps } from "./types";
 
 export const Headline = ({ title }: { title: HeadlineProps }) => {

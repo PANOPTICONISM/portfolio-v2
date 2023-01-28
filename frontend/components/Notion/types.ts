@@ -33,3 +33,11 @@ export type CalloutProps = {
         plain_text: string,
     }[]
 }
+
+export type ListProps = {
+    type: string,
+    numbered_list_item: {
+        color: string,
+        rich_text: TextProps
+    }
+}

@@ -1,4 +1,4 @@
-import styles from "./Blocks.module.css";
+import styles from "./styles.module.css";
 import { CalloutProps } from "./types";
 
 export const Callout = ({ text }: { text: CalloutProps }) => {

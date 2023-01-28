@@ -1,8 +1,7 @@
 import Footer from "components/Footer/Footer";
 import Header from "components/Header/Header";
 import LoadingScreen from "components/Loading/Loading";
-import { renderBlock } from "components/Notion/Blocks";
-import { TextField } from "components/Notion/TextField";
+import { renderBlock } from "components/notion/Blocks";
 import { useThemeContext } from "contexts/theme-context";
 import { GetStaticPaths } from "next";
 import { notionClient } from "pages/api/lib/Notion";

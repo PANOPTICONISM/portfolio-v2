@@ -1,5 +1,5 @@
 import { TextProps } from "./types";
-import styles from "./Blocks.module.css";
+import styles from "./styles.module.css";
 import cx from 'classnames';
 
 export const TextField = ({ text }: { text: TextProps }) => {
