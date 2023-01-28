@@ -1,4 +1,3 @@
-import { ThemeSwitch } from "../ThemeSwitch/ThemeSwitch";
 import styles from "./Projects.module.css";
 import { ProjectsCTAProps } from "./types";
 

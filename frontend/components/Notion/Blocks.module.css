@@ -22,6 +22,7 @@
 
 .list {
     overflow-wrap: break-word;
+    margin: 6px 0;
 }
 
 .bold {
