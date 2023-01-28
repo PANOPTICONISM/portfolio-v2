@@ -1,5 +1,6 @@
 import { TextProps } from "./types";
 import styles from "./Blocks.module.css";
+import cx from 'classnames';
 
 export const TextField = ({ text }: { text: TextProps }) => {
     return (
@@ -12,13 +13,13 @@ export const TextField = ({ text }: { text: TextProps }) => {
                 return (
                     <span
                         key={index}
-                        className={[
-                            bold ? styles.bold : "",
-                            code ? styles.codeText : "",
-                            italic ? styles.italic : "",
-                            strikethrough ? styles.strikethrough : "",
-                            underline ? styles.underline : "",
-                        ].join(" ")}
+                        className={cx({
+                            [`${styles.bold}`]: bold,
+                            [`${styles.codeText}`]: code,
+                            [`${styles.italic}`]: italic,
+                            [`${styles.strikethrough}`]: strikethrough,
+                            [`${styles.underline}`]: underline,
+                        })}
                         style={color !== "default" ? { color } : {}}
                     >
                         {text.link ? <a href={text.link.url}>{text.content}</a> : text.content}
