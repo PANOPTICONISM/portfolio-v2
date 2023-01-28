@@ -22,7 +22,7 @@ export const TextField = ({ text }: { text: TextProps }) => {
                         })}
                         style={color !== "default" ? { color } : {}}
                     >
-                        {text.link ? <a href={text.link.url}>{text.content}</a> : text.content}
+                        {text.link ? <a className={styles.underline} href={text.link.url}>{text.content}</a> : text.content}
                     </span>
                 );
             })}
