@@ -25,6 +25,10 @@
     margin: 6px 0;
 }
 
+.numberedList {
+    list-style: decimal;
+}
+
 .bold {
     font-weight: 700;
 }

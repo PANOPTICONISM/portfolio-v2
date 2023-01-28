@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from "./Blocks.module.css";
+import styles from "./styles.module.css";
 
 export const Code = ({ content }: { content: string }) => {
     return (

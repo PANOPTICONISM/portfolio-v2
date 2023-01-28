@@ -1,24 +1,11 @@
 import Link from "next/link";
 import { Fragment } from "react";
-import styles from "./Blocks.module.css";
+import styles from "./styles.module.css";
 import { Callout } from "./Callout";
 import { Code } from "./Code";
 import { Headline, Subheadline } from "./Headlines";
-import { BulletedList } from "./Lists";
+import { BulletedList, NumberedList } from "./Lists";
 import { TextField } from "./TextField";
-
-export const renderNestedList = (block: any) => {
-    const { type } = block;
-    const value = block[type];
-    if (!value) return null;
-
-    const isNumberedList = value.children[0].type === "numbered_list_item";
-
-    if (isNumberedList) {
-        return <ol>{value.children.map((block: any) => renderBlock(block))}</ol>;
-    }
-    return <ul>{value.children.map((block: any) => renderBlock(block))}</ul>;
-};
 
 export const renderBlock = (block: any) => {
     const { type, id } = block;
@@ -53,9 +40,7 @@ export const renderBlock = (block: any) => {
             );
         case "numbered_list_item":
             return (
-                <li>
-                    {/* {!!value.children && renderNestedList(block)} */}
-                </li>
+                <NumberedList block={block} />
             );
         case "to_do":
             return (
@@ -122,7 +107,7 @@ export const renderBlock = (block: any) => {
                 </a>
             );
         default:
-            return `❌ Unsupported block (${type === "unsupported" ? "unsupported by Notion API" : type
+            return `Unsupported block (${type === "unsupported" ? "unsupported by Notion API" : type
                 })`;
     }
 };
