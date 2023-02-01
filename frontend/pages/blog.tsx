@@ -13,9 +13,7 @@ const Blog: NextPage<BlogDataProps> = ({ posts }) => {
         <div className={`common theme-${theme}`}>
             <Header />
             <h1>Archive</h1>
-            <main>
-                <Entries posts={posts} />
-            </main>
+            <Entries posts={posts} />
             <Footer />
         </div>
     )
