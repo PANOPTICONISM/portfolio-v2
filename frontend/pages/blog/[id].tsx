@@ -5,38 +5,27 @@ import { renderBlock } from "components/Notion/Blocks";
 import { useThemeContext } from "contexts/theme-context";
 import { GetStaticPaths } from "next";
 import { notionClient } from "pages/api/lib/Notion";
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { SinglePostProps } from "types/types";
 import styles from "./Post.module.css";
 
 export default function Post({ page, blocks }: SinglePostProps) {
   const { theme } = useThemeContext();
-  const [isLoading, setLoading] = useState(false);
-  if (!page || !blocks) {
-    setLoading(true);
-    return null;
-  }
-
 
   return (
     <div className={`common theme-${theme}`}>
-      {isLoading ?
-        <LoadingScreen /> :
-        <>
-          <Header />
-          <article className={styles.container}>
-            <h1>
-              {page?.properties?.Name?.title[0].plain_text}
-            </h1>
-            <section className={styles.articleSection}>
-              {blocks.results.map((block) => (
-                <Fragment key={block.id}>{renderBlock(block)}</Fragment>
-              ))}
-            </section>
-          </article>
-          <Footer />
-        </>
-      }
+      <Header />
+      <article className={styles.container}>
+        <h1>
+          {page?.properties?.Name?.title[0].plain_text}
+        </h1>
+        <section className={styles.articleSection}>
+          {blocks.results.map((block) => (
+            <Fragment key={block.id}>{renderBlock(block)}</Fragment>
+          ))}
+        </section>
+      </article>
+      <Footer />
     </div>
   );
 }
