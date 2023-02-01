@@ -48,7 +48,7 @@ const colors: ColorsProps = {
 
 export const Entries = ({ posts }: { posts: PostProps }) => {
     return (
-        <section className={styles.entries}>
+        <main className={styles.entries}>
             {posts.map((entry) =>
                 <article key={entry.id}>
                     <span className={styles.icon}>{entry.icon.type === "emoji" ? entry.icon.emoji : <img src={entry.icon.file.url} alt="icon" width={30} height={30} />}</span>
@@ -65,6 +65,6 @@ export const Entries = ({ posts }: { posts: PostProps }) => {
                     </Link>
                 </article>
             )}
-        </section>
+        </main>
     )
 }
