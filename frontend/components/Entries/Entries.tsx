@@ -38,10 +38,12 @@ type ColorsProps = {
 }
 
 const colors: ColorsProps = {
-    "JavaScript": "#d8c547",
+    "JavaScript": "#c2b13f",
     "React": "#57c4e1",
     "Frontend": "#007d55",
     "Material UI": "rgb(0, 127, 255)",
+    "GIT": "#F1502F",
+    "Tools": "#795695",
 }
 
 export const Entries = ({ posts }: { posts: PostProps }) => {
