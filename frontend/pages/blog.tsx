@@ -1,8 +1,8 @@
-import { Footer, Header, LoadingScreen } from 'components';
+import { Footer, Header } from 'components';
 import { Entries } from 'components/Entries/Entries';
 import { useThemeContext } from 'contexts/theme-context';
 import { GetStaticProps, NextPage } from 'next';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { BlogDataProps } from 'types/types';
 import { notionClient } from './api/lib/Notion';
 
