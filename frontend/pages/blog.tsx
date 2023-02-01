@@ -1,41 +1,27 @@
-import { Footer, Header, LoadingScreen } from 'components';
+import { Footer, Header } from 'components';
 import { Entries } from 'components/Entries/Entries';
 import { useThemeContext } from 'contexts/theme-context';
-import { GetServerSideProps, NextPage } from 'next';
-import React, { useEffect, useState } from 'react';
+import { GetStaticProps, NextPage } from 'next';
+import React from 'react';
 import { BlogDataProps } from 'types/types';
 import { notionClient } from './api/lib/Notion';
 
 const Blog: NextPage<BlogDataProps> = ({ posts }) => {
     const { theme } = useThemeContext();
-    const [isLoading, setLoading] = useState(true);
-
-    useEffect(() => {
-        if (posts) {
-            setLoading(false);
-        }
-    }, [posts]);
 
     return (
         <div className={`common theme-${theme}`}>
-            {isLoading ?
-                <LoadingScreen /> :
-                <>
-                    <Header />
-                    <h1>Archive</h1>
-                    <main>
-                        <Entries posts={posts} />
-                    </main>
-                    <Footer />
-                </>
-            }
+            <Header />
+            <h1>Archive</h1>
+            <Entries posts={posts} />
+            <Footer />
         </div>
     )
 }
 
 export default Blog;
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
     const databaseId = "75de570ce04946ba8ddc3c6f48f6a723";
 
     const entries = await notionClient.databases.query({
@@ -51,5 +37,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
     });
     return {
         props: { posts: readyOnlyEntries },
+        revalidate: 60,
     };
 };

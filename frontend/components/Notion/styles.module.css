@@ -27,6 +27,7 @@
 
 .numberedList {
     list-style: decimal;
+    margin: 6px 0;
 }
 
 .bold {
