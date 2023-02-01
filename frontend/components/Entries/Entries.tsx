@@ -38,15 +38,17 @@ type ColorsProps = {
 }
 
 const colors: ColorsProps = {
-    "JavaScript": "#d8c547",
+    "JavaScript": "#c2b13f",
     "React": "#57c4e1",
     "Frontend": "#007d55",
     "Material UI": "rgb(0, 127, 255)",
+    "GIT": "#F1502F",
+    "Tools": "#795695",
 }
 
 export const Entries = ({ posts }: { posts: PostProps }) => {
     return (
-        <section className={styles.entries}>
+        <main className={styles.entries}>
             {posts.map((entry) =>
                 <article key={entry.id}>
                     <span className={styles.icon}>{entry.icon.type === "emoji" ? entry.icon.emoji : <img src={entry.icon.file.url} alt="icon" width={30} height={30} />}</span>
@@ -63,6 +65,6 @@ export const Entries = ({ posts }: { posts: PostProps }) => {
                     </Link>
                 </article>
             )}
-        </section>
+        </main>
     )
 }

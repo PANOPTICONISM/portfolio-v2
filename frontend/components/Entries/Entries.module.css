@@ -1,6 +1,7 @@
 .entries {
     display: grid;
     gap: 80px 30px;
+    padding: var(--spacing-area-pd-m);
 }
 
 .entries article {
@@ -112,5 +113,6 @@
     .entries {
         grid-template-columns: repeat(auto-fit, 350px);
         justify-content: center;
+        padding: 40px;
     }
 }
