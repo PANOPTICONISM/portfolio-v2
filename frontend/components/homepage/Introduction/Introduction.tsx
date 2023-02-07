@@ -52,7 +52,7 @@ const Introduction = () => {
           </li>
           <li>
             15 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; location: &#91;
-            "Hybrid", "Remote" &#93;,
+            "Copenhagen", "Hybrid", "Remote" &#93;,
           </li>
           <li>16 &nbsp; &nbsp; &nbsp; &#125;;</li>
         </ul>
