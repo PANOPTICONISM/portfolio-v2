@@ -3,8 +3,8 @@ import { MouseEvent, SetStateAction, useState } from "react";
 import { TechProps } from "./types";
 
 const TabSkills = ({ skills }: TechProps) => {
-  const [activeTab, setActiveTab] = useState("languages");
-  const categories = ['languages', 'tools'];
+  const [activeTab, setActiveTab] = useState("programming");
+  const categories = ['programming', 'tools'];
   const switchTab = (e: any) => {
     setActiveTab(e.target.textContent);
   }

@@ -67,7 +67,8 @@
 
 @media (min-width: 500px) {
   .stack {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(120px, auto));
+    justify-content: space-between;
     align-content: baseline;
   }
 }
