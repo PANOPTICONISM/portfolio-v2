@@ -2,9 +2,10 @@ import styles from "./Tech.module.css";
 import { MouseEvent, SetStateAction, useState } from "react";
 import { TechProps } from "./types";
 
-const TabSkills = ({ skills }: TechProps) => {
-  const [activeTab, setActiveTab] = useState("programming");
-  const categories = ['programming', 'tools'];
+const TechTabs = ({ skills }: TechProps) => {
+  const usedCategories = skills.items.map((skill) => skill.metadata.tags?.[0]?.sys?.id);
+  const categories = [...new Set(usedCategories)];
+  const [activeTab, setActiveTab] = useState(categories[0]);
   const switchTab = (e: any) => {
     setActiveTab(e.target.textContent);
   }
@@ -34,4 +35,4 @@ const TabSkills = ({ skills }: TechProps) => {
   );
 };
 
-export default TabSkills;
+export default TechTabs;
