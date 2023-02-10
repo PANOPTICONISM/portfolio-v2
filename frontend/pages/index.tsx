@@ -12,7 +12,7 @@ import {
   Steps,
   Recent,
   Posts,
-  TabSkills,
+  TechTabs,
 } from "components/homepage";
 import Experience from "components/homepage/Experience/Experience";
 import { useThemeContext } from "contexts/theme-context";
@@ -45,7 +45,7 @@ const Home: NextPage<FetchDataProps> = ({ projects, skills, experience }) => {
             <Socials />
             <Introduction />
             <Steps />
-            <TabSkills skills={skills} />
+            <TechTabs skills={skills} />
             <Recent
               post={projects.items[0]}
               handleBackClick={handleBackClick}

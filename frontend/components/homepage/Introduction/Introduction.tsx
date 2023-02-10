@@ -17,7 +17,7 @@ const Introduction = () => {
           </li>
           <li>
             &nbsp; 4 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-            &nbsp; &nbsp; &nbsp; lastName: "Almeida"
+            &nbsp; &nbsp; &nbsp; lastName: "Almeida",
           </li>
           <li>
             &nbsp; 5 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &#125;,
