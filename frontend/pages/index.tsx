@@ -13,8 +13,8 @@ import {
   Recent,
   Posts,
   TechTabs,
+  Experience,
 } from "components/homepage";
-import Experience from "components/homepage/Experience/Experience";
 import { useThemeContext } from "contexts/theme-context";
 import { FetchDataProps } from "types/types";
 import { client } from "./api/lib/Contentful";
