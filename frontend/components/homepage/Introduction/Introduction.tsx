@@ -28,11 +28,11 @@ const Introduction = () => {
           </li>
           <li>
             &nbsp; 7 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-            &nbsp; &nbsp; &nbsp; design: "UI/UX Designer",
+            &nbsp; &nbsp; &nbsp; design: "User Research and Design",
           </li>
           <li>
             &nbsp; 8 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-            &nbsp; &nbsp; &nbsp; development: "Software Engineer"
+            &nbsp; &nbsp; &nbsp; development: "Software Development",
           </li>
           <li>
             &nbsp; 9 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &#125;,
@@ -54,7 +54,11 @@ const Introduction = () => {
             15 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; location: &#91;
             "Copenhagen", "Hybrid", "Remote" &#93;,
           </li>
-          <li>16 &nbsp; &nbsp; &nbsp; &#125;;</li>
+          <li>
+            16 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; area: &#91;
+            "Software Development" &#93;,
+          </li>
+          <li>17 &nbsp; &nbsp; &nbsp; &#125;;</li>
         </ul>
       </div>
     </section>
