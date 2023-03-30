@@ -38,7 +38,7 @@ export const List = ({ text }: { text: TextProps }) => {
                                 [`${styles.italic}`]: italic,
                                 [`${styles.strikethrough}`]: strikethrough,
                                 [`${styles.underline}`]: underline,
-                            })
+                            }, styles.basis)
                         }
                         style={color !== "default" ? { color } : {}}
                     >

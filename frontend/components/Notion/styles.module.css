@@ -20,6 +20,10 @@
     padding: 25px;
 }
 
+.basis a:hover {
+    text-decoration: underline;
+}
+
 .list {
     overflow-wrap: break-word;
     margin: 6px 0;
@@ -28,6 +32,16 @@
 .numberedList {
     list-style: decimal;
     margin: 6px 0;
+}
+
+.list,
+.numberedList {
+    white-space: nowrap;
+}
+
+.list span,
+.numberedList span {
+    white-space: normal;
 }
 
 .bold {
