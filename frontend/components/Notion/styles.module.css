@@ -12,7 +12,7 @@
     color: var(--text-colour-w-dark-box);
     padding: 25px;
     overflow: auto;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .callout {
