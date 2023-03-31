@@ -12,8 +12,8 @@
 }
 
 .callout {
-    background: var(--box-colour);
-    color: var(--text-colour-w-dark-box);
+    border: 1px solid var(--box-colour);
+    color: var(--text-colour);
     padding: 25px;
 }
 
