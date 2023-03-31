@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from "./styles.module.css";
 import Prism from "prismjs";
-import 'prismjs/plugins/line-numbers/prism-line-numbers.js'
-import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
+import 'prismjs/plugins/line-numbers/prism-line-numbers.js';
+import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
 
 export const Code = ({ content, language }: { content: string, language: string }) => {
 
@@ -10,7 +10,6 @@ export const Code = ({ content, language }: { content: string, language: string 
         const highlightDynamically = async () => {
             if (typeof window !== "undefined") {
                 Prism.highlightAll();
-                await import(`prismjs/components/prism-${language}`);
             }
         }
         highlightDynamically();
@@ -18,8 +17,8 @@ export const Code = ({ content, language }: { content: string, language: string 
 
     return (
         <section className={styles.code}>
-            <pre className='line-numbers'>
-                <code className={`language-${language}`}>
+            <pre className='line-numbers copy-to-clipboard'>
+                <code className={`language-${language}`} data-prismjs-copy="Copy the C snippet!">
                     {content}
                 </code>
             </pre>
