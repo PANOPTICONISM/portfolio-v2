@@ -7,7 +7,7 @@ export const Code = ({ content, language }: { content: string, language: string 
 
     return (
         <section className={styles.code}>
-            <SyntaxHighlighter language="javascript" style={coldarkDark} showLineNumbers>
+            <SyntaxHighlighter language={language} style={coldarkDark} showLineNumbers showInlineLineNumbers lineNumberContainerStyle={{ left: '2px' }}>
                 {content}
             </SyntaxHighlighter>
         </section>
