@@ -8,10 +8,6 @@
 }
 
 .code pre {
-    background: var(--box-colour);
-    color: var(--text-colour-w-dark-box);
-    padding: 25px;
-    overflow: auto;
     font-size: 14px;
 }
 
