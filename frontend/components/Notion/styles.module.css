@@ -7,16 +7,25 @@
     margin-top: 30px;
 }
 
+.code {
+    position: relative;
+}
+
+.code .copyBtn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 14px;
+    cursor: pointer;
+}
+
 .code pre {
-    background: var(--box-colour);
-    color: var(--text-colour-w-dark-box);
-    padding: 25px;
-    overflow: auto;
+    font-size: 14px;
 }
 
 .callout {
-    background: var(--box-colour);
-    color: var(--text-colour-w-dark-box);
+    border: 1px solid var(--box-colour);
+    color: var(--text-colour);
     padding: 25px;
 }
 

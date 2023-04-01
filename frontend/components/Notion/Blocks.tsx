@@ -80,7 +80,7 @@ export const renderBlock = (block: any) => {
             return <blockquote key={id}>{value.rich_text[0].plain_text}</blockquote>;
         case "code":
             return (
-                <Code content={value.rich_text[0]?.plain_text} />
+                <Code content={value.rich_text[0]?.plain_text} language={value.language} />
             );
         case "file":
             const src_file =
