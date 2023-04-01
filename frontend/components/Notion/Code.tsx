@@ -19,7 +19,7 @@ export const Code = ({ content, language }: { content: string, language: string 
         <section className={styles.code}>
             <CopyToClipboard text={content} onCopy={() => setCopied(true)}>
                 <div className={styles.copyBtn}>
-                    {copied ? <FontAwesomeIcon icon={faSquareCheck} color='green' /> : <FontAwesomeIcon icon={faClone} />}
+                    {copied ? <FontAwesomeIcon icon={faSquareCheck} color='green' /> : <FontAwesomeIcon icon={faClone} color='white' />}
                 </div>
             </CopyToClipboard>
             <SyntaxHighlighter language={language} style={coldarkDark} showLineNumbers showInlineLineNumbers lineNumberContainerStyle={{ left: '2px' }}>
