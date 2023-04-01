@@ -1,5 +1,4 @@
 import "styles/index.css";
-import "styles/prism-theme.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import Script from "next/script";
