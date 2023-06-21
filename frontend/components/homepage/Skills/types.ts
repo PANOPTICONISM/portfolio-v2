@@ -4,19 +4,7 @@ export type TechProps = {
 
 export type TechItemsProps = {
     items: {
-        fields: {
-            id: number,
-            title: string,
-            image: {
-                fields: {
-                    description: string,
-                    title: string,
-                    file: {
-                        url: string,
-                    }
-                }
-            }
-        },
+        fields: SkillProps,
         metadata: {
             tags: {
                 sys: {
@@ -28,3 +16,17 @@ export type TechItemsProps = {
         }
     }[]
 }
+
+export type SkillProps = {
+      id: number;
+      title: string;
+      image: {
+        fields: {
+          description: string;
+          title: string;
+          file: {
+            url: string;
+          };
+        };
+      };
+  };
