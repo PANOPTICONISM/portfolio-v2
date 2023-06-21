@@ -5,6 +5,8 @@
 
 .image_wrapper {
   position: relative;
+  border: 1px solid var(--box-colour);
+  display: flex;
 }
 
 .most_recent .sources {
@@ -29,7 +31,7 @@
   transform: translateY(4px);
 }
 
-.most_recent .sources ul>li {
+.most_recent .sources ul > li {
   margin-right: 12px;
   margin-bottom: 12px;
 }
