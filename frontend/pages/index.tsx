@@ -18,6 +18,7 @@ import {
 import { useThemeContext } from "contexts/theme-context";
 import { FetchDataProps } from "types/types";
 import { client } from "./api/lib/Contentful";
+import { ThemeSwitch } from "components/ThemeSwitch/ThemeSwitch";
 
 const Home: NextPage<FetchDataProps> = ({ projects, skills, experience }) => {
   const [isLoading, setLoading] = useState(true);
@@ -55,7 +56,7 @@ const Home: NextPage<FetchDataProps> = ({ projects, skills, experience }) => {
             <ProjectsCTA onClick={handleBackClick} />
           </main>
           <Footer />
-          {/* <Modal /> */}
+          <ThemeSwitch />
         </>
       )}
     </div>

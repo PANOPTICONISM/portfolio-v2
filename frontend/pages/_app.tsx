@@ -3,7 +3,6 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import Script from "next/script";
 import { ThemeProvider } from "contexts/theme-context";
-import { ThemeSwitch } from "components/ThemeSwitch/ThemeSwitch";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const GTM_ID = "GTM-W7FJHRQ";
@@ -30,7 +29,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Script>
       <ThemeProvider>
         <Component {...pageProps} />
-        <ThemeSwitch />
       </ThemeProvider>
     </>
   );

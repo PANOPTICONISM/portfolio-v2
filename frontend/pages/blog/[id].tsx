@@ -7,6 +7,7 @@ import { notionClient } from "pages/api/lib/Notion";
 import { Fragment } from "react";
 import { SinglePostProps } from "types/types";
 import styles from "./Post.module.css";
+import { ThemeSwitch } from "components/ThemeSwitch/ThemeSwitch";
 
 export default function Post({ page, blocks }: SinglePostProps) {
   const { theme } = useThemeContext();
@@ -25,6 +26,7 @@ export default function Post({ page, blocks }: SinglePostProps) {
         </section>
       </article>
       <Footer />
+      <ThemeSwitch />
     </div>
   );
 }

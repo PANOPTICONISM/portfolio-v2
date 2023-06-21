@@ -5,6 +5,7 @@ import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { BlogDataProps } from 'types/types';
 import { notionClient } from './api/lib/Notion';
+import { ThemeSwitch } from 'components/ThemeSwitch/ThemeSwitch';
 
 const Blog: NextPage<BlogDataProps> = ({ posts }) => {
     const { theme } = useThemeContext();
@@ -15,6 +16,7 @@ const Blog: NextPage<BlogDataProps> = ({ posts }) => {
             <h1>Archive</h1>
             <Entries posts={posts} />
             <Footer />
+            <ThemeSwitch />
         </div>
     )
 }
