@@ -41,7 +41,7 @@ const Recent = ({ post, handleBackClick }: RecentProps) => {
         </div>
       )}
       <div className={styles.desc}>
-        <h2>Showcase — most recent project.</h2>
+        <h2>Showcase — most recent project</h2>
         <p>{description}</p>
       </div>
       <div className={styles.button_container}>
