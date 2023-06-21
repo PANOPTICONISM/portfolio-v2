@@ -18,11 +18,40 @@ const Post = ({ article }: ArticleProps) => {
   return (
     <div className={`${styles.post} ${removeCommaCat}`}>
       {image && (
-        <img
-          className={styles.bgImage}
-          src={image?.fields?.file?.url}
-          alt={title}
-        />
+        <div className={styles.image_wrapper}>
+          <img
+            className={styles.bgImage}
+            src={image?.fields?.file?.url}
+            alt={title}
+          />
+          {behance || github || livePreview ? (
+            <div className={styles.sources}>
+              <ul>
+                {behance ? (
+                  <li>
+                    <a href={behance} target="_blank" rel="noreferrer">
+                      <icons.BehanceSquare width="30" height="30" />
+                    </a>
+                  </li>
+                ) : null}
+                {github ? (
+                  <li>
+                    <a href={github} target="_blank" rel="noreferrer">
+                      <icons.GithubSquare width="30" height="30" />
+                    </a>
+                  </li>
+                ) : null}
+                {livePreview ? (
+                  <li>
+                    <a href={livePreview} target="_blank" rel="noreferrer">
+                      <icons.PreviewIcon width="30" height="30" />
+                    </a>
+                  </li>
+                ) : null}
+              </ul>
+            </div>
+          ) : null}
+        </div>
       )}
       <div>
         <h2>{title}</h2>
@@ -33,33 +62,6 @@ const Post = ({ article }: ArticleProps) => {
               {languages.map((lang, index) => (
                 <li key={index}>{lang}</li>
               ))}
-            </ul>
-          </div>
-        ) : null}
-        {behance || github || livePreview ? (
-          <div className={styles.sources}>
-            <ul>
-              {behance ? (
-                <li>
-                  <a href={behance} target="_blank" rel="noreferrer">
-                    <icons.BehanceSquare width="30" height="30" />
-                  </a>
-                </li>
-              ) : null}
-              {github ? (
-                <li>
-                  <a href={github} target="_blank" rel="noreferrer">
-                    <icons.GithubSquare width="30" height="30" />
-                  </a>
-                </li>
-              ) : null}
-              {livePreview ? (
-                <li>
-                  <a href={livePreview} target="_blank" rel="noreferrer">
-                    <icons.PreviewIcon width="30" height="30" />
-                  </a>
-                </li>
-              ) : null}
             </ul>
           </div>
         ) : null}

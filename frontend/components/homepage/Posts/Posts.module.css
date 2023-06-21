@@ -53,6 +53,16 @@
   padding: 20px;
 }
 
+.image_wrapper {
+  position: relative;
+}
+
+.sources {
+  position: absolute;
+  bottom: 12px;
+  right: 0;
+}
+
 .post .bgImage {
   width: 100%;
   height: auto;
