@@ -11,7 +11,7 @@
 
 .most_recent .sources {
   position: absolute;
-  bottom: 0;
+  top: 12px;
   right: 0;
 }
 
@@ -33,7 +33,6 @@
 
 .most_recent .sources ul > li {
   margin-right: 12px;
-  margin-bottom: 12px;
 }
 
 .most_recent img {
