@@ -1,5 +1,5 @@
 import styles from "./Tech.module.css";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { SkillProps, TechProps } from "./types";
 
 const Skill = ({ fields }: { fields: SkillProps }) => {
@@ -19,9 +19,11 @@ const TechTabs = ({ skills }: TechProps) => {
 
   const [activeTab, setActiveTab] = useState(categories[0]);
 
-  const currentSkills = skills.items.filter(
-    (skill) => activeTab === skill.metadata.tags?.[0]?.sys?.id
-  );
+  const currentSkills = useMemo(() => {
+    return skills.items.filter(
+      (skill) => activeTab === skill.metadata.tags?.[0]?.sys?.id
+    )
+  }, [activeTab, skills.items]);
 
   const switchTab = (e: any) => {
     setActiveTab(e.target.textContent);

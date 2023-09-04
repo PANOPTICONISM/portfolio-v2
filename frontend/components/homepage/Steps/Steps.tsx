@@ -1,4 +1,7 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./Steps.module.css";
+import { faCode, faCompassDrafting } from "@fortawesome/free-solid-svg-icons";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 const Steps = () => {
   return (
@@ -6,7 +9,7 @@ const Steps = () => {
       <h1>Competences</h1>
       <div className={styles.steps}>
         <article>
-          <img src="/design.png" alt="design" />
+          <FontAwesomeIcon size="lg" icon={faCompassDrafting as IconProp} />
           <h2>Design</h2>
           <p>
             <b>The user's needs.</b> I began my journey by designing user
@@ -17,7 +20,7 @@ const Steps = () => {
           </p>
         </article>
         <article className={styles.highlight}>
-          <img src="/development.png" alt="development" />
+          <FontAwesomeIcon size="lg" icon={faCode as IconProp} />
           <h2>Development</h2>
           <p>
             <b>From design to code.</b> My keen eye for design, derives from my
