@@ -1,6 +1,9 @@
 import styles from "./Recent.module.css";
-import { icons } from "public/icons";
 import { RecentProps } from "./types";
+import { faEarthEurope } from "@fortawesome/free-solid-svg-icons";
+import { faBehance, faGithub } from "@fortawesome/free-brands-svg-icons";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Recent = ({ post, handleBackClick }: RecentProps) => {
   const { title, image, description, behance, github, livePreview } =
@@ -17,21 +20,21 @@ const Recent = ({ post, handleBackClick }: RecentProps) => {
                 {behance ? (
                   <li>
                     <a href={behance} target="_blank" rel="noreferrer">
-                      <icons.BehanceSquare width="30" height="30" />
+                      <FontAwesomeIcon size="lg" icon={faBehance as IconProp} />
                     </a>
                   </li>
                 ) : null}
                 {github ? (
                   <li>
                     <a href={github} target="_blank" rel="noreferrer">
-                      <icons.GithubSquare width="30" height="30" />
+                      <FontAwesomeIcon size="lg" icon={faGithub as IconProp} />
                     </a>
                   </li>
                 ) : null}
                 {livePreview ? (
                   <li>
                     <a href={livePreview} target="_blank" rel="noreferrer">
-                      <icons.PreviewIcon width="30" height="30" />
+                      <FontAwesomeIcon size="lg" icon={faEarthEurope as IconProp} />
                     </a>
                   </li>
                 ) : null}
@@ -41,7 +44,7 @@ const Recent = ({ post, handleBackClick }: RecentProps) => {
         </div>
       )}
       <div className={styles.desc}>
-        <h2>Showcase — most recent project</h2>
+        <h2>Latest Project — {title}</h2>
         <p>{description}</p>
       </div>
       <div className={styles.button_container}>
