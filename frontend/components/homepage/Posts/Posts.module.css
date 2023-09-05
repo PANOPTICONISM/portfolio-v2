@@ -9,8 +9,7 @@
   margin: 16px 0;
 }
 
-.post p:first-of-type,
-.languages ul li {
+.post p:first-of-type {
   color: var(--text-colour-w-dark-box);
 }
 
@@ -92,8 +91,8 @@
 }
 
 .post .languages ul li {
-  padding: 8px 12px;
-  background-color: var(--premium);
+  padding: 0 4px;
+  font-family: 'Exo 2', sans-serif;
 }
 
 .post .sources ul {

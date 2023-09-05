@@ -33,21 +33,21 @@ const Post = ({ article }: ArticleProps) => {
                 {behance ? (
                   <li>
                     <a href={behance} target="_blank" rel="noreferrer">
-                      <FontAwesomeIcon size="lg" icon={faBehance as IconProp} />
+                      <FontAwesomeIcon color="white" size="lg" icon={faBehance as IconProp} />
                     </a>
                   </li>
                 ) : null}
                 {github ? (
                   <li>
                     <a href={github} target="_blank" rel="noreferrer">
-                      <FontAwesomeIcon size="lg" icon={faGithub as IconProp} />
+                      <FontAwesomeIcon color="white" size="lg" icon={faGithub as IconProp} />
                     </a>
                   </li>
                 ) : null}
                 {livePreview ? (
                   <li>
                     <a href={livePreview} target="_blank" rel="noreferrer">
-                      <FontAwesomeIcon size="lg" icon={faEarthEurope as IconProp} />
+                      <FontAwesomeIcon color="white" size="lg" icon={faEarthEurope as IconProp} />
                     </a>
                   </li>
                 ) : null}
