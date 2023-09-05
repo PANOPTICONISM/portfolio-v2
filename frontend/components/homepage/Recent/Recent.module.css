@@ -11,7 +11,7 @@
 
 .most_recent .sources {
   position: absolute;
-  top: 12px;
+  top: 8px;
   right: 0;
 }
 
@@ -24,6 +24,8 @@
 }
 
 .most_recent .sources svg {
+  background-color: var(--box-colour);
+  padding: 6px;
   transition: all 0.3s;
 }
 
@@ -32,7 +34,7 @@
 }
 
 .most_recent .sources ul > li {
-  margin-right: 12px;
+  margin-right: 8px;
 }
 
 .most_recent img {
