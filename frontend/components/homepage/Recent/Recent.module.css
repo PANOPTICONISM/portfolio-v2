@@ -3,13 +3,19 @@
   margin: auto;
 }
 
+.most_recent h2 {
+  margin-bottom: 0;
+}
+
 .image_wrapper {
   position: relative;
+  border: 1px solid var(--box-colour);
+  display: flex;
 }
 
 .most_recent .sources {
   position: absolute;
-  bottom: 0;
+  top: 8px;
   right: 0;
 }
 
@@ -22,6 +28,8 @@
 }
 
 .most_recent .sources svg {
+  background-color: var(--box-colour);
+  padding: 6px;
   transition: all 0.3s;
 }
 
@@ -29,9 +37,8 @@
   transform: translateY(4px);
 }
 
-.most_recent .sources ul>li {
-  margin-right: 12px;
-  margin-bottom: 12px;
+.most_recent .sources ul > li {
+  margin-right: 8px;
 }
 
 .most_recent img {

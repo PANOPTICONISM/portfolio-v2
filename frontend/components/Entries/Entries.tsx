@@ -46,7 +46,8 @@ const colors: ColorsProps = {
     "GIT": "#F1502F",
     "Tools": "#795695",
     "Resources": "#fc9d09",
-    "Testing": "#FF7F50"
+    "Testing": "#FF7F50",
+    "Jest": "#944059"
 }
 
 export const Entries = ({ posts }: { posts: PostProps }) => {

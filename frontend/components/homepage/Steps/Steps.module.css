@@ -13,6 +13,10 @@
   position: relative;
 }
 
+.steps h2 {
+  margin-bottom: 0;
+}
+
 .steps article:not(.highlight) {
   background: var(--box-colour);
 }
@@ -21,13 +25,12 @@
   background: var(--green-colour);
 }
 
-.steps article img {
+.steps article svg {
   position: absolute;
   padding: 10px;
   top: -20px;
   right: 30px;
-  background: inherit;
-  max-height: 50px;
+  background: inherit
 }
 
 @media screen and (min-width: 600px) {

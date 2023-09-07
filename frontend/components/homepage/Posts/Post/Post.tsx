@@ -1,6 +1,9 @@
 import styles from "../Posts.module.css";
-import { icons } from "public/icons";
 import { ArticleProps } from "../types";
+import { faEarthEurope } from "@fortawesome/free-solid-svg-icons";
+import { faBehance, faGithub } from "@fortawesome/free-brands-svg-icons";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Post = ({ article }: ArticleProps) => {
   const {
@@ -18,11 +21,40 @@ const Post = ({ article }: ArticleProps) => {
   return (
     <div className={`${styles.post} ${removeCommaCat}`}>
       {image && (
-        <img
-          className={styles.bgImage}
-          src={image?.fields?.file?.url}
-          alt={title}
-        />
+        <div className={styles.image_wrapper}>
+          <img
+            className={styles.bgImage}
+            src={image?.fields?.file?.url}
+            alt={title}
+          />
+          {behance || github || livePreview ? (
+            <div className={styles.sources}>
+              <ul>
+                {behance ? (
+                  <li>
+                    <a href={behance} target="_blank" rel="noreferrer">
+                      <FontAwesomeIcon color="white" size="lg" icon={faBehance as IconProp} />
+                    </a>
+                  </li>
+                ) : null}
+                {github ? (
+                  <li>
+                    <a href={github} target="_blank" rel="noreferrer">
+                      <FontAwesomeIcon color="white" size="lg" icon={faGithub as IconProp} />
+                    </a>
+                  </li>
+                ) : null}
+                {livePreview ? (
+                  <li>
+                    <a href={livePreview} target="_blank" rel="noreferrer">
+                      <FontAwesomeIcon color="white" size="lg" icon={faEarthEurope as IconProp} />
+                    </a>
+                  </li>
+                ) : null}
+              </ul>
+            </div>
+          ) : null}
+        </div>
       )}
       <div>
         <h2>{title}</h2>
@@ -33,33 +65,6 @@ const Post = ({ article }: ArticleProps) => {
               {languages.map((lang, index) => (
                 <li key={index}>{lang}</li>
               ))}
-            </ul>
-          </div>
-        ) : null}
-        {behance || github || livePreview ? (
-          <div className={styles.sources}>
-            <ul>
-              {behance ? (
-                <li>
-                  <a href={behance} target="_blank" rel="noreferrer">
-                    <icons.BehanceSquare width="30" height="30" />
-                  </a>
-                </li>
-              ) : null}
-              {github ? (
-                <li>
-                  <a href={github} target="_blank" rel="noreferrer">
-                    <icons.GithubSquare width="30" height="30" />
-                  </a>
-                </li>
-              ) : null}
-              {livePreview ? (
-                <li>
-                  <a href={livePreview} target="_blank" rel="noreferrer">
-                    <icons.PreviewIcon width="30" height="30" />
-                  </a>
-                </li>
-              ) : null}
             </ul>
           </div>
         ) : null}
