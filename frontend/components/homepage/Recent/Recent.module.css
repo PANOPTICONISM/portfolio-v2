@@ -3,6 +3,10 @@
   margin: auto;
 }
 
+.most_recent h2 {
+  margin-bottom: 0;
+}
+
 .image_wrapper {
   position: relative;
   border: 1px solid var(--box-colour);

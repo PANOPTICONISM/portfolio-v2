@@ -34,7 +34,10 @@ a {
 
   --h1-font-size-desktop: 56px;
   --h1-font-size-tablet: 32px;
-  --h1-font-size-mobile: 18px;
+  --h1-font-size-mobile: 24px;
+
+  --h2-font-size-tablet: 26px;
+  --h2-font-size-mobile: 20px;
 
   --primary-font: "Syncopate", sans-serif;
   --secondary-font: "Open Sans", sans-serif;
@@ -118,6 +121,14 @@ h1::before {
   z-index: -1;
 }
 
+h2 {
+  font-size: var(--h2-font-size-mobile);
+}
+
+p {
+  margin: 8px 0;
+}
+
 .grid_2 {
   display: grid;
   grid-template-columns: auto;
@@ -136,6 +147,9 @@ button {
 @media (min-width: 600px) {
   h1 {
     font-size: var(--h1-font-size-tablet);
+  }
+  h2 {
+    font-size: var(--h2-font-size-tablet);
   }
 }
 
