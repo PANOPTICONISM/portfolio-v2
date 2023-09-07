@@ -11,6 +11,8 @@ export const renderBlock = (block: any) => {
     const { type, id } = block;
     const value = block[type];
 
+    console.log(block)
+
     switch (type) {
         case "paragraph":
             return (
@@ -69,10 +71,10 @@ export const renderBlock = (block: any) => {
                 value.type === "external" ? value.external.url : value.file.url;
             const caption = value.caption ? value.caption[0]?.plain_text : "";
             return (
-                <figure>
+                <>
                     <img src={src} alt={caption} />
                     {caption && <figcaption>{caption}</figcaption>}
-                </figure>
+                </>
             );
         case "divider":
             return <hr key={id} />;
