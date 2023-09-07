@@ -23,6 +23,14 @@ export type SinglePostProps = {
         properties: {
             Name: {
                 title: TextProps,
+            },
+            Preview: {
+                url: string,
+            },
+            Date: {
+                date: {
+                    start: string
+                }
             }
         },
     },
