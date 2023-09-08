@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from "./styles.module.css";
+import styles from "./Notion.module.css";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { coldarkDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import { CopyToClipboard } from 'react-copy-to-clipboard';

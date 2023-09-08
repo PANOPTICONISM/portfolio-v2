@@ -1,4 +1,4 @@
-import styles from "./styles.module.css";
+import styles from "./Notion.module.css";
 import { HeadlineProps } from "./Notion.types";
 
 export const Headline = ({ title }: { title: HeadlineProps }) => {
