@@ -12,9 +12,9 @@ const Blog: NextPage<BlogDataProps> = ({ posts }) => {
 
     const sortedPosts = posts.sort((a, b) => {
         if (a.properties.Date.date && b.properties.Date.date) {
-            return new Date(a.properties.Date.date.start).getTime() - new Date(b.properties.Date.date.start).getTime()
+            return new Date(a.properties.Date.date.start).getTime() + new Date(b.properties.Date.date.start).getTime()
         }
-        return new Date(a.created_time).getTime() - new Date(b.created_time).getTime();
+        return new Date(a.created_time).getTime() + new Date(b.created_time).getTime();
     })
     return (
         <div className={`common theme-${theme}`}>
