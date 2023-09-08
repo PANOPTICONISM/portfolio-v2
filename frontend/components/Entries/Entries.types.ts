@@ -1,4 +1,4 @@
-import { PropertiesProps } from "pages/types";
+import { PropertiesProps } from "types/App.types";
 
 export type PostProps = {
     id: string,

@@ -3,7 +3,7 @@ import { Entries } from 'components/Entries/Entries';
 import { useThemeContext } from 'contexts/theme-context';
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
-import { BlogDataProps } from 'pages/types';
+import { BlogDataProps } from 'types/App.types';
 import { notionClient } from './api/lib/Notion';
 import { ThemeSwitch } from 'components/ThemeSwitch/ThemeSwitch';
 

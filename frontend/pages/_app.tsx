@@ -1,4 +1,4 @@
-import "./index.css";
+import "styles/App.styles.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import Script from "next/script";
