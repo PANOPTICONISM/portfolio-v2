@@ -10,11 +10,17 @@ import { ThemeSwitch } from 'components/ThemeSwitch/ThemeSwitch';
 const Blog: NextPage<BlogDataProps> = ({ posts }) => {
     const { theme } = useThemeContext();
 
+    const sortedPosts = posts.sort((a, b) => {
+        if (a.properties.Date.date && b.properties.Date.date) {
+            return new Date(a.properties.Date.date.start).getTime() - new Date(b.properties.Date.date.start).getTime()
+        }
+        return new Date(a.created_time).getTime() - new Date(b.created_time).getTime();
+    })
     return (
         <div className={`common theme-${theme}`}>
             <Header />
             <h1>Archive</h1>
-            <Entries posts={posts} />
+            <Entries posts={sortedPosts} />
             <Footer />
             <ThemeSwitch />
         </div>

@@ -2,6 +2,7 @@ import { PropertiesProps } from "pages/types";
 
 export type PostProps = {
     id: string,
+    created_time: string,
     icon: {
         file: {
             url: string,

@@ -11,8 +11,6 @@ export const renderBlock = (block: any) => {
     const { type, id } = block;
     const value = block[type];
 
-    console.log(block)
-
     switch (type) {
         case "paragraph":
             return (
