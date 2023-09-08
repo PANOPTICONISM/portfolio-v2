@@ -1,7 +1,7 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import styles from "./Entries.module.css";
+import { PropertiesProps } from 'types/types';
 
 export type PostProps = {
     id: string,
@@ -12,25 +12,7 @@ export type PostProps = {
         emoji: string,
         type: string,
     }
-    properties: {
-        Name: {
-            title: {
-                plain_text: string,
-            }[],
-        },
-        Summary: {
-            rich_text: {
-                plain_text: string,
-            }[]
-        },
-        Tags: {
-            multi_select: {
-                id: string,
-                name: string,
-                color: string,
-            }[]
-        }
-    }
+    properties: PropertiesProps
 }[];
 
 type ColorsProps = {
