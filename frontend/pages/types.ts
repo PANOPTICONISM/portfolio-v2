@@ -1,8 +1,7 @@
-import { PostProps } from "components/Entries/Entries";
-import { ExperienceFieldsProps } from "components/homepage/Experience/types";
-import { ArticleFieldsProps } from "components/homepage/Posts/types";
-import { TechItemsProps } from "components/homepage/Skills/types";
-import { TextProps } from "components/Notion/types";
+import { PostProps } from "components/Entries/Entries.types";
+import { ExperienceFieldsProps } from "components/homepage/Experience/Experience.types";
+import { ArticleFieldsProps } from "components/homepage/Posts/Posts.types";
+import { TechItemsProps } from "components/homepage/Skills/Skills.types";
 
 export type FetchDataProps = {
     projects: {

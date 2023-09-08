@@ -1,7 +1,3 @@
-export type ArticleProps = {
-    article: ArticleFieldsProps,
-};
-
 export type ArticleFieldsProps = {
     fields: {
         title: string;
@@ -20,3 +16,7 @@ export type ArticleFieldsProps = {
         languages: Array<string>;
     };
 }
+
+export type ArticleProps = {
+    article: ArticleFieldsProps,
+};

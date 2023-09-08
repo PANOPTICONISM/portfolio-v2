@@ -1,5 +1,5 @@
 import styles from "../Posts.module.css";
-import { ArticleProps } from "../types";
+import { ArticleProps } from "../Posts.types";
 import { faEarthEurope } from "@fortawesome/free-solid-svg-icons";
 import { faBehance, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";

@@ -1,4 +1,4 @@
-import { ListProps, TextProps } from "./types";
+import { ListProps, TextProps } from "./Notion.types";
 import styles from "./styles.module.css";
 import cx from 'classnames';
 

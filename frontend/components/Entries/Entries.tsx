@@ -1,23 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 import styles from "./Entries.module.css";
-import { PropertiesProps } from 'types/types';
-
-export type PostProps = {
-    id: string,
-    icon: {
-        file: {
-            url: string,
-        },
-        emoji: string,
-        type: string,
-    }
-    properties: PropertiesProps
-}[];
-
-type ColorsProps = {
-    [key: string]: string,
-}
+import { ColorsProps, PostProps } from './Entries.types';
 
 const colors: ColorsProps = {
     "JavaScript": "#c2b13f",

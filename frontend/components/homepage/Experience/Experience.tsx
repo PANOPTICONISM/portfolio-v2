@@ -1,5 +1,5 @@
 import styles from "./Styles.module.css";
-import { ExperienceProps } from "./types";
+import { ExperienceProps } from "./Experience.types";
 
 const Experience = ({ jobs }: ExperienceProps) => {
 
