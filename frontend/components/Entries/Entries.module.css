@@ -11,6 +11,10 @@
     position: relative;
 }
 
+.entries p {
+    margin-bottom: 16px;
+}
+
 .entries ul {
     list-style: none;
     padding: 0;

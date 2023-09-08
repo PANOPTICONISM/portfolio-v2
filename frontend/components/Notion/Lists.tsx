@@ -1,5 +1,5 @@
-import { ListProps, TextProps } from "./types";
-import styles from "./styles.module.css";
+import { ListProps, TextProps } from "./Notion.types";
+import styles from "./Notion.module.css";
 import cx from 'classnames';
 
 export const BulletedList = ({ text }: { text: TextProps }) => {

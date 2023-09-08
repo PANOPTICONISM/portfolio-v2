@@ -5,9 +5,10 @@ import { useThemeContext } from "contexts/theme-context";
 import { GetStaticPaths } from "next";
 import { notionClient } from "pages/api/lib/Notion";
 import { Fragment } from "react";
-import { SinglePostProps } from "types/types";
+import { SinglePostProps } from "types/App.types";
 import styles from "./Post.module.css";
 import { ThemeSwitch } from "components/ThemeSwitch/ThemeSwitch";
+import { Socials } from "components";
 
 export default function Post({ page, blocks }: SinglePostProps) {
   const { theme } = useThemeContext();
@@ -24,6 +25,7 @@ export default function Post({ page, blocks }: SinglePostProps) {
             <Fragment key={block.id}>{renderBlock(block)}</Fragment>
           ))}
         </section>
+        <Socials isBlog url={page.properties.Preview.url} />
       </article>
       <Footer />
       <ThemeSwitch />

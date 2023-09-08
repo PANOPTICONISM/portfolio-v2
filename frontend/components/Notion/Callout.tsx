@@ -1,5 +1,5 @@
-import styles from "./styles.module.css";
-import { CalloutProps } from "./types";
+import styles from "./Notion.module.css";
+import { CalloutProps } from "./Notion.types";
 
 export const Callout = ({ text }: { text: CalloutProps }) => {
     return (

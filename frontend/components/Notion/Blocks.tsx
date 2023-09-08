@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Fragment } from "react";
-import styles from "./styles.module.css";
+import styles from "./Notion.module.css";
 import { Callout } from "./Callout";
 import { Code } from "./Code";
 import { Headline, Subheadline } from "./Headlines";
@@ -69,10 +69,10 @@ export const renderBlock = (block: any) => {
                 value.type === "external" ? value.external.url : value.file.url;
             const caption = value.caption ? value.caption[0]?.plain_text : "";
             return (
-                <figure>
+                <>
                     <img src={src} alt={caption} />
                     {caption && <figcaption>{caption}</figcaption>}
-                </figure>
+                </>
             );
         case "divider":
             return <hr key={id} />;

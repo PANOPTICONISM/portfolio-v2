@@ -1,10 +1,12 @@
 import { icons } from "public/icons";
 import styles from "./Socials.module.css";
 
-const Socials = () => {
+const Socials = ({ isBlog, url }: { isBlog?: boolean, url?: string }) => {
   return (
     <div className={styles.social_media}>
       <ul>
+        {!isBlog &&
+          <>
         <li>
           <a href="https://www.linkedin.com/in/mariajalmeida/">
             <icons.LinkedInIcon width="30" height="30" />
@@ -19,9 +21,11 @@ const Socials = () => {
           <a href="https://github.com/PANOPTICONISM">
             <icons.GitHubIcon width="30" height="30" />
           </a>
-        </li>
+          </li>
+          </>
+        }
         <li className={styles.pointer}>
-          <a href="https://codesandbox.io/u/panopticonism">
+          <a href={isBlog ? url : "https://codesandbox.io/u/panopticonism"}>
             <icons.SandboxIcon width="30" height="30" />
           </a>
         </li>

@@ -1,5 +1,5 @@
-import styles from "./Projects.module.css";
-import { ProjectsCTAProps } from "./types";
+import styles from "./ProjectsCTA.module.css";
+import { ProjectsCTAProps } from "./ProjectsCTA.types";
 
 const ProjectsCTA = ({ onClick }: ProjectsCTAProps) => {
   return (

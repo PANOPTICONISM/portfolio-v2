@@ -1,6 +1,6 @@
 import styles from "./Tech.module.css";
 import { useMemo, useState } from "react";
-import { SkillProps, TechProps } from "./types";
+import { SkillProps, TechProps } from "./Skills.types";
 
 const Skill = ({ fields }: { fields: SkillProps }) => {
   return (

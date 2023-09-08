@@ -16,7 +16,7 @@ import {
   Experience,
 } from "components/homepage";
 import { useThemeContext } from "contexts/theme-context";
-import { FetchDataProps } from "types/types";
+import { FetchDataProps } from "types/App.types";
 import { client } from "./api/lib/Contentful";
 import { ThemeSwitch } from "components/ThemeSwitch/ThemeSwitch";
 

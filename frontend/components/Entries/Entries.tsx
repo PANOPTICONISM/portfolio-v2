@@ -1,41 +1,7 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import styles from "./Entries.module.css";
-
-export type PostProps = {
-    id: string,
-    icon: {
-        file: {
-            url: string,
-        },
-        emoji: string,
-        type: string,
-    }
-    properties: {
-        Name: {
-            title: {
-                plain_text: string,
-            }[],
-        },
-        Summary: {
-            rich_text: {
-                plain_text: string,
-            }[]
-        },
-        Tags: {
-            multi_select: {
-                id: string,
-                name: string,
-                color: string,
-            }[]
-        }
-    }
-}[];
-
-type ColorsProps = {
-    [key: string]: string,
-}
+import { ColorsProps, PostProps } from './Entries.types';
 
 const colors: ColorsProps = {
     "JavaScript": "#c2b13f",

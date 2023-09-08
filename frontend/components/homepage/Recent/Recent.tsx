@@ -1,5 +1,5 @@
 import styles from "./Recent.module.css";
-import { RecentProps } from "./types";
+import { RecentProps } from "./Recent.types";
 import { faEarthEurope } from "@fortawesome/free-solid-svg-icons";
 import { faBehance, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";

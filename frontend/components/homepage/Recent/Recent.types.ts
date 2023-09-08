@@ -1,4 +1,4 @@
-import { ArticleFieldsProps } from "../Posts/types";
+import { ArticleFieldsProps } from "../Posts/Posts.types";
 
 export type RecentProps = {
     post: ArticleFieldsProps,
