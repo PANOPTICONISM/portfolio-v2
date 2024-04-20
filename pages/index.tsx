@@ -46,12 +46,12 @@ const Home: NextPage<FetchDataProps> = ({ projects, skills, experience }) => {
             <Socials />
             <Introduction />
             <Steps />
-            <TechTabs skills={skills} />
             <Recent
               post={projects.items[0]}
               handleBackClick={handleBackClick}
             />
-            {experience.items ? <Experience jobs={experience.items} /> : null}
+            <TechTabs skills={skills} />
+            {/* {experience.items ? <Experience jobs={experience.items} /> : null} */}
             <Posts ref={projectsRef} projects={projects.items} />
             <ProjectsCTA onClick={handleBackClick} />
           </main>
