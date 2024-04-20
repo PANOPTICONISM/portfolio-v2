@@ -21,7 +21,7 @@ export default function Post({ page, blocks }: SinglePostProps) {
         </h1>
         <section className={styles.articleSection}>
           {blocks.results.map((block) => (
-            <div key={block.id}>{renderBlock(block)}</div>
+            <div key={block.id}>{renderBlock(block, true)}</div>
           ))}
         </section>
         <Socials isBlog url={page.properties.Preview.url} />

@@ -6,7 +6,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClone, faSquareCheck } from '@fortawesome/free-regular-svg-icons';
 
-export const Code = ({ content, language }: { content: string, language: string }) => {
+export const Code = ({ content, language, allowCopy }: { content: string, language: string, allowCopy: boolean }) => {
     const [copied, setCopied] = React.useState(false);
 
     React.useEffect(() => {
@@ -17,11 +17,11 @@ export const Code = ({ content, language }: { content: string, language: string 
 
     return (
         <section className={styles.code}>
-            <CopyToClipboard text={content} onCopy={() => setCopied(true)}>
+            {allowCopy ? <CopyToClipboard text={content} onCopy={() => setCopied(true)}>
                 <div className={styles.copyBtn}>
                     {copied ? <FontAwesomeIcon icon={faSquareCheck} color='green' /> : <FontAwesomeIcon icon={faClone} color='white' />}
                 </div>
-            </CopyToClipboard>
+            </CopyToClipboard> : null}
             <SyntaxHighlighter language={language} style={coldarkDark} showLineNumbers showInlineLineNumbers lineNumberContainerStyle={{ left: '2px' }}>
                 {content}
             </SyntaxHighlighter>

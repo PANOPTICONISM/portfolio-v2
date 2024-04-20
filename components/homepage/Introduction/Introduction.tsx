@@ -8,7 +8,7 @@ const Introduction = ({ blocks }: { blocks: FrontPageBlocks[] }) => {
       <img src="/illustrated-self.png" alt="portrait" />
       <div>
         {blocks.map((block) => (
-          <div key={block.type}>{renderBlock(block)}</div>
+          <div key={block.type}>{renderBlock(block, false)}</div>
         ))}
       </div>
     </section>
