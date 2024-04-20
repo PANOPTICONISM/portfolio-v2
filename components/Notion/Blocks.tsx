@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Fragment } from "react";
 import styles from "./Notion.module.css";
 import { Callout } from "./Callout";
 import { Code } from "./Code";
@@ -7,7 +6,7 @@ import { Headline, Subheadline } from "./Headlines";
 import { BulletedList, NumberedList } from "./Lists";
 import { TextField } from "./TextField";
 
-export const renderBlock = (block: any) => {
+export const renderBlock = (block: any, allowCopy: boolean) => {
     const { type, id } = block;
     const value = block[type];
 
@@ -58,7 +57,7 @@ export const renderBlock = (block: any) => {
                         <TextField text={value.rich_text} />
                     </summary>
                     {value.children?.map((block: any) => (
-                        <Fragment key={block.id}>{renderBlock(block)}</Fragment>
+                        <div key={block.id}>{renderBlock(block, true)}</div>
                     ))}
                 </details>
             );
@@ -80,7 +79,7 @@ export const renderBlock = (block: any) => {
             return <blockquote key={id}>{value.rich_text[0].plain_text}</blockquote>;
         case "code":
             return (
-                <Code content={value.rich_text[0]?.plain_text} language={value.language} />
+                <Code content={value.rich_text[0]?.plain_text} language={value.language} allowCopy={allowCopy} />
             );
         case "file":
             const src_file =

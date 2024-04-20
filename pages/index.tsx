@@ -13,14 +13,14 @@ import {
   Recent,
   Posts,
   TechTabs,
-  Experience,
 } from "components/homepage";
 import { useThemeContext } from "contexts/theme-context";
 import { FetchDataProps } from "types/App.types";
 import { client } from "./api/lib/Contentful";
 import { ThemeSwitch } from "components/ThemeSwitch/ThemeSwitch";
+import { notionClient } from "./api/lib/Notion";
 
-const Home: NextPage<FetchDataProps> = ({ projects, skills, experience }) => {
+const Home: NextPage<FetchDataProps> = ({ projects, skills, experience, frontpageBlocks }) => {
   const [isLoading, setLoading] = useState(true);
   const { theme } = useThemeContext();
 
@@ -44,14 +44,14 @@ const Home: NextPage<FetchDataProps> = ({ projects, skills, experience }) => {
           <Header />
           <main>
             <Socials />
-            <Introduction />
+            <Introduction blocks={frontpageBlocks} />
             <Steps />
-            <TechTabs skills={skills} />
             <Recent
               post={projects.items[0]}
               handleBackClick={handleBackClick}
             />
-            {experience.items ? <Experience jobs={experience.items} /> : null}
+            <TechTabs skills={skills} />
+            {/* {experience.items ? <Experience jobs={experience.items} /> : null} */}
             <Posts ref={projectsRef} projects={projects.items} />
             <ProjectsCTA onClick={handleBackClick} />
           </main>
@@ -64,6 +64,12 @@ const Home: NextPage<FetchDataProps> = ({ projects, skills, experience }) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
+  const pageId = process.env.NOTION_FRONTPAGE_ID || '';
+
+  const blocks = await notionClient.blocks.children.list({
+    block_id: pageId
+  });
+
   const projects = await client.getEntries({
     content_type: "project",
     order: "fields.id",
@@ -78,7 +84,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   });
 
   return {
-    props: { projects, skills, experience },
+    props: { projects, skills, experience, frontpageBlocks: blocks.results },
   };
 };
 
