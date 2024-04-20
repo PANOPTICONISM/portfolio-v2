@@ -6,11 +6,9 @@ const Introduction = ({ blocks }: { blocks: FrontPageBlocks[] }) => {
   return (
     <section className={styles.intro}>
       <img src="/illustrated-self.png" alt="portrait" />
-      <div>
-        {blocks.map((block) => (
-          <div key={block.type}>{renderBlock(block, false)}</div>
-        ))}
-      </div>
+      {blocks.map((block) => (
+        <div key={block.type}>{renderBlock(block, false)}</div>
+      ))}
     </section>
   );
 };

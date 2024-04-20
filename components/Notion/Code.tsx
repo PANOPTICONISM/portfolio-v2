@@ -16,7 +16,7 @@ export const Code = ({ content, language, allowCopy }: { content: string, langua
     }, [copied]);
 
     return (
-        <section className={styles.code}>
+        <div className={styles.code}>
             {allowCopy ? <CopyToClipboard text={content} onCopy={() => setCopied(true)}>
                 <div className={styles.copyBtn}>
                     {copied ? <FontAwesomeIcon icon={faSquareCheck} color='green' /> : <FontAwesomeIcon icon={faClone} color='white' />}
@@ -25,6 +25,6 @@ export const Code = ({ content, language, allowCopy }: { content: string, langua
             <SyntaxHighlighter language={language} style={coldarkDark} showLineNumbers showInlineLineNumbers lineNumberContainerStyle={{ left: '2px' }}>
                 {content}
             </SyntaxHighlighter>
-        </section >
+        </div>
     )
 }
