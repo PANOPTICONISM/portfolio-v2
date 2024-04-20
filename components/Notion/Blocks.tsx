@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Fragment } from "react";
 import styles from "./Notion.module.css";
 import { Callout } from "./Callout";
 import { Code } from "./Code";
@@ -58,7 +57,7 @@ export const renderBlock = (block: any) => {
                         <TextField text={value.rich_text} />
                     </summary>
                     {value.children?.map((block: any) => (
-                        <Fragment key={block.id}>{renderBlock(block)}</Fragment>
+                        <div key={block.id}>{renderBlock(block)}</div>
                     ))}
                 </details>
             );

@@ -4,7 +4,6 @@ import { renderBlock } from "components/Notion/Blocks";
 import { useThemeContext } from "contexts/theme-context";
 import { GetStaticPaths } from "next";
 import { notionClient } from "pages/api/lib/Notion";
-import { Fragment } from "react";
 import { SinglePostProps } from "types/App.types";
 import styles from "./Post.module.css";
 import { ThemeSwitch } from "components/ThemeSwitch/ThemeSwitch";
@@ -22,7 +21,7 @@ export default function Post({ page, blocks }: SinglePostProps) {
         </h1>
         <section className={styles.articleSection}>
           {blocks.results.map((block) => (
-            <Fragment key={block.id}>{renderBlock(block)}</Fragment>
+            <div key={block.id}>{renderBlock(block)}</div>
           ))}
         </section>
         <Socials isBlog url={page.properties.Preview.url} />
@@ -34,7 +33,7 @@ export default function Post({ page, blocks }: SinglePostProps) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const databaseId = "75de570ce04946ba8ddc3c6f48f6a723";
+  const databaseId = process.env.NOTION_BLOG_ID || '';
 
   const posts = await notionClient.databases.query({
     database_id: databaseId

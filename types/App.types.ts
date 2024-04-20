@@ -3,6 +3,17 @@ import { ExperienceFieldsProps } from "components/homepage/Experience/Experience
 import { ArticleFieldsProps } from "components/homepage/Posts/Posts.types";
 import { TechItemsProps } from "components/homepage/Skills/Skills.types";
 
+export type FrontPageBlocks = {
+    type: string,
+    code: {
+        language: string,
+        rich_text: {
+            type: string,
+            plain_text: string
+        }
+    }
+};
+
 export type FetchDataProps = {
     projects: {
         items: ArticleFieldsProps[],
@@ -11,6 +22,7 @@ export type FetchDataProps = {
     experience: {
         items: ExperienceFieldsProps[],
     },
+    frontpageBlocks: FrontPageBlocks[]
 };
 
 export type BlogDataProps = {
