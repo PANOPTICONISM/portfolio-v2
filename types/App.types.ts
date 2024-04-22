@@ -10,7 +10,7 @@ export type FrontPageBlocks = {
         rich_text: {
             type: string,
             plain_text: string
-        }
+        }[]
     }
 };
 
