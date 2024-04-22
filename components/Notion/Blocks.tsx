@@ -6,7 +6,7 @@ import { Headline, Subheadline } from "./Headlines";
 import { BulletedList, NumberedList } from "./Lists";
 import { TextField } from "./TextField";
 
-export const renderBlock = (block: any, allowCopy: boolean) => {
+export const renderBlock = (block: any) => {
     const { type, id } = block;
     const value = block[type];
 
@@ -57,7 +57,7 @@ export const renderBlock = (block: any, allowCopy: boolean) => {
                         <TextField text={value.rich_text} />
                     </summary>
                     {value.children?.map((block: any) => (
-                        <div key={block.id}>{renderBlock(block, true)}</div>
+                        <div key={block.id}>{renderBlock(block)}</div>
                     ))}
                 </details>
             );
@@ -79,7 +79,7 @@ export const renderBlock = (block: any, allowCopy: boolean) => {
             return <blockquote key={id}>{value.rich_text[0].plain_text}</blockquote>;
         case "code":
             return (
-                <Code content={value.rich_text[0]?.plain_text} language={value.language} allowCopy={allowCopy} />
+                <Code content={value.rich_text[0]?.plain_text} language={value.language} allowCopy />
             );
         case "file":
             const src_file =
