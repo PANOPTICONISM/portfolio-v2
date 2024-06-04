@@ -47,11 +47,6 @@ const Header = () => {
             </Link>
           </li>
           <li>
-            <Link href="/#experience">
-              <a onClick={toggle}>Experience</a>
-            </Link>
-          </li>
-          <li>
             <Link href="/#projects">
               <a onClick={toggle}>Portfolio</a>
             </Link>
