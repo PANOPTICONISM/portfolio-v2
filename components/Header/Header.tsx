@@ -21,17 +21,15 @@ const Header = () => {
       const id = window.location.hash.slice(1);
       const el = document.getElementById(id);
       if (el) {
-        el.scrollIntoView()
+        el.scrollIntoView();
       }
-    }, 700)
-  }, [])
+    }, 700);
+  }, []);
 
   return (
     <header className={styles.header}>
       <Link href="/">
-        <a>
-          <img src="/logo.svg" alt="panopticonism-logo" />
-        </a>
+        <img src="/logo.svg" alt="panopticonism-logo" />
       </Link>
       <div
         className={`${styles.closeBox} ${isOpen ? styles.show : ""}`}
@@ -42,25 +40,23 @@ const Header = () => {
       <nav>
         <ul className={`${styles.list} ${isOpen ? styles.show : ""}`}>
           <li>
-            <Link href="/#steps">
-              <a onClick={toggle}>Competences</a>
+            <Link href="/#steps" onClick={toggle}>
+              Competences
             </Link>
           </li>
           <li>
-            <Link href="/#projects">
-              <a onClick={toggle}>Portfolio</a>
+            <Link href="/#projects" onClick={toggle}>
+              Projects
             </Link>
           </li>
           <li>
-            <Link href="/blog">
-              <a onClick={toggle}>
-                Blog
-              </a>
+            <Link href="/blog" onClick={toggle}>
+              Blog
             </Link>
           </li>
-          <li className={styles.hire_me}>
-            <Link href="#hire_me">
-              <a onClick={toggle}><span>Hire me</span></a>
+          <li className={styles.contact_me}>
+            <Link href="#contact_me" onClick={toggle}>
+              <span>Contact me</span>
             </Link>
           </li>
         </ul>
