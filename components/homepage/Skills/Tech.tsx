@@ -12,21 +12,24 @@ const Skill = ({ fields }: { fields: SkillProps }) => {
 };
 
 const TechTabs = ({ skills }: TechProps) => {
-  const usedCategories = skills.items.map(
-    (skill) => skill.metadata.tags?.[0]?.sys?.id
-  );
-  const categories = [...new Set(usedCategories)];
+  const categories = [
+    ...new Set(skills.items.map((skill) => skill.metadata.tags?.[0]?.sys?.id)),
+  ];
 
   const [activeTab, setActiveTab] = useState(categories[0]);
 
   const currentSkills = useMemo(() => {
     return skills.items.filter(
       (skill) => activeTab === skill.metadata.tags?.[0]?.sys?.id
-    )
+    );
   }, [activeTab, skills.items]);
 
-  const switchTab = (e: any) => {
-    setActiveTab(e.target.textContent);
+  const switchTab = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (!e.currentTarget.textContent) {
+      return;
+    }
+
+    setActiveTab(e.currentTarget.textContent);
   };
 
   return (
@@ -35,12 +38,13 @@ const TechTabs = ({ skills }: TechProps) => {
       <div className={styles.container}>
         <ul className={styles.filters}>
           {categories.map((category) => (
-            <li
-              onClick={switchTab}
-              key={category}
-              className={activeTab === category ? styles.active : ""}
-            >
-              {category}
+            <li key={category}>
+              <button
+                onClick={switchTab}
+                className={activeTab === category ? styles.active : ""}
+              >
+                {category}
+              </button>
             </li>
           ))}
         </ul>

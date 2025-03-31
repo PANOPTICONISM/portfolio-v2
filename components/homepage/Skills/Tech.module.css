@@ -31,26 +31,27 @@
   gap: 0.5rem;
   max-width: 400px;
   margin: 16px auto;
+}
+
+.filters li button {
+  width: 100%;
+  padding: 14px;
+  display: flex;
+  justify-content: center;
+  border: 1px solid transparent;
   text-transform: uppercase;
   font-weight: 600;
   font-family: var(--buttons-font);
   font-size: 13px;
+  color: var(--text-colour);
 }
 
-.filters li {
-  padding: 14px;
-  max-width: 100%;
-  text-align: center;
-  border: 1px solid transparent;
-  cursor: pointer;
-}
-
-.active {
+li button.active {
   background: var(--green-colour);
   color: var(--text-colour-w-dark-box);
 }
 
-.filters li:hover {
+.filters li button:hover {
   border: 1px solid var(--green-colour);
 }
 

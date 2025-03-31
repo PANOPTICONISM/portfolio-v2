@@ -35,7 +35,7 @@
   transition: transform 0.8s;
 }
 
-.header nav .list li a:not(.hire_me a):hover:after {
+.header nav .list li a:not(.contact_me a):hover:after {
   transform-origin: bottom left;
   transform: scaleX(1);
 }
@@ -149,7 +149,7 @@
     margin-right: 0;
   }
 
-  .hire_me a {
+  .contact_me a {
     border: 1px solid var(--primary-colour);
     transition: 0.08s ease-in;
     -o-transition: 0.08s ease-in;
@@ -160,7 +160,7 @@
     padding: 10px 20px;
   }
 
-  .hire_me a::before {
+  .contact_me a::before {
     content: "";
     position: absolute;
     background: var(--primary-colour);
@@ -173,12 +173,12 @@
     -webkit-transition: top 0.4s ease-in;
   }
 
-  .hire_me span {
+  .contact_me span {
     position: relative;
     z-index: 2;
   }
 
-  .hire_me a:hover:before {
+  .contact_me a:hover:before {
     top: 0;
   }
 }
