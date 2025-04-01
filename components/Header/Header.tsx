@@ -30,7 +30,7 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <Link href="/">
-        <Logo width={!isMobile ? 70 : 30} height={!isMobile ? 103 : 63} />
+        <Logo width={!isMobile ? 50 : 30} height={!isMobile ? 83 : 63} />
       </Link>
       <div
         className={`${styles.closeBox} ${isOpen ? styles.show : ""}`}
