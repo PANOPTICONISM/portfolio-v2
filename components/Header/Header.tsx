@@ -1,12 +1,13 @@
 import styles from "./Header.module.css";
 import { useState, useEffect } from "react";
-import useIsDesktop from "hooks/useIsDesktop";
 import Link from "next/link";
+import useScreenSize from "hooks/useScreenSize";
+import { Logo } from "public/icons/Logo";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
-  const isDesktop = useIsDesktop();
+  const { isDesktop, isMobile } = useScreenSize();
 
   useEffect(() => {
     if (isOpen === true && !isDesktop) {
@@ -29,7 +30,7 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <Link href="/">
-        <img src="/logo.svg" alt="panopticonism-logo" />
+        <Logo width={!isMobile ? 50 : 30} height={!isMobile ? 83 : 63} />
       </Link>
       <div
         className={`${styles.closeBox} ${isOpen ? styles.show : ""}`}
