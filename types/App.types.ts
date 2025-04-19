@@ -1,5 +1,4 @@
 import { PostProps } from "components/Entries/Entries.types";
-import { ExperienceFieldsProps } from "components/homepage/Experience/Experience.types";
 import { ArticleFieldsProps } from "components/homepage/Posts/Posts.types";
 import { TechItemsProps } from "components/homepage/Skills/Skills.types";
 
@@ -19,9 +18,6 @@ export type FetchDataProps = {
         items: ArticleFieldsProps[],
     },
     skills: TechItemsProps,
-    experience: {
-        items: ExperienceFieldsProps[],
-    },
     frontpageBlocks: FrontPageBlocks[]
 };
 

@@ -19,7 +19,7 @@ const Blog: NextPage<BlogDataProps> = ({ posts }) => {
     return (
         <div className={`common theme-${theme}`}>
             <Header />
-            <h1>Archive</h1>
+            <h1>Blog</h1>
             <Entries posts={sortedPosts} />
             <Footer />
             <ThemeSwitch />

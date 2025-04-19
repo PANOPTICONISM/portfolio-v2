@@ -20,15 +20,19 @@ import { client } from "./api/lib/Contentful";
 import { ThemeSwitch } from "components/ThemeSwitch/ThemeSwitch";
 import { notionClient } from "./api/lib/Notion";
 
-const Home: NextPage<FetchDataProps> = ({ projects, skills, experience, frontpageBlocks }) => {
+const Home: NextPage<FetchDataProps> = ({
+  projects,
+  skills,
+  frontpageBlocks,
+}) => {
   const [isLoading, setLoading] = useState(true);
   const { theme } = useThemeContext();
 
   useEffect(() => {
-    if (projects && skills && experience) {
+    if (projects && skills) {
       setLoading(false);
     }
-  }, [experience, skills, projects]);
+  }, [skills, projects]);
 
   const projectsRef = useRef<any>(null);
   function handleBackClick() {
@@ -51,7 +55,6 @@ const Home: NextPage<FetchDataProps> = ({ projects, skills, experience, frontpag
               handleBackClick={handleBackClick}
             />
             <TechTabs skills={skills} />
-            {/* {experience.items ? <Experience jobs={experience.items} /> : null} */}
             <Posts ref={projectsRef} projects={projects.items} />
             <ProjectsCTA onClick={handleBackClick} />
           </main>
@@ -64,10 +67,10 @@ const Home: NextPage<FetchDataProps> = ({ projects, skills, experience, frontpag
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const pageId = process.env.NOTION_FRONTPAGE_ID || '';
+  const pageId = process.env.NOTION_FRONTPAGE_ID || "";
 
   const blocks = await notionClient.blocks.children.list({
-    block_id: pageId
+    block_id: pageId,
   });
 
   const projects = await client.getEntries({
@@ -78,13 +81,9 @@ export const getServerSideProps: GetServerSideProps = async () => {
     content_type: "toolshed",
     order: "fields.id",
   });
-  const experience = await client.getEntries({
-    content_type: "experience",
-    order: "fields.id",
-  });
 
   return {
-    props: { projects, skills, experience, frontpageBlocks: blocks.results },
+    props: { projects, skills, frontpageBlocks: blocks.results },
   };
 };
 
