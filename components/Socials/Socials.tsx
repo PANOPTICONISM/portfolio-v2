@@ -9,24 +9,24 @@ const Socials = ({ isBlog, url }: { isBlog?: boolean, url?: string }) => {
           <>
         <li>
           <a href="https://www.linkedin.com/in/mariajalmeida/">
-            <icons.LinkedInIcon width="30" height="30" />
+            <icons.LinkedInIcon width={30} height={30} />
           </a>
         </li>
         <li>
           <a href="https://www.behance.net/panopticonism">
-            <icons.BehanceIcon width="30" height="30" />
+            <icons.BehanceIcon width={30} height={30} />
           </a>
         </li>
         <li>
           <a href="https://github.com/PANOPTICONISM">
-            <icons.GitHubIcon width="30" height="30" />
+            <icons.GitHubIcon width={30} height={30} />
           </a>
           </li>
           </>
         }
         <li className={styles.pointer}>
           <a href={isBlog ? url : "https://codesandbox.io/u/panopticonism"}>
-            <icons.SandboxIcon width="30" height="30" />
+            <icons.SandboxIcon width={30} height={30} />
           </a>
         </li>
       </ul>
