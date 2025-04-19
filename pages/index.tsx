@@ -23,17 +23,16 @@ import { notionClient } from "./api/lib/Notion";
 const Home: NextPage<FetchDataProps> = ({
   projects,
   skills,
-  experience,
   frontpageBlocks,
 }) => {
   const [isLoading, setLoading] = useState(true);
   const { theme } = useThemeContext();
 
   useEffect(() => {
-    if (projects && skills && experience) {
+    if (projects && skills) {
       setLoading(false);
     }
-  }, [experience, skills, projects]);
+  }, [skills, projects]);
 
   const projectsRef = useRef<any>(null);
   function handleBackClick() {
@@ -82,13 +81,9 @@ export const getServerSideProps: GetServerSideProps = async () => {
     content_type: "toolshed",
     order: "fields.id",
   });
-  const experience = await client.getEntries({
-    content_type: "experience",
-    order: "fields.id",
-  });
 
   return {
-    props: { projects, skills, experience, frontpageBlocks: blocks.results },
+    props: { projects, skills, frontpageBlocks: blocks.results },
   };
 };
 
