@@ -20,7 +20,12 @@ import { client } from "./api/lib/Contentful";
 import { ThemeSwitch } from "components/ThemeSwitch/ThemeSwitch";
 import { notionClient } from "./api/lib/Notion";
 
-const Home: NextPage<FetchDataProps> = ({ projects, skills, experience, frontpageBlocks }) => {
+const Home: NextPage<FetchDataProps> = ({
+  projects,
+  skills,
+  experience,
+  frontpageBlocks,
+}) => {
   const [isLoading, setLoading] = useState(true);
   const { theme } = useThemeContext();
 
@@ -51,7 +56,6 @@ const Home: NextPage<FetchDataProps> = ({ projects, skills, experience, frontpag
               handleBackClick={handleBackClick}
             />
             <TechTabs skills={skills} />
-            {/* {experience.items ? <Experience jobs={experience.items} /> : null} */}
             <Posts ref={projectsRef} projects={projects.items} />
             <ProjectsCTA onClick={handleBackClick} />
           </main>
@@ -64,10 +68,10 @@ const Home: NextPage<FetchDataProps> = ({ projects, skills, experience, frontpag
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const pageId = process.env.NOTION_FRONTPAGE_ID || '';
+  const pageId = process.env.NOTION_FRONTPAGE_ID || "";
 
   const blocks = await notionClient.blocks.children.list({
-    block_id: pageId
+    block_id: pageId,
   });
 
   const projects = await client.getEntries({
