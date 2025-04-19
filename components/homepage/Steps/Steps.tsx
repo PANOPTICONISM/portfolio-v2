@@ -12,22 +12,24 @@ const Steps = () => {
           <FontAwesomeIcon size="lg" icon={faCompassDrafting as IconProp} />
           <h2>Design</h2>
           <p>
-            <b>The user's needs.</b> I began my journey by designing user
-            interfaces, a foundation that gives me a very important insight into
-            the other side, and allows me to be a better developer and team
-            member with the skills to collaborate, and argue for what's the best
-            for the users.
+            <b>The user's needs.</b> I began my career designing intuitive,
+            research-informed interfaces — a foundation that I draw on every day
+            to bridge visual design and technical execution. This background
+            enables me to collaborate effectively with cross-functional teams
+            and consistently advocate for user-centered solutions that deliver
+            real, measurable value.
           </p>
         </article>
         <article className={styles.highlight}>
           <FontAwesomeIcon size="lg" icon={faCode as IconProp} />
           <h2>Development</h2>
           <p>
-            <b>From design to code.</b> My keen eye for design, derives from my
-            ability to pay attention to detail, which is a big factor in my
-            development process as well from scratch to finish - whether that is
-            code organization, folder structure, best practices or communication
-            overall.
+            <b>From design to code.</b> My attention to detail — shaped by my
+            design background — carries through every stage of development, from
+            initial setup to final polish. Whether it's writing clean,
+            maintainable code, writing documentation, following best
+            practices, or communicating clearly with the team, I bring an
+            attentive, end-to-end approach to building products.
           </p>
         </article>
       </div>
