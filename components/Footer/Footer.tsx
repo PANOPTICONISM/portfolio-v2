@@ -1,5 +1,5 @@
 import { Logo } from "public/icons/Logo";
-import styles from "./Form.module.css";
+import styles from "./Footer.module.css";
 import { useForm, ValidationError } from "@formspree/react";
 
 const Footer = () => {
