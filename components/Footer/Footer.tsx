@@ -1,3 +1,4 @@
+import { Logo } from "public/icons/Logo";
 import styles from "./Form.module.css";
 import { useForm, ValidationError } from "@formspree/react";
 
@@ -82,8 +83,8 @@ const Footer = () => {
         </section>
       )}
       <footer className={styles.footer}>
-        <img src="/logo.svg" alt="panopticonism-logo" />
-        <span>© 2021 - {currentYear} PANOPTICONISM. ALL RIGHTS RESERVED.</span>
+        <Logo width={30} height={63} />
+        <span>© 2021 - {currentYear} MAL. ALL RIGHTS RESERVED.</span>
       </footer>
     </>
   );
