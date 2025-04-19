@@ -10,14 +10,14 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>PANOPTICONISM</title>
+        <title>MAL — Software Engineer</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="description" content="Software Developer" />
         <meta
           name="keywords"
           content="Software Developer, Frontend Developer, Software Engineer, HTML, CSS, JavaScript, React, NextJS, Angular, NodeJS, SASS, Docker"
         />
-        <link rel="icon" href="/logo.svg" />
+        <link rel="icon" sizes="10" href="/logo.svg" />
       </Head>
       <Script id="google-tag-manager" strategy="afterInteractive">
         {`
