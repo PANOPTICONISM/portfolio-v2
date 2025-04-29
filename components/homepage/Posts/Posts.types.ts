@@ -14,6 +14,19 @@ export type ArticleFieldsProps = {
         github?: string;
         livePreview?: string;
         languages: Array<string>;
+        tools: {
+            fields: {
+                id: number;
+                title: string;
+                icon: {
+                    fields: {
+                        file: {
+                            url: string;
+                        };
+                    };
+                };
+            }
+        }[]
     };
 }
 

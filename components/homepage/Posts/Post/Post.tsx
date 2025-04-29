@@ -14,7 +14,7 @@ const Post = ({ article }: ArticleProps) => {
     behance,
     github,
     livePreview,
-    languages,
+    tools,
   } = article?.fields;
   const removeCommaCat = `${category}`.replace(/,/g, " ");
 
@@ -33,21 +33,33 @@ const Post = ({ article }: ArticleProps) => {
                 {behance ? (
                   <li>
                     <a href={behance} target="_blank" rel="noreferrer">
-                      <FontAwesomeIcon color="white" size="lg" icon={faBehance as IconProp} />
+                      <FontAwesomeIcon
+                        color="white"
+                        size="lg"
+                        icon={faBehance as IconProp}
+                      />
                     </a>
                   </li>
                 ) : null}
                 {github ? (
                   <li>
                     <a href={github} target="_blank" rel="noreferrer">
-                      <FontAwesomeIcon color="white" size="lg" icon={faGithub as IconProp} />
+                      <FontAwesomeIcon
+                        color="white"
+                        size="lg"
+                        icon={faGithub as IconProp}
+                      />
                     </a>
                   </li>
                 ) : null}
                 {livePreview ? (
                   <li>
                     <a href={livePreview} target="_blank" rel="noreferrer">
-                      <FontAwesomeIcon color="white" size="lg" icon={faEarthEurope as IconProp} />
+                      <FontAwesomeIcon
+                        color="white"
+                        size="lg"
+                        icon={faEarthEurope as IconProp}
+                      />
                     </a>
                   </li>
                 ) : null}
@@ -59,11 +71,17 @@ const Post = ({ article }: ArticleProps) => {
       <div>
         <h2>{title}</h2>
         {description ? <p>{description}</p> : null}
-        {languages ? (
-          <div className={styles.languages}>
+        {tools ? (
+          <div className={styles.tools}>
             <ul>
-              {languages.map((lang, index) => (
-                <li key={index}>{lang}</li>
+              {tools.map(({ fields }) => (
+                <li key={fields.id}>
+                  <img
+                    src={fields?.icon?.fields?.file?.url}
+                    alt={fields?.title}
+                  />
+                  <p>{fields.title}</p>
+                </li>
               ))}
             </ul>
           </div>

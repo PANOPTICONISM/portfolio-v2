@@ -32,7 +32,7 @@
   object-fit: contain;
 }
 
-.post .languages ul,
+.post .tools ul,
 .post .sources ul {
   list-style: none;
   padding: 0;
@@ -40,26 +40,37 @@
   flex-wrap: wrap;
 }
 
-.post .languages ul>li {
+.post .tools ul > li {
   margin-right: 8px;
   margin-bottom: 8px;
 }
 
-.post .sources ul>li {
+.post .sources ul > li {
   margin-right: 8px;
 }
 
-.post .languages ul {
+.post .tools ul {
   font-size: 16px;
   margin-bottom: 0;
 }
 
-.post .languages ul li {
-  padding: 0 4px;
-  font-family: 'Exo 2', sans-serif;
-  background-color: var(--green-colour);
+.post .tools img {
+  max-height: 20px;
+  height: 100%;
+}
+
+.post .tools ul li {
+  font-family: "Exo 2", sans-serif;
+  font-size: 14px;
+  border: 1px inset var(--green-colour);
+  border-radius: 10px;
   color: var(--text-colour-w-dark-box);
-  padding: 4px 6px;
+  padding: 4px 10px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 6px;
+  justify-content: center;
+  align-items: center;
 }
 
 .post .sources ul {
