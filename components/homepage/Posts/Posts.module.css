@@ -64,7 +64,6 @@
   font-size: 14px;
   border: 1px inset var(--green-colour);
   border-radius: 10px;
-  color: var(--text-colour-w-dark-box);
   padding: 4px 10px;
   display: grid;
   grid-template-columns: 1fr auto;
