@@ -20,21 +20,21 @@ const Recent = ({ post, handleBackClick }: RecentProps) => {
                 {behance ? (
                   <li>
                     <a href={behance} target="_blank" rel="noreferrer">
-                      <FontAwesomeIcon color="white" size="lg" icon={faBehance as IconProp} />
+                      <FontAwesomeIcon color="white" size="lg" icon={faBehance as IconProp} title="Behance" />
                     </a>
                   </li>
                 ) : null}
                 {github ? (
                   <li>
                     <a href={github} target="_blank" rel="noreferrer">
-                      <FontAwesomeIcon color="white" size="lg" icon={faGithub as IconProp} />
+                      <FontAwesomeIcon color="white" size="lg" icon={faGithub as IconProp} title="GitHub" />
                     </a>
                   </li>
                 ) : null}
                 {livePreview ? (
                   <li>
                     <a href={livePreview} target="_blank" rel="noreferrer">
-                      <FontAwesomeIcon color="white" size="lg" icon={faEarthEurope as IconProp} />
+                      <FontAwesomeIcon color="white" size="lg" icon={faEarthEurope as IconProp} title="Live Preview" />
                     </a>
                   </li>
                 ) : null}

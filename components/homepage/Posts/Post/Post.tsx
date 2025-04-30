@@ -37,6 +37,7 @@ const Post = ({ article }: ArticleProps) => {
                         color="white"
                         size="lg"
                         icon={faBehance as IconProp}
+                        title="Behance"
                       />
                     </a>
                   </li>
@@ -48,6 +49,7 @@ const Post = ({ article }: ArticleProps) => {
                         color="white"
                         size="lg"
                         icon={faGithub as IconProp}
+                        title="GitHub"
                       />
                     </a>
                   </li>
@@ -59,6 +61,7 @@ const Post = ({ article }: ArticleProps) => {
                         color="white"
                         size="lg"
                         icon={faEarthEurope as IconProp}
+                        title="Live Preview"
                       />
                     </a>
                   </li>
