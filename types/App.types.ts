@@ -1,6 +1,6 @@
 import { PostProps } from "components/Entries/Entries.types";
 import { ArticleFieldsProps } from "components/homepage/Posts/Posts.types";
-import { TechItemsProps } from "components/homepage/Skills/Skills.types";
+import { TechItemsProps } from "components/homepage/Tech/Tech.types";
 
 export type FrontPageBlocks = {
     type: string,
