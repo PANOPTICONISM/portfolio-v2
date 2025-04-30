@@ -3,7 +3,7 @@ import { SkillProps, TechProps } from "./Tech.types";
 
 const Skill = ({ fields }: { fields: SkillProps }) => (
   <li>
-    <img src={fields?.image?.fields?.file?.url} alt={fields?.title} />
+    <img src={fields?.icon?.fields?.file?.url} alt={fields?.title} />
     <p>{fields.title}</p>
   </li>
 );
