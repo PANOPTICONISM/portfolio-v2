@@ -2,26 +2,16 @@
   display: grid;
   grid-template-columns: auto;
   justify-content: center;
-  gap: var(--space-5);
-}
-
-.post h2 {
-  margin: var(--space-4) 0 var(--space-2);
-  font-weight: 700;
-}
-
-.post p {
-  color: var(--text-colour-muted);
-  font-size: 15px;
+  gap: var(--space-6);
 }
 
 .post {
   position: relative;
-  max-width: 400px;
+  max-width: 460px;
   background: var(--surface-elevated);
   border: 1px solid var(--box-border-colour);
-  padding: var(--space-5);
   box-shadow: var(--shadow-sm);
+  overflow: hidden;
   transition: transform var(--duration-base) var(--easing-emphasized),
     box-shadow var(--duration-base) var(--easing-emphasized),
     border-color var(--duration-base) var(--easing-standard);
@@ -36,72 +26,125 @@
 .image_wrapper {
   position: relative;
   overflow: hidden;
-}
-
-.sources {
-  position: absolute;
-  top: var(--space-3);
-  right: var(--space-3);
+  background: var(--background-colour-accent);
+  aspect-ratio: 16 / 10;
 }
 
 .post .bgImage {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: contain;
   display: block;
+  padding: var(--space-4);
 }
 
-.post .tools ul,
-.post .sources ul {
+.content {
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+}
+
+.category {
+  margin-bottom: var(--space-3);
+}
+
+.post h2 {
+  margin-bottom: var(--space-2);
+}
+
+.description {
+  margin-bottom: var(--space-4);
+}
+
+.sources {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  z-index: 2;
+}
+
+.sources ul {
   list-style: none;
   padding: 0;
+  margin: 0;
+  display: flex;
+  gap: var(--space-2);
+}
+
+.sources a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--box-border-colour);
+  background: var(--surface-elevated);
+  color: var(--text-colour-muted);
+  font-size: 14px;
+  transition: color var(--duration-fast) var(--easing-standard),
+    border-color var(--duration-fast) var(--easing-standard),
+    background-color var(--duration-fast) var(--easing-standard),
+    transform var(--duration-fast) var(--easing-standard);
+}
+
+.sources a:hover {
+  color: var(--background-colour);
+  background: var(--primary-colour);
+  border-color: var(--primary-colour);
+  transform: translateY(-2px);
+}
+
+.category {
+  font-family: var(--buttons-font);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--primary-colour);
+  margin-top: 0;
+  line-height: 1;
+}
+
+.post h2 {
+  margin-top: 0;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.description {
+  color: var(--text-colour-muted);
+  font-size: 15px;
+  margin-top: 0;
+}
+
+.post .tools ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
 }
 
-.post .tools ul {
-  font-size: 16px;
-  margin: var(--space-3) 0 0;
-}
-
-.post .sources ul {
-  margin: 0;
-}
-
-.post .sources a {
-  display: inline-flex;
-  background-color: rgba(20, 37, 64, 0.85);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  padding: var(--space-2);
-  transition: background-color var(--duration-fast) var(--easing-standard),
-    transform var(--duration-fast) var(--easing-standard);
-}
-
-.post .sources a:hover {
-  background-color: var(--primary-colour);
-  transform: translateY(-2px);
-}
-
 .post .tools img {
-  height: 18px;
+  height: 16px;
   width: auto;
   display: block;
 }
 
 .post .tools ul li {
   font-family: var(--buttons-font);
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1;
   color: var(--text-colour);
   border: 1px solid var(--green-colour);
-  padding: 6px 12px;
+  padding: 6px 10px;
   display: inline-flex;
   gap: var(--space-2);
   justify-content: center;
   align-items: center;
-  font-weight: 500;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 .post .tools ul li p {
@@ -111,17 +154,35 @@
 }
 
 @media screen and (min-width: 1200px) {
-  .portfolio .post {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+  .portfolio {
+    grid-template-columns: 1fr;
     gap: var(--space-7);
-    max-width: 100%;
-    align-items: center;
-    padding: var(--space-6);
   }
 
-  .portfolio .post .bgImage {
-    position: initial;
-    z-index: inherit;
+  .portfolio .post {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    max-width: 100%;
+    align-items: stretch;
+  }
+
+  .image_wrapper {
+    aspect-ratio: auto;
+    height: 100%;
+    min-height: 280px;
+  }
+
+  .content {
+    padding: var(--space-7);
+    justify-content: center;
+  }
+
+  .post h2 {
+    font-size: 28px;
+  }
+
+  .description {
+    font-size: 16px;
+    line-height: 1.6;
   }
 }

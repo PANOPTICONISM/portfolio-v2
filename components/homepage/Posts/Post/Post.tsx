@@ -1,6 +1,6 @@
 import styles from "../Posts.module.css";
 import { ArticleProps } from "../Posts.types";
-import { faEarthEurope } from "@fortawesome/free-solid-svg-icons";
+import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { faBehance, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -16,10 +16,60 @@ const Post = ({ article }: ArticleProps) => {
     livePreview,
     tools,
   } = article?.fields;
-  const removeCommaCat = `${category}`.replace(/,/g, " ");
+
+  const categories = category
+    ? `${category}`
+        .split(",")
+        .map((c) => c.trim())
+        .filter((c) => c && c.toLowerCase() !== "all")
+    : [];
+
+  const hasSources = behance || github || livePreview;
 
   return (
-    <div className={`${styles.post} ${removeCommaCat}`}>
+    <article className={styles.post}>
+      {hasSources && (
+        <div className={styles.sources}>
+          <ul>
+            {behance ? (
+              <li>
+                <a
+                  href={behance}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`${title} on Behance`}
+                >
+                  <FontAwesomeIcon icon={faBehance as IconProp} />
+                </a>
+              </li>
+            ) : null}
+            {github ? (
+              <li>
+                <a
+                  href={github}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`${title} on GitHub`}
+                >
+                  <FontAwesomeIcon icon={faGithub as IconProp} />
+                </a>
+              </li>
+            ) : null}
+            {livePreview ? (
+              <li>
+                <a
+                  href={livePreview}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`${title} live preview`}
+                >
+                  <FontAwesomeIcon icon={faArrowUpRightFromSquare as IconProp} />
+                </a>
+              </li>
+            ) : null}
+          </ul>
+        </div>
+      )}
       {image && (
         <div className={styles.image_wrapper}>
           <img
@@ -27,53 +77,15 @@ const Post = ({ article }: ArticleProps) => {
             src={image?.fields?.file?.url}
             alt={title}
           />
-          {behance || github || livePreview ? (
-            <div className={styles.sources}>
-              <ul>
-                {behance ? (
-                  <li>
-                    <a href={behance} target="_blank" rel="noreferrer">
-                      <FontAwesomeIcon
-                        color="white"
-                        size="lg"
-                        icon={faBehance as IconProp}
-                        title="Behance"
-                      />
-                    </a>
-                  </li>
-                ) : null}
-                {github ? (
-                  <li>
-                    <a href={github} target="_blank" rel="noreferrer">
-                      <FontAwesomeIcon
-                        color="white"
-                        size="lg"
-                        icon={faGithub as IconProp}
-                        title="GitHub"
-                      />
-                    </a>
-                  </li>
-                ) : null}
-                {livePreview ? (
-                  <li>
-                    <a href={livePreview} target="_blank" rel="noreferrer">
-                      <FontAwesomeIcon
-                        color="white"
-                        size="lg"
-                        icon={faEarthEurope as IconProp}
-                        title="Live Preview"
-                      />
-                    </a>
-                  </li>
-                ) : null}
-              </ul>
-            </div>
-          ) : null}
         </div>
       )}
-      <div>
+      <div className={styles.content}>
+        {categories.length > 0 && (
+          <p className={styles.category}>{categories.join(" · ")}</p>
+        )}
         <h2>{title}</h2>
-        {description ? <p>{description}</p> : null}
+        {description ? <p className={styles.description}>{description}</p> : null}
+
         {tools ? (
           <div className={styles.tools}>
             <ul>
@@ -93,7 +105,7 @@ const Post = ({ article }: ArticleProps) => {
           </div>
         ) : null}
       </div>
-    </div>
+    </article>
   );
 };
 
