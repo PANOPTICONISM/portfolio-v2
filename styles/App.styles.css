@@ -6,6 +6,9 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 html {
@@ -23,25 +26,41 @@ a {
 }
 
 :root {
-  --spacing-area-pd-m: 30px;
-  --spacing-area-pd-t: 60px 100px;
-  --spacing-area-pd-d: 60px 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 80px;
+
+  --duration-fast: 150ms;
+  --duration-base: 220ms;
+  --duration-slow: 400ms;
+  --easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --easing-emphasized: cubic-bezier(0.3, 0, 0, 1);
+
+  --spacing-area-pd-m: var(--space-6);
+  --spacing-area-pd-t: var(--space-9) var(--space-9);
+  --spacing-area-pd-d: var(--space-9) 0;
 
   --text-colour-w-dark-box: #fff;
   --text-colour-w-light-box: #000;
 
-  --label-size: 14px;
+  --label-size: 13px;
 
   --h1-font-size-desktop: 56px;
-  --h1-font-size-tablet: 32px;
-  --h1-font-size-mobile: 24px;
+  --h1-font-size-tablet: 36px;
+  --h1-font-size-mobile: 28px;
 
   --h2-font-size-tablet: 26px;
   --h2-font-size-mobile: 20px;
 
   --primary-font: "Syncopate", sans-serif;
   --secondary-font: "Open Sans", sans-serif;
-  --buttons-font: Arial, Helvetica, sans-serif;
+  --buttons-font: "Exo 2", sans-serif;
 
   --basic: purple;
   --professional: #ff641a;
@@ -50,13 +69,27 @@ a {
 
 .theme-dark {
   --background-colour: #0a192f;
-  --text-colour: #fff;
+  --background-colour-accent: #0a192f;
+  --text-colour: #e6edf7;
+  --text-colour-muted: #9aa6bb;
   --primary-colour: #00c6bd;
+  --primary-colour-hover: #1ad8cf;
   --yellow-colour: #f6be3b;
   --green-colour: #006f52;
   --grey-colour: #a5abbd;
-  --box-colour: #192d4f;
+  --box-colour: #142540;
+  --box-border-colour: #1f3360;
   --floating-box-colour: transparent;
+  --surface-elevated: #142540;
+  --input-bg: rgba(255, 255, 255, 0.02);
+  --input-border: #2a3d63;
+  --divider: rgba(255, 255, 255, 0.08);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.35), 0 1px 3px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.45), 0 4px 10px rgba(0, 0, 0, 0.25);
+
+  --focus-ring: 0 0 0 2px var(--background-colour), 0 0 0 4px var(--primary-colour);
 
   --black: #000;
 }
@@ -65,12 +98,25 @@ a {
   --background-colour: #f7f7f7;
   --background-colour-accent: #e8eef2;
   --text-colour: #0a192f;
-  --primary-colour: #00c6bd;
+  --text-colour-muted: #4a5568;
+  --primary-colour: #00857f;
+  --primary-colour-hover: #009a93;
   --yellow-colour: #f6be3b;
   --green-colour: #006f52;
-  --grey-colour: #7a7d88;
+  --grey-colour: #6b7280;
   --box-colour: #192d4f;
+  --box-border-colour: #d6dee8;
   --floating-box-colour: #192d4f;
+  --surface-elevated: #ffffff;
+  --input-bg: #ffffff;
+  --input-border: #cbd5e1;
+  --divider: rgba(10, 25, 47, 0.08);
+
+  --shadow-sm: 0 1px 2px rgba(10, 25, 47, 0.06);
+  --shadow-md: 0 4px 12px rgba(10, 25, 47, 0.08), 0 1px 3px rgba(10, 25, 47, 0.04);
+  --shadow-lg: 0 12px 28px rgba(10, 25, 47, 0.12), 0 4px 10px rgba(10, 25, 47, 0.06);
+
+  --focus-ring: 0 0 0 2px var(--background-colour), 0 0 0 4px var(--primary-colour);
 }
 
 .common {
@@ -89,7 +135,7 @@ body {
 }
 
 ul {
-  padding-left: 16px;
+  padding-left: var(--space-4);
 }
 
 main {
@@ -102,22 +148,26 @@ h1 {
   font-family: var(--primary-font);
   font-size: var(--h1-font-size-mobile);
   max-width: min-content;
-  margin: auto;
+  margin: auto auto var(--space-7);
   text-align: center;
-  margin-bottom: 2rem;
+  letter-spacing: 0.02em;
 }
 
 h1::first-letter {
   text-decoration: underline;
-
+  text-decoration-color: var(--primary-colour);
+  text-underline-offset: 6px;
+  text-decoration-thickness: 2px;
 }
 
 h2 {
   font-size: var(--h2-font-size-mobile);
+  letter-spacing: -0.01em;
 }
 
 p {
-  margin: 8px 0;
+  margin: var(--space-2) 0;
+  line-height: 1.65;
 }
 
 .grid_2 {
@@ -125,7 +175,7 @@ p {
   grid-template-columns: auto;
   justify-content: center;
   align-items: center;
-  grid-gap: 1rem;
+  grid-gap: var(--space-4);
 }
 
 button {
@@ -133,6 +183,30 @@ button {
   border: none;
   cursor: pointer;
   background: none;
+  color: inherit;
+  font: inherit;
+}
+
+/* Accessibility — visible focus rings for keyboard users only */
+:focus {
+  outline: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[role="button"]:focus-visible,
+[tabindex]:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+  transition: box-shadow var(--duration-fast) var(--easing-standard);
+}
+
+::selection {
+  background: var(--primary-colour);
+  color: var(--background-colour);
 }
 
 @media (min-width: 600px) {

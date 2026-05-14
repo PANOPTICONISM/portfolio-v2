@@ -2,17 +2,37 @@
   max-width: 100%;
   overflow: hidden;
   -webkit-overflow-scrolling: touch;
+  position: relative;
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
 }
 
 .banner {
   display: inline-flex;
-  gap: 3rem;
+  gap: var(--space-7);
   padding: 0;
   margin: 0;
-  animation: scroll 20s linear infinite;
+  animation: scroll 24s linear infinite;
   white-space: nowrap;
   will-change: transform;
   transform: translateX(100%);
+  list-style: none;
+}
+
+.scroll:hover .banner {
+  animation-play-state: paused;
 }
 
 @keyframes scroll {
@@ -28,28 +48,40 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 18px;
+  gap: var(--space-3);
   flex-shrink: 0;
+  opacity: 0.85;
+  transition: opacity var(--duration-base) var(--easing-standard),
+    transform var(--duration-base) var(--easing-standard);
+}
+
+.banner li:hover {
+  opacity: 1;
+  transform: translateY(-3px);
 }
 
 .banner li img {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   object-fit: contain;
 }
 
 .banner li p {
   margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-colour-muted);
+  letter-spacing: 0.02em;
 }
 
 @media (min-width: 768px) {
   .banner {
-    animation: desktopScroll 20s linear infinite;
+    animation: desktopScroll 24s linear infinite;
   }
 
   .banner li img {
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
   }
 }
 
@@ -59,5 +91,12 @@
   }
   100% {
     transform: translateX(-100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .banner {
+    animation: none;
+    transform: none;
   }
 }

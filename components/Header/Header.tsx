@@ -7,6 +7,7 @@ import { Logo } from "public/icons/Logo";
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
+  const close = () => setIsOpen(false);
   const { isDesktop, isMobile } = useScreenSize();
 
   useEffect(() => {
@@ -16,6 +17,14 @@ const Header = () => {
       document.body.style.overflow = "auto";
     }
   }, [isDesktop, isOpen]);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, []);
 
   useEffect(() => {
     setTimeout(() => {
@@ -29,34 +38,41 @@ const Header = () => {
 
   return (
     <header className={styles.header}>
-      <Link href="/">
+      <Link href="/" aria-label="Home">
         <Logo width={!isMobile ? 50 : 30} height={!isMobile ? 83 : 63} />
       </Link>
-      <div
+      <button
+        type="button"
         className={`${styles.closeBox} ${isOpen ? styles.show : ""}`}
         onClick={toggle}
+        aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+        aria-expanded={isOpen}
+        aria-controls="primary-nav"
       >
-        <span className={styles.closeBtn}></span>
-      </div>
-      <nav>
-        <ul className={`${styles.list} ${isOpen ? styles.show : ""}`}>
+        <span className={styles.closeBtn} aria-hidden="true"></span>
+      </button>
+      <nav aria-label="Primary">
+        <ul
+          id="primary-nav"
+          className={`${styles.list} ${isOpen ? styles.show : ""}`}
+        >
           <li>
-            <Link href="/#steps" onClick={toggle}>
+            <Link href="/#steps" onClick={close}>
               Competences
             </Link>
           </li>
           <li>
-            <Link href="/#projects" onClick={toggle}>
+            <Link href="/#projects" onClick={close}>
               Projects
             </Link>
           </li>
           <li>
-            <Link href="/blog" onClick={toggle}>
+            <Link href="/blog" onClick={close}>
               Blog
             </Link>
           </li>
           <li className={styles.contact_me}>
-            <Link href="#contact_me" onClick={toggle}>
+            <Link href="#contact_me" onClick={close}>
               <span>Contact me</span>
             </Link>
           </li>

@@ -18,8 +18,8 @@ const Footer = () => {
       ) : (
         <section className={styles.contact_me} id="contact_me">
           <h1>Contact me</h1>
-          <p>
-            Send me a detailed message below and I'll get back to you as soon as
+          <p className={styles.intro_copy}>
+            Send me a detailed message below and I&apos;ll get back to you as soon as
             possible.
           </p>
           <form className={styles.form} onSubmit={handleSubmit}>
@@ -34,8 +34,8 @@ const Footer = () => {
                 />
               </div>
               <div>
-                <label htmlFor="company">Company's name</label>
-                <input id="company" type="company" name="company" required />
+                <label htmlFor="company">Company&apos;s name</label>
+                <input id="company" type="text" name="company" required />
                 <ValidationError
                   prefix="company"
                   field="company"
@@ -45,7 +45,7 @@ const Footer = () => {
             </fieldset>
             <fieldset>
               <div>
-                <label htmlFor="email">Email Address</label>
+                <label htmlFor="email">Email address</label>
                 <input id="email" type="email" name="email" required />
                 <ValidationError
                   prefix="Email"
@@ -54,7 +54,7 @@ const Footer = () => {
                 />
               </div>
               <div>
-                <label htmlFor="email">Phone-number</label>
+                <label htmlFor="phone">Phone number</label>
                 <input id="phone" type="tel" name="phone" required />
                 <ValidationError
                   prefix="Tel"
@@ -75,16 +75,16 @@ const Footer = () => {
               disabled={state.submitting}
               className={styles.learn_more}
             >
-              <div className={styles.projects_button}>
-                <span>Send message</span>
-              </div>
+              <span className={styles.projects_button}>
+                {state.submitting ? "Sending…" : "Send message"}
+              </span>
             </button>
           </form>
         </section>
       )}
       <footer className={styles.footer}>
         <Logo width={30} height={63} />
-        <span>© 2021 - {currentYear} MAL. ALL RIGHTS RESERVED.</span>
+        <span>© 2021 – {currentYear} MAL. All rights reserved.</span>
       </footer>
     </>
   );

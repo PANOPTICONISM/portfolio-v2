@@ -2,34 +2,53 @@
   display: grid;
   grid-template-columns: auto;
   justify-content: center;
-  gap: 18px;
+  gap: var(--space-5);
 }
 
 .post h2 {
-  margin: 16px 0 0 0;
+  margin: var(--space-4) 0 var(--space-2);
+  font-weight: 700;
+}
+
+.post p {
+  color: var(--text-colour-muted);
+  font-size: 15px;
 }
 
 .post {
   position: relative;
   max-width: 400px;
-  border: 1px solid var(--box-colour);
-  padding: 20px;
+  background: var(--surface-elevated);
+  border: 1px solid var(--box-border-colour);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--duration-base) var(--easing-emphasized),
+    box-shadow var(--duration-base) var(--easing-emphasized),
+    border-color var(--duration-base) var(--easing-standard);
+}
+
+.post:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-colour);
 }
 
 .image_wrapper {
   position: relative;
+  overflow: hidden;
 }
 
 .sources {
   position: absolute;
-  top: 8px;
-  right: 0;
+  top: var(--space-3);
+  right: var(--space-3);
 }
 
 .post .bgImage {
   width: 100%;
   height: auto;
   object-fit: contain;
+  display: block;
 }
 
 .post .tools ul,
@@ -38,63 +57,64 @@
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-}
-
-.post .tools ul > li {
-  margin-right: 8px;
-  margin-bottom: 8px;
-}
-
-.post .sources ul > li {
-  margin-right: 8px;
+  gap: var(--space-2);
 }
 
 .post .tools ul {
   font-size: 16px;
-  margin-bottom: 0;
-}
-
-.post .tools img {
-  max-height: 20px;
-  height: 100%;
-}
-
-.post .tools ul li {
-  font-family: "Exo 2", sans-serif;
-  font-size: 14px;
-  border: 1px inset var(--green-colour);
-  border-radius: 10px;
-  padding: 4px 10px;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 6px;
-  justify-content: center;
-  align-items: center;
+  margin: var(--space-3) 0 0;
 }
 
 .post .sources ul {
   margin: 0;
 }
 
-.post .sources svg {
-  background-color: var(--box-colour);
-  padding: 6px;
-  transition: all 0.3s;
+.post .sources a {
+  display: inline-flex;
+  background-color: rgba(20, 37, 64, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: var(--space-2);
+  transition: background-color var(--duration-fast) var(--easing-standard),
+    transform var(--duration-fast) var(--easing-standard);
 }
 
-.post .sources svg:hover {
-  transform: translateY(2px);
+.post .sources a:hover {
+  background-color: var(--primary-colour);
+  transform: translateY(-2px);
+}
+
+.post .tools img {
+  max-height: 18px;
+  height: 100%;
+}
+
+.post .tools ul li {
+  font-family: var(--buttons-font);
+  font-size: 13px;
+  color: var(--text-colour);
+  border: 1px solid var(--green-colour);
+  padding: 4px 12px;
+  display: inline-flex;
+  gap: var(--space-2);
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+}
+
+.post .tools ul li p {
+  margin: 0;
+  color: var(--text-colour);
 }
 
 @media screen and (min-width: 1200px) {
   .portfolio .post {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 50px;
+    gap: var(--space-7);
     max-width: 100%;
-    background: none;
     align-items: center;
-    padding: 30px;
+    padding: var(--space-6);
   }
 
   .portfolio .post .bgImage {

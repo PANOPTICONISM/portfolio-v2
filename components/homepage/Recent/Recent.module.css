@@ -4,19 +4,29 @@
 }
 
 .most_recent h2 {
-  margin-bottom: 0;
+  margin-bottom: var(--space-1);
+  font-weight: 700;
 }
 
 .image_wrapper {
   position: relative;
-  border: 1px solid var(--box-colour);
+  border: 1px solid var(--box-border-colour);
+  overflow: hidden;
   display: flex;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--duration-base) var(--easing-emphasized),
+    box-shadow var(--duration-base) var(--easing-emphasized);
+}
+
+.image_wrapper:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
 }
 
 .most_recent .sources {
   position: absolute;
-  top: 8px;
-  right: 0;
+  top: var(--space-3);
+  right: var(--space-3);
 }
 
 .most_recent .sources ul {
@@ -25,24 +35,27 @@
   display: flex;
   flex-wrap: wrap;
   margin: 0;
+  gap: var(--space-2);
 }
 
-.most_recent .sources svg {
-  background-color: var(--box-colour);
-  padding: 6px;
-  transition: all 0.3s;
+.most_recent .sources a {
+  display: inline-flex;
+  background-color: rgba(20, 37, 64, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: var(--space-2);
+  transition: background-color var(--duration-fast) var(--easing-standard),
+    transform var(--duration-fast) var(--easing-standard);
 }
 
-.most_recent .sources svg:hover {
-  transform: translateY(4px);
-}
-
-.most_recent .sources ul > li {
-  margin-right: 8px;
+.most_recent .sources a:hover {
+  background-color: var(--primary-colour);
+  transform: translateY(-2px);
 }
 
 .most_recent img {
   width: 100%;
+  display: block;
 }
 
 .most_recent {
@@ -53,73 +66,63 @@
   grid-row: 1;
 }
 
+.desc p {
+  color: var(--text-colour-muted);
+}
+
 .learn_more {
   position: relative;
   width: 100%;
-  height: auto;
-  max-width: 200px;
-  margin: 12px auto;
-  padding: 20px;
+  max-width: 220px;
+  margin: var(--space-4) auto 0;
+  padding: 14px var(--space-5);
   border: 1px solid var(--primary-colour);
-  transition: 0.5s ease-in-out;
+  overflow: hidden;
+  isolation: isolate;
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  transition: color var(--duration-base) var(--easing-standard),
+    transform var(--duration-fast) var(--easing-standard);
 }
 
-.learn_more:before,
-.learn_more:after,
-.learn_more .projects_button:before,
-.learn_more .projects_button::after {
+.learn_more::before {
   content: "";
   position: absolute;
-  top: 0;
-  width: 25.25%;
-  height: 0;
-  background-color: var(--primary-colour);
-  transition: 0.5s ease-in-out;
+  inset: 0;
+  background: var(--primary-colour);
+  transform: translateY(100%);
+  z-index: -1;
+  transition: transform var(--duration-base) var(--easing-emphasized);
 }
 
-.learn_more:before {
-  left: 0;
-  z-index: 1;
+.learn_more:hover::before {
+  transform: translateY(0);
 }
 
-.learn_more:after {
-  left: 50%;
-  z-index: 1;
+.learn_more:hover .projects_button span {
+  color: var(--background-colour);
 }
 
-.learn_more .projects_button:before,
-.learn_more .projects_button::after {
-  top: auto;
-  bottom: 0;
-  z-index: 2;
+.learn_more:active {
+  transform: scale(0.98);
 }
 
-.learn_more .projects_button:before {
-  left: 25%;
-}
-
-.learn_more .projects_button:after {
-  left: 75%;
-}
-
-.learn_more:hover:before,
-.learn_more:hover:after,
-.learn_more:hover .projects_button:before,
-.learn_more:hover .projects_button:after {
-  height: 100%;
+.projects_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .projects_button span {
-  position: relative;
-  z-index: 5;
   color: var(--text-colour);
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 700;
   font-family: var(--buttons-font);
   font-size: 13px;
+  letter-spacing: 0.06em;
+  transition: color var(--duration-base) var(--easing-standard);
 }
 
 @media (min-width: 1200px) {
@@ -141,8 +144,8 @@
   }
 
   .desc p {
-    margin-top: 10px;
-    margin-bottom: 6px;
+    margin-top: var(--space-3);
+    margin-bottom: var(--space-2);
   }
 
   .button_container {
@@ -150,6 +153,6 @@
   }
 
   .learn_more {
-    margin: 0;
+    margin: var(--space-2) 0 0;
   }
 }

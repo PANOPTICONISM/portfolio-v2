@@ -14,8 +14,15 @@ export const ThemeSwitch = () => {
 
     return (
         <label className={styles.switch}>
-            <input type="checkbox" onClick={changeThemeMode} defaultChecked={isChecked} />
-            <span className={`${styles.slider} ${styles.round}`}></span>
+            <span className={styles.srOnly}>Toggle dark mode</span>
+            <input
+                type="checkbox"
+                role="switch"
+                aria-label="Toggle dark mode"
+                onClick={changeThemeMode}
+                defaultChecked={isChecked}
+            />
+            <span className={`${styles.slider} ${styles.round}`} aria-hidden="true"></span>
         </label>
     )
 }

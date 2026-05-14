@@ -1,19 +1,39 @@
 .social_media {
   bottom: 100px;
   position: fixed;
-  left: 20px;
+  left: var(--space-5);
   display: none;
+  z-index: 40;
 }
 
 .social_media ul {
   list-style: none;
   padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.social_media a {
+  display: inline-flex;
+  padding: var(--space-1);
+  transition: transform var(--duration-fast) var(--easing-standard);
+}
+
+.social_media a:hover {
+  transform: translateY(-2px);
 }
 
 .social_media svg {
   fill: var(--grey-colour);
-  margin: 5px 0;
-  width: 25px;
+  width: 24px;
+  height: 24px;
+  transition: fill var(--duration-fast) var(--easing-standard);
+}
+
+.social_media a:hover svg {
+  fill: var(--primary-colour);
 }
 
 .social_media .pointer {
@@ -29,6 +49,7 @@
   width: 2px;
   height: 100px;
   background: var(--grey-colour);
+  opacity: 0.5;
 }
 
 @media (min-width: 1200px) {

@@ -3,14 +3,14 @@ import { SkillProps, TechProps } from "./Tech.types";
 
 const Skill = ({ fields }: { fields: SkillProps }) => (
   <li>
-    <img src={fields?.icon?.fields?.file?.url} alt={fields?.title} />
+    <img src={fields?.icon?.fields?.file?.url} alt="" aria-hidden="true" />
     <p>{fields.title}</p>
   </li>
 );
 
 const Tech = ({ skills }: TechProps) => {
   return (
-    <section className={styles.tech}>
+    <section className={styles.tech} aria-label="Technologies">
       <div className={styles.scroll}>
         <ul className={styles.banner}>
           {skills.items.map((skill) => (

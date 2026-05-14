@@ -2,19 +2,33 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
-  grid-gap: 40px 30px;
+  grid-gap: var(--space-7) var(--space-5);
   justify-content: center;
-  padding-top: 20px;
+  padding-top: var(--space-4);
   color: var(--text-colour-w-dark-box);
 }
 
 .steps article {
-  padding: 20px;
+  padding: var(--space-6);
   position: relative;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--duration-base) var(--easing-emphasized),
+    box-shadow var(--duration-base) var(--easing-emphasized);
+}
+
+.steps article:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
 }
 
 .steps h2 {
-  margin-bottom: 0;
+  margin: 0 0 var(--space-3);
+  font-weight: 700;
+}
+
+.steps p {
+  font-size: 15px;
+  line-height: 1.7;
 }
 
 .steps article:not(.highlight) {
@@ -27,14 +41,16 @@
 
 .steps article svg {
   position: absolute;
-  padding: 10px;
-  top: -20px;
-  right: 30px;
+  padding: var(--space-3);
+  top: -22px;
+  right: var(--space-6);
   background: inherit;
+  box-shadow: var(--shadow-sm);
 }
 
 @media screen and (min-width: 600px) {
   .steps {
     grid-template-columns: repeat(auto-fill, 485px);
+    grid-gap: var(--space-7) var(--space-5);
   }
 }

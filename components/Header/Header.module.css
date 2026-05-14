@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   position: relative;
-  padding: 30px;
+  padding: var(--space-5) var(--space-6);
 }
 
 .list {
@@ -12,14 +12,24 @@
 }
 
 .header nav li {
-  margin: 12px 0;
+  margin: var(--space-3) 0;
 }
 
 .header nav li a {
   text-decoration: none;
   color: var(--text-colour);
-  font-weight: 600;
+  font-family: var(--buttons-font);
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
   position: relative;
+  padding: var(--space-1) 0;
+  transition: color var(--duration-fast) var(--easing-standard);
+}
+
+.header nav li a:hover {
+  color: var(--primary-colour);
 }
 
 .header nav .list li a:after {
@@ -27,12 +37,12 @@
   position: absolute;
   width: 100%;
   height: 2px;
-  bottom: -1px;
+  bottom: -2px;
   left: 0;
   background-color: var(--primary-colour);
   transform: scaleX(0);
   transform-origin: bottom right;
-  transition: transform 0.8s;
+  transition: transform var(--duration-base) var(--easing-emphasized);
 }
 
 .header nav .list li a:not(.contact_me a):hover:after {
@@ -46,11 +56,14 @@
   height: 30px;
   cursor: pointer;
   position: absolute;
-  right: 30px;
+  right: var(--space-6);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 999;
+  background: none;
+  border: none;
+  padding: 0;
 }
 
 .closeBtn,
@@ -62,7 +75,8 @@
   width: 30px;
   height: 2px;
   background-color: var(--text-colour);
-  transition-duration: 0.26s;
+  transition: transform var(--duration-base) var(--easing-emphasized),
+    top var(--duration-base) var(--easing-emphasized);
 }
 
 .show>.closeBtn {
@@ -97,17 +111,18 @@
     height: 100%;
     background-color: var(--background-colour);
     right: -100%;
-    transition: all 1s;
+    transition: right var(--duration-slow) var(--easing-emphasized);
     z-index: 900;
-    padding: 80px 30px;
+    padding: var(--space-9) var(--space-6);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: var(--space-2);
   }
 
   .header nav .list li {
-    margin: 20px 0;
+    margin: var(--space-4) 0;
   }
 
   .header nav .show {
@@ -130,6 +145,7 @@
   .header {
     max-width: 1200px;
     margin: auto;
+    padding: var(--space-5) 0;
   }
 
   .closeBox {
@@ -139,28 +155,29 @@
   .header nav .list {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    gap: var(--space-6);
+    margin: 0;
   }
 
   .header nav .list li {
-    margin: 0 18px;
+    margin: 0;
   }
 
-  .header nav .list li:last-child {
-    margin-right: 0;
-  }
-
-  .contact_me a {
+  .header nav .list li.contact_me a {
     border: 1px solid var(--primary-colour);
-    transition: 0.08s ease-in;
-    -o-transition: 0.08s ease-in;
-    -ms-transition: 0.08s ease-in;
-    -moz-transition: 0.08s ease-in;
-    -webkit-transition: 0.08s ease-in;
-    position: relative;
     padding: 10px 20px;
+    position: relative;
+    overflow: hidden;
+    font-family: var(--buttons-font);
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    transition: color var(--duration-base) var(--easing-standard);
   }
 
-  .contact_me a::before {
+  .header nav .list li.contact_me a::before {
     content: "";
     position: absolute;
     background: var(--primary-colour);
@@ -169,16 +186,24 @@
     right: 0;
     top: 100%;
     z-index: 1;
-    transition: top 0.4s ease-in;
-    -webkit-transition: top 0.4s ease-in;
+    transition: top var(--duration-base) var(--easing-emphasized);
   }
 
-  .contact_me span {
+  .header nav .list li.contact_me a::after {
+    display: none;
+  }
+
+  .header nav .list li.contact_me a span {
     position: relative;
     z-index: 2;
+    transition: color var(--duration-base) var(--easing-standard);
   }
 
-  .contact_me a:hover:before {
+  .header nav .list li.contact_me a:hover::before {
     top: 0;
+  }
+
+  .header nav .list li.contact_me a:hover span {
+    color: var(--background-colour);
   }
 }
