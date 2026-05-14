@@ -10,7 +10,6 @@ import {
 import {
   Introduction,
   Steps,
-  Recent,
   Posts,
   Tech,
 } from "components/homepage";
@@ -50,10 +49,6 @@ const Home: NextPage<FetchDataProps> = ({
             <Socials />
             <Introduction blocks={frontpageBlocks} />
             <Steps />
-            <Recent
-              post={projects.items[0]}
-              handleBackClick={handleBackClick}
-            />
             <Tech skills={skills} />
             <Posts ref={projectsRef} projects={projects.items} />
             <ProjectsCTA onClick={handleBackClick} />

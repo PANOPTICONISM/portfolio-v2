@@ -85,16 +85,18 @@
 }
 
 .post .tools img {
-  max-height: 18px;
-  height: 100%;
+  height: 18px;
+  width: auto;
+  display: block;
 }
 
 .post .tools ul li {
   font-family: var(--buttons-font);
   font-size: 13px;
+  line-height: 1;
   color: var(--text-colour);
   border: 1px solid var(--green-colour);
-  padding: 4px 12px;
+  padding: 6px 12px;
   display: inline-flex;
   gap: var(--space-2);
   justify-content: center;
@@ -104,6 +106,7 @@
 
 .post .tools ul li p {
   margin: 0;
+  line-height: 1;
   color: var(--text-colour);
 }
 

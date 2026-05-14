@@ -79,10 +79,13 @@ const Post = ({ article }: ArticleProps) => {
             <ul>
               {tools.map(({ fields }) => (
                 <li key={fields.id}>
-                  <img
-                    src={fields?.icon?.fields?.file?.url}
-                    alt={fields?.title}
-                  />
+                  {fields?.icon?.fields?.file?.url && (
+                    <img
+                      src={fields.icon.fields.file.url}
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  )}
                   <p>{fields.title}</p>
                 </li>
               ))}
