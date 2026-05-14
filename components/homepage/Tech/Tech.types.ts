@@ -20,6 +20,7 @@ export type TechItemsProps = {
 export type SkillProps = {
       id: number;
       title: string;
+      category?: string;
       icon: {
         fields: {
           description: string;

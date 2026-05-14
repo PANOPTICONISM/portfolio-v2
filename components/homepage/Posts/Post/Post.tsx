@@ -31,18 +31,6 @@ const Post = ({ article }: ArticleProps) => {
       {hasSources && (
         <div className={styles.sources}>
           <ul>
-            {behance ? (
-              <li>
-                <a
-                  href={behance}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={`${title} on Behance`}
-                >
-                  <FontAwesomeIcon icon={faBehance as IconProp} />
-                </a>
-              </li>
-            ) : null}
             {github ? (
               <li>
                 <a
@@ -52,6 +40,18 @@ const Post = ({ article }: ArticleProps) => {
                   aria-label={`${title} on GitHub`}
                 >
                   <FontAwesomeIcon icon={faGithub as IconProp} />
+                </a>
+              </li>
+            ) : null}
+            {behance ? (
+              <li>
+                <a
+                  href={behance}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`${title} on Behance`}
+                >
+                  <FontAwesomeIcon icon={faBehance as IconProp} />
                 </a>
               </li>
             ) : null}

@@ -51,8 +51,8 @@ a {
 
   --label-size: 13px;
 
-  --h1-font-size-desktop: 56px;
-  --h1-font-size-tablet: 36px;
+  --h1-font-size-desktop: 36px;
+  --h1-font-size-tablet: 32px;
   --h1-font-size-mobile: 28px;
 
   --h2-font-size-tablet: 26px;
@@ -148,7 +148,7 @@ h1 {
   font-family: var(--primary-font);
   font-size: var(--h1-font-size-mobile);
   max-width: min-content;
-  margin: auto auto var(--space-7);
+  margin: auto auto var(--space-6);
   text-align: center;
   letter-spacing: 0.02em;
 }
