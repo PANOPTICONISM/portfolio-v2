@@ -6,6 +6,23 @@
   padding: var(--space-5) var(--space-6);
 }
 
+.logo_link {
+  display: inline-flex;
+  line-height: 0;
+}
+
+.logo_link svg {
+  width: 30px;
+  height: 63px;
+}
+
+@media (min-width: 700px) {
+  .logo_link svg {
+    width: 50px;
+    height: 83px;
+  }
+}
+
 .list {
   list-style: none;
   padding: 0;

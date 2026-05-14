@@ -8,7 +8,7 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
   const close = () => setIsOpen(false);
-  const { isDesktop, isMobile } = useScreenSize();
+  const { isDesktop } = useScreenSize();
 
   useEffect(() => {
     if (isOpen === true && !isDesktop) {
@@ -38,8 +38,8 @@ const Header = () => {
 
   return (
     <header className={styles.header}>
-      <Link href="/" aria-label="Home">
-        <Logo width={!isMobile ? 50 : 30} height={!isMobile ? 83 : 63} />
+      <Link href="/" aria-label="Home" className={styles.logo_link}>
+        <Logo width={50} height={83} />
       </Link>
       <button
         type="button"
