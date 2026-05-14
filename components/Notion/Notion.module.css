@@ -3,25 +3,29 @@
     font-family: var(--primary-font);
     font-size: var(--h1-font-size-mobile);
     text-align: center;
-    margin-bottom: 15px;
-    margin-top: 30px;
+    margin-bottom: var(--space-3);
+    margin-top: var(--space-6);
+    letter-spacing: 0.02em;
 }
 
 .code {
     position: relative;
+    margin: var(--space-4) 0;
 }
 
 .code .copyBtn {
     position: absolute;
-    right: 10px;
-    top: 10px;
+    right: var(--space-3);
+    top: var(--space-3);
     width: 14px;
     cursor: pointer;
-    display: none;
+    opacity: 0;
+    transition: opacity var(--duration-fast) var(--easing-standard);
 }
 
-.code:hover .copyBtn {
-    display: inherit;
+.code:hover .copyBtn,
+.code:focus-within .copyBtn {
+    opacity: 1;
 }
 
 .code pre {
@@ -29,23 +33,31 @@
 }
 
 .callout {
-    border: 1px solid var(--box-colour);
-    color: var(--text-colour);
-    padding: 25px;
+    border: 1px solid var(--box-border-colour);
+    background: var(--box-colour);
+    color: var(--text-colour-w-dark-box);
+    padding: var(--space-5);
+    margin: var(--space-4) 0;
+}
+
+.basis a {
+    color: var(--primary-colour);
+    transition: color var(--duration-fast) var(--easing-standard);
 }
 
 .basis a:hover {
     text-decoration: underline;
+    color: var(--primary-colour-hover);
 }
 
 .list {
     overflow-wrap: break-word;
-    margin: 6px 0;
+    margin: var(--space-2) 0;
 }
 
 .numberedList {
     list-style: decimal;
-    margin: 6px 0;
+    margin: var(--space-2) 0;
 }
 
 .list,
@@ -64,7 +76,10 @@
 
 .codeText {
     background: var(--green-colour);
-    padding: 0 4px;
+    color: var(--text-colour-w-dark-box);
+    padding: 2px 6px;
+    font-family: var(--buttons-font);
+    font-size: 0.9em;
 }
 
 .italic {
@@ -92,6 +107,6 @@
 
     .subheadline {
         font-size: var(--h1-font-size-tablet);
-        margin-bottom: 8px;
+        margin-bottom: var(--space-2);
     }
 }

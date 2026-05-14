@@ -4,7 +4,13 @@
 }
 
 .articleSection {
-    max-width: 800px;
+    max-width: 760px;
     margin: auto;
-    padding: 0 30px 30px 30px;
+    padding: 0 var(--space-6) var(--space-9);
+}
+
+.articleSection p {
+    color: var(--text-colour);
+    font-size: 17px;
+    line-height: 1.75;
 }

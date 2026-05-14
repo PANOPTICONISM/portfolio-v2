@@ -1,122 +1,120 @@
 .entries {
     display: grid;
-    gap: 80px 30px;
+    gap: var(--space-9) var(--space-5);
     padding: var(--spacing-area-pd-m);
 }
 
 .entries article {
     background: var(--box-colour);
     color: var(--text-colour-w-dark-box);
-    padding: 20px;
+    padding: var(--space-5);
     position: relative;
+    box-shadow: var(--shadow-md);
+    transition: transform var(--duration-base) var(--easing-emphasized),
+        box-shadow var(--duration-base) var(--easing-emphasized);
+}
+
+.entries article:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.entries h2 {
+    margin: 0 0 var(--space-3);
+    font-weight: 700;
 }
 
 .entries p {
-    margin-bottom: 16px;
+    margin-bottom: var(--space-4);
+    color: var(--text-colour-w-dark-box);
+    opacity: 0.85;
+    font-size: 15px;
 }
 
 .entries ul {
     list-style: none;
     padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin: 0 0 var(--space-3);
 }
 
 .entries .icon {
     position: absolute;
-    top: -25px;
-    right: 25px;
+    top: -22px;
+    right: var(--space-5);
     background: var(--box-colour);
-    padding: 8px 16px;
-    font-size: 23px;
-}
-
-.entries ul {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, auto));
-    gap: 10px;
+    padding: var(--space-2) var(--space-3);
+    font-size: 22px;
+    line-height: 1;
+    box-shadow: var(--shadow-sm);
 }
 
 .entries ul li {
-    padding: 4px 6px;
-    font-weight: 600;
+    padding: 4px 10px;
+    font-family: var(--buttons-font);
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #fff;
 }
 
 .learn_more {
     position: absolute;
-    bottom: -20px;
-    right: 25px;
-    max-width: fit-content;
-    padding: 12px 16px;
+    bottom: -22px;
+    right: var(--space-5);
+    padding: 12px var(--space-4);
     border: 1px solid var(--primary-colour);
-    transition: 0.5s ease-in-out;
+    background: var(--background-colour);
+    overflow: hidden;
     cursor: pointer;
-    background: var(--floating-box-colour);
+    transition: color var(--duration-base) var(--easing-standard);
 }
 
-.learn_more:before,
-.learn_more:after,
-.learn_more .projects_button:before,
-.learn_more .projects_button::after {
+.learn_more::before {
     content: "";
     position: absolute;
-    top: 0;
-    width: 25.25%;
-    height: 0;
-    background-color: var(--primary-colour);
-    transition: 0.5s ease-in-out;
-}
-
-.learn_more:before {
-    left: 0;
-    z-index: 1;
-}
-
-.learn_more:after {
-    left: 50%;
-    z-index: 1;
-}
-
-.learn_more .projects_button:before,
-.learn_more .projects_button::after {
-    top: auto;
+    background: var(--primary-colour);
     bottom: 0;
-    z-index: 2;
+    left: 0;
+    right: 0;
+    top: 100%;
+    z-index: 1;
+    transition: top var(--duration-base) var(--easing-emphasized);
 }
 
-.learn_more .projects_button:before {
-    left: 25%;
-}
-
-.learn_more .projects_button:after {
-    left: 75%;
-}
-
-.learn_more:hover:before,
-.learn_more:hover:after,
-.learn_more:hover .projects_button:before,
-.learn_more:hover .projects_button:after {
-    height: 100%;
+.learn_more:hover::before {
+    top: 0;
 }
 
 .projects_button {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    z-index: 2;
 }
 
 .projects_button span {
-    position: relative;
-    z-index: 5;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 13px;
     font-family: var(--buttons-font);
-    color: var(--text-colour-w-dark-box);
+    letter-spacing: 0.06em;
+    color: var(--text-colour);
+    transition: color var(--duration-base) var(--easing-standard);
+}
+
+.learn_more:hover .projects_button span {
+    color: var(--background-colour);
 }
 
 @media screen and (min-width: 600px) {
     .entries {
         grid-template-columns: repeat(auto-fit, 350px);
         justify-content: center;
-        padding: 40px;
+        padding: var(--space-7);
     }
 }
