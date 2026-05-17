@@ -22,7 +22,7 @@
     "posthog-js": "^1.373.5",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
-    "react-syntax-highlighter": "^15.5.0"
+    "react-syntax-highlighter": "^16.1.1"
   },
   "devDependencies": {
     "@types/node": "17.0.38",
