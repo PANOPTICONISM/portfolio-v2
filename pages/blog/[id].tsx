@@ -8,6 +8,7 @@ import { SinglePostProps } from "types/App.types";
 import styles from "./Post.module.css";
 import { ThemeSwitch } from "components/ThemeSwitch/ThemeSwitch";
 import { Socials } from "components";
+import { isFullPage } from "@notionhq/client";
 
 export default function Post({ page, blocks }: SinglePostProps) {
   const { theme } = useThemeContext();
@@ -16,9 +17,7 @@ export default function Post({ page, blocks }: SinglePostProps) {
     <div className={`common theme-${theme}`}>
       <Header />
       <article className={styles.container}>
-        <h1>
-          {page?.properties?.Name?.title[0].plain_text}
-        </h1>
+        <h1>{page?.properties?.Name?.title[0].plain_text}</h1>
         <section className={styles.articleSection}>
           {blocks.results.map((block) => (
             <div key={block.id}>{renderBlock(block)}</div>
@@ -33,34 +32,37 @@ export default function Post({ page, blocks }: SinglePostProps) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const databaseId = process.env.NOTION_BLOG_ID || '';
+  const databaseId = process.env.NOTION_BLOG_ID || "";
 
   const posts = await notionClient.databases.query({
-    database_id: databaseId
+    database_id: databaseId,
   });
   const readyOnlyEntries = posts.results.filter((entry) => {
-    if ("properties" in entry) {
-      const status = entry.properties.Status;
-      if (status.type === "status" && status.status) {
-        return status.status.name === 'Done'
-      }
+    if (!isFullPage(entry)) {
+      return false;
     }
+    const status = entry.properties.Status;
+    if (status?.type !== "status" || !status.status) {
+      return false;
+    }
+    return "name" in status.status && status.status.name === "Done";
   });
 
-  const paths = readyOnlyEntries.map((page: { id: string; }) => ({ params: { id: page.id } }));
+  const paths = readyOnlyEntries.map((page: { id: string }) => ({
+    params: { id: page.id },
+  }));
 
   return {
     paths,
     fallback: false,
   };
-
 };
 
-export const getStaticProps = async (context: { params: { id: string; }; }) => {
+export const getStaticProps = async (context: { params: { id: string } }) => {
   const { id } = context.params;
   const page = await notionClient.pages.retrieve({
     page_id: id,
-  })
+  });
   const blocks = await notionClient.blocks.children.list({
     block_id: id,
   });

@@ -21,7 +21,6 @@
     "next": "^16.2.6",
     "posthog-js": "^1.373.5",
     "react": "^19.2.6",
-    "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^19.2.6",
     "react-syntax-highlighter": "^15.5.0"
   },
@@ -29,7 +28,6 @@
     "@types/node": "17.0.38",
     "@types/prismjs": "^1.26.0",
     "@types/react": "^19.2.14",
-    "@types/react-copy-to-clipboard": "^5.0.4",
     "@types/react-dom": "^19.2.3",
     "@types/react-syntax-highlighter": "^15.5.6",
     "eslint": "^9.39.4",
