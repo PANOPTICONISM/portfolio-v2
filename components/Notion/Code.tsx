@@ -3,7 +3,7 @@
 import React from "react";
 import styles from "./Notion.module.css";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { coldarkDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { coldarkDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClone, faSquareCheck } from "@fortawesome/free-regular-svg-icons";
 
