@@ -1,6 +1,6 @@
 import { codeToHtml } from "shiki";
 
-const THEME = "ayu-dark";
+const THEME = "houston";
 
 const LANGUAGE_ALIASES: Record<string, string> = {
   "c#": "csharp",
