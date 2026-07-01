@@ -1,22 +1,15 @@
 import React from "react";
-import dynamic from "next/dynamic";
 import styles from "./Notion.module.css";
-import { coldarkDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClone, faSquareCheck } from "@fortawesome/free-regular-svg-icons";
 
-const SyntaxHighlighter = dynamic(
-  () => import("react-syntax-highlighter").then((mod) => mod.Prism),
-  { ssr: false, loading: () => null },
-);
-
 export const Code = ({
   content,
-  language,
+  html,
   allowCopy,
 }: {
   content: string;
-  language: string;
+  html?: string;
   allowCopy: boolean;
 }) => {
   const [copied, setCopied] = React.useState(false);
@@ -43,15 +36,16 @@ export const Code = ({
           )}
         </div>
       ) : null}
-      <SyntaxHighlighter
-        language={language}
-        style={coldarkDark}
-        showLineNumbers
-        showInlineLineNumbers
-        lineNumberContainerStyle={{ left: "2px" }}
-      >
-        {content}
-      </SyntaxHighlighter>
+      {html ? (
+        <div
+          className={styles.codeBlock}
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
+      ) : (
+        <pre className={styles.codeBlock}>
+          <code>{content}</code>
+        </pre>
+      )}
     </div>
   );
 };

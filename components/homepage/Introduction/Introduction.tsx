@@ -19,8 +19,9 @@ const Introduction = ({ blocks }: { blocks: FrontPageBlocks[] }) => {
           <Code
             key={block.type}
             content={block.code.rich_text[0].plain_text}
-            language={block.code.language}
-            allowCopy={false} />
+            html={block.code.html}
+            allowCopy={false}
+          />
         ))}
       </div>
     </section>

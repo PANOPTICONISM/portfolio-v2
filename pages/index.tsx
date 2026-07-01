@@ -7,17 +7,13 @@ import {
   ProjectsCTA,
   LoadingScreen,
 } from "components";
-import {
-  Introduction,
-  Steps,
-  Posts,
-  Tech,
-} from "components/homepage";
+import { Introduction, Steps, Posts, Tech } from "components/homepage";
 import { useThemeContext } from "contexts/theme-context";
 import { FetchDataProps } from "types/App.types";
 import { client } from "./api/lib/Contentful";
 import { ThemeSwitch } from "components/ThemeSwitch/ThemeSwitch";
 import { notionClient } from "./api/lib/Notion";
+import { highlightNotionBlocks } from "lib/highlightCode";
 
 const Home: NextPage<FetchDataProps> = ({
   projects,
@@ -67,6 +63,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const blocks = await notionClient.blocks.children.list({
     block_id: pageId,
   });
+  const frontpageBlocks = await highlightNotionBlocks(blocks.results);
 
   const projects = await client.getEntries({
     content_type: "project",
@@ -78,7 +75,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   });
 
   return {
-    props: { projects, skills, frontpageBlocks: blocks.results },
+    props: { projects, skills, frontpageBlocks },
   };
 };
 
