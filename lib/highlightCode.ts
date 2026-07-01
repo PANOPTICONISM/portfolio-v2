@@ -2,24 +2,22 @@ import { codeToHtml } from "shiki";
 
 const THEME = "github-dark";
 
-// Notion's code-block language values don't always match Shiki's bundled
-// language ids (which mirror VS Code's), so we translate the common cases.
 const LANGUAGE_ALIASES: Record<string, string> = {
-    "c#": "csharp",
-    "c++": "cpp",
-    "f#": "fsharp",
-    "objective-c": "objective-c",
-    "plain text": "text",
-    shell: "bash",
-    docker: "dockerfile",
-    "vb.net": "vb",
-    markup: "html",
-    "webassembly": "wasm",
+  "c#": "csharp",
+  "c++": "cpp",
+  "f#": "fsharp",
+  "objective-c": "objective-c",
+  "plain text": "text",
+  shell: "bash",
+  docker: "dockerfile",
+  "vb.net": "vb",
+  markup: "html",
+  webassembly: "wasm",
 };
 
 const normalizeLanguage = (language?: string) => {
-    const lower = (language || "text").toLowerCase();
-    return LANGUAGE_ALIASES[lower] ?? lower;
+  const lower = (language || "text").toLowerCase();
+  return LANGUAGE_ALIASES[lower] ?? lower;
 };
 
 /**
@@ -28,13 +26,13 @@ const normalizeLanguage = (language?: string) => {
  * plain text if Notion reports a language Shiki doesn't bundle.
  */
 export const highlightCode = async (code: string, language?: string) => {
-    const lang = normalizeLanguage(language);
+  const lang = normalizeLanguage(language);
 
-    try {
-        return await codeToHtml(code, { lang, theme: THEME });
-    } catch {
-        return await codeToHtml(code, { lang: "text", theme: THEME });
-    }
+  try {
+    return await codeToHtml(code, { lang, theme: THEME });
+  } catch {
+    return await codeToHtml(code, { lang: "text", theme: THEME });
+  }
 };
 
 /**
@@ -44,33 +42,33 @@ export const highlightCode = async (code: string, language?: string) => {
  * (getStaticProps/getServerSideProps) rather than inside a component render.
  */
 export const highlightNotionBlocks = async (blocks: any[]): Promise<any[]> => {
-    return Promise.all(
-        blocks.map(async (block) => {
-            if (block.type === "code") {
-                const content = block.code?.rich_text?.[0]?.plain_text ?? "";
-                const html = await highlightCode(content, block.code?.language);
+  return Promise.all(
+    blocks.map(async (block) => {
+      if (block.type === "code") {
+        const content = block.code?.rich_text?.[0]?.plain_text ?? "";
+        const html = await highlightCode(content, block.code?.language);
 
-                return {
-                    ...block,
-                    code: {
-                        ...block.code,
-                        html,
-                    },
-                };
-            }
+        return {
+          ...block,
+          code: {
+            ...block.code,
+            html,
+          },
+        };
+      }
 
-            const value = block[block.type];
-            if (value?.children?.length) {
-                return {
-                    ...block,
-                    [block.type]: {
-                        ...value,
-                        children: await highlightNotionBlocks(value.children),
-                    },
-                };
-            }
+      const value = block[block.type];
+      if (value?.children?.length) {
+        return {
+          ...block,
+          [block.type]: {
+            ...value,
+            children: await highlightNotionBlocks(value.children),
+          },
+        };
+      }
 
-            return block;
-        })
-    );
+      return block;
+    }),
+  );
 };
