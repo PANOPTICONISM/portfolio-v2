@@ -1,6 +1,6 @@
 import { codeToHtml } from "shiki";
 
-const THEME = "github-dark";
+const THEME = "ayu-dark";
 
 const LANGUAGE_ALIASES: Record<string, string> = {
   "c#": "csharp",
