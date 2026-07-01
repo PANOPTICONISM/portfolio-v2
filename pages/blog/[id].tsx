@@ -9,6 +9,7 @@ import styles from "./Post.module.css";
 import { ThemeSwitch } from "components/ThemeSwitch/ThemeSwitch";
 import { Socials } from "components";
 import { isFullPage } from "@notionhq/client";
+import { highlightNotionBlocks } from "lib/highlightCode";
 
 export default function Post({ page, blocks }: SinglePostProps) {
   const { theme } = useThemeContext();
@@ -66,11 +67,12 @@ export const getStaticProps = async (context: { params: { id: string } }) => {
   const blocks = await notionClient.blocks.children.list({
     block_id: id,
   });
+  const highlightedResults = await highlightNotionBlocks(blocks.results);
 
   return {
     props: {
       page,
-      blocks,
+      blocks: { ...blocks, results: highlightedResults },
     },
     revalidate: 60,
   };

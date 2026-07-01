@@ -32,6 +32,38 @@
     font-size: 14px;
 }
 
+.codeBlock {
+    overflow-x: auto;
+}
+
+.codeBlock :global(pre.shiki) {
+    margin: 0;
+    padding: var(--space-4);
+    border-radius: 6px;
+    overflow-x: auto;
+}
+
+.codeBlock :global(.line) {
+    display: inline-block;
+    min-width: 100%;
+    padding-left: var(--space-2);
+}
+
+.codeBlock :global(code) {
+    counter-reset: line;
+}
+
+.codeBlock :global(.line)::before {
+    counter-increment: line;
+    content: counter(line);
+    display: inline-block;
+    width: 1rem;
+    margin-right: var(--space-4);
+    text-align: right;
+    color: rgba(255, 255, 255, 0.35);
+    user-select: none;
+}
+
 .callout {
     border: 1px solid var(--box-border-colour);
     background: var(--box-colour);
